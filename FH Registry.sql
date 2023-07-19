@@ -28,14 +28,14 @@ prompt APPLICATION 230701 - FH Registry
 -- Application Export:
 --   Application:     230701
 --   Name:            FH Registry
---   Date and Time:   15:04 Wednesday July 19, 2023
+--   Date and Time:   16:56 Wednesday July 19, 2023
 --   Exported By:     MWONG
 --   Flashback:       0
 --   Export Type:     Application Export
 --     Pages:                      7
 --       Items:                  255
 --       Processes:                8
---       Regions:                 38
+--       Regions:                 47
 --       Buttons:                 11
 --       Dynamic Actions:          1
 --     Shared Components:
@@ -112,7 +112,7 @@ wwv_flow_imp.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'FH Registry'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230719142504'
+,p_last_upd_yyyymmddhh24miss=>'20230719165551'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>4
 ,p_print_server_type=>'INSTANCE'
@@ -18347,7 +18347,7 @@ wwv_flow_imp_page.create_page(
 ,p_protection_level=>'C'
 ,p_page_component_map=>'02'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230719142504'
+,p_last_upd_yyyymmddhh24miss=>'20230719165551'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(41942945761843600)
@@ -18355,7 +18355,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody:t-Form--leftLabels'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
 ,p_plug_display_sequence=>10
-,p_plug_grid_column_span=>6
+,p_plug_grid_column_span=>7
 ,p_plug_display_column=>4
 ,p_query_type=>'TABLE'
 ,p_query_table=>'FAMILIAL_HYPERCHOLESTEROLEMIA_QUESTIONNAIRE'
@@ -18427,6 +18427,30 @@ wwv_flow_imp_page.create_page_plug(
 ,p_plug_display_sequence=>140
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_plug_header=>'2. Are you taking a cholesterol-lowering medication now? (See categories above)'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43031757109386315)
+,p_plug_name=>'Question 3'
+,p_parent_plug_id=>wwv_flow_imp.id(41451554102982509)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>540
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'3. Have you ever had to stop using cholesterol-lowering medications?'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43031886737386316)
+,p_plug_name=>'Question 3a'
+,p_parent_plug_id=>wwv_flow_imp.id(41451554102982509)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>560
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'a) If yes, what was the reason you had to stop?'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
 );
@@ -18662,6 +18686,42 @@ wwv_flow_imp_page.create_page_plug(
 ,p_attribute_02=>'HTML'
 );
 wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43032832812386326)
+,p_plug_name=>'Question 5'
+,p_parent_plug_id=>wwv_flow_imp.id(41451885574982512)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>10
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'5. Have you had any heart or blood vessel problems?'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43032972394386327)
+,p_plug_name=>'Question 5a'
+,p_parent_plug_id=>wwv_flow_imp.id(41451885574982512)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>40
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'a) If yes, which of the following have you experienced (mark all that apply) and record the date when it happened.'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43033066695386328)
+,p_plug_name=>'Question 6'
+,p_parent_plug_id=>wwv_flow_imp.id(41451885574982512)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>240
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'6. Do you know yourself of having any of the following problems (mark all that apply)?'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(41451960215982513)
 ,p_plug_name=>'Lifestyle'
 ,p_parent_plug_id=>wwv_flow_imp.id(41942945761843600)
@@ -18673,6 +18733,30 @@ wwv_flow_imp_page.create_page_plug(
 ,p_attribute_02=>'HTML'
 );
 wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43033180403386329)
+,p_plug_name=>'Question 7'
+,p_parent_plug_id=>wwv_flow_imp.id(41451960215982513)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>20
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'7. Are you currently a smoker (cigarettes, pipe, cigars) or did you ever smoke?'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43033241641386330)
+,p_plug_name=>'Question 7a'
+,p_parent_plug_id=>wwv_flow_imp.id(41451960215982513)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>70
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'a) If you currently smoke, how much do you smoke per day? '
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(41452554721982519)
 ,p_plug_name=>'Current Medications'
 ,p_parent_plug_id=>wwv_flow_imp.id(41942945761843600)
@@ -18680,6 +18764,30 @@ wwv_flow_imp_page.create_page_plug(
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
 ,p_plug_display_sequence=>100
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43032641419386324)
+,p_plug_name=>'Question 4'
+,p_parent_plug_id=>wwv_flow_imp.id(41452554721982519)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>10
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'4. Are you taking any other medications?'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43032746850386325)
+,p_plug_name=>'Question 4a'
+,p_parent_plug_id=>wwv_flow_imp.id(41452554721982519)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>40
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'a) If yes, please check all that apply and provide the name of the medication you are taking'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
 );
@@ -18835,7 +18943,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>10
 ,p_item_plug_id=>wwv_flow_imp.id(41451414550982508)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Fhid'
+,p_prompt=>'FHID'
 ,p_source=>'FHID'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
@@ -18862,6 +18970,8 @@ wwv_flow_imp_page.create_page_item(
 ,p_cSize=>60
 ,p_cMaxlength=>500
 ,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>7
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -19135,6 +19245,9 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_04=>'TEXT'
 ,p_attribute_05=>'BOTH'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41949738072843607)
 ,p_name=>'P5_CHOLESTEROL_AGE'
@@ -19159,7 +19272,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41950151051843607)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>150
+,p_item_sequence=>160
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT'
@@ -19177,203 +19290,218 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41950555387843607)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>160
+,p_item_sequence=>220
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Statins'
+,p_prompt=>'a. Statins (Crestor, Lipitor etc.)'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_STATINS'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No;0'
+,p_colspan=>3
+,p_grid_label_column_span=>2
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41950953601843609)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>170
+,p_item_sequence=>250
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Niacin'
+,p_prompt=>'b. Niacin'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_NIACIN'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No;0'
+,p_colspan=>3
+,p_grid_label_column_span=>2
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41951306852843609)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>180
+,p_item_sequence=>290
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Fenofibrate'
+,p_prompt=>'c. Fenofibrate'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No;0'
+,p_colspan=>3
+,p_grid_label_column_span=>2
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41951761919843609)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>190
+,p_item_sequence=>330
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Ezetimibe'
+,p_prompt=>'d. Ezetimibe'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No;0'
+,p_colspan=>3
+,p_grid_label_column_span=>2
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41952179456843609)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>200
+,p_item_sequence=>370
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Resins'
+,p_prompt=>'e. Resins'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_RESINS'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No;0'
+,p_colspan=>3
+,p_grid_label_column_span=>2
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41952552407843609)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>210
+,p_item_sequence=>410
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Pcsk9'
+,p_prompt=>'d. PCSK9'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_PCSK9'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No;0'
+,p_colspan=>3
+,p_grid_label_column_span=>2
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41952942684843610)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>220
+,p_item_sequence=>450
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Natural'
+,p_prompt=>'f. Natural Products'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_NATURAL'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No;0'
+,p_colspan=>3
+,p_grid_label_column_span=>2
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41953302822843610)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>230
+,p_item_sequence=>490
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Other'
+,p_prompt=>'h. Other'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_OTHER'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
-,p_cSize=>60
-,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No;0'
+,p_colspan=>3
+,p_grid_label_column_span=>2
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41953721557843610)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_NAME'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>240
+,p_item_sequence=>230
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Statins Name'
+,p_prompt=>'Name'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_STATINS_NAME'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>5
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41954144548843610)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_DOSAGE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>250
+,p_item_sequence=>240
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Statins Dosage'
+,p_prompt=>'Dosage/day'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_STATINS_DOSAGE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41954550018843610)
@@ -19382,20 +19510,23 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>260
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Niacin Name'
+,p_prompt=>'Name'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_NIACIN_NAME'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>5
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41954955158843612)
@@ -19404,533 +19535,555 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>270
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Niacin Dosage'
+,p_prompt=>'Dosage/day'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_NIACIN_DOSAGE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41955314558843612)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_NAME'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>280
+,p_item_sequence=>300
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Fenofibrate Name'
+,p_prompt=>'Name'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_NAME'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>5
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41955735845843612)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_DOSAGE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>290
+,p_item_sequence=>310
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Fenofibrate Dosage'
+,p_prompt=>'Dosage/day'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_DOSAGE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41956177194843612)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_NAME'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>300
+,p_item_sequence=>340
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Ezetimibe Name'
+,p_prompt=>'Name'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_NAME'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>5
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41956520882843614)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_DOSAGE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>310
+,p_item_sequence=>350
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Ezetimibe Dosage'
+,p_prompt=>'Dosage/day'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_DOSAGE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41956922566843614)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_NAME'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>320
+,p_item_sequence=>380
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Resins Name'
+,p_prompt=>'Name'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_RESINS_NAME'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>5
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41957359889843614)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_DOSAGE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>330
+,p_item_sequence=>390
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Resins Dosage'
+,p_prompt=>'Dosage/day'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_RESINS_DOSAGE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41957763380843614)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_NAME'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>340
+,p_item_sequence=>420
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Pcsk9 Name'
+,p_prompt=>'Name'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_PCSK9_NAME'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>5
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41958175300843614)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_DOSAGE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>350
+,p_item_sequence=>430
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Pcsk9 Dosage'
+,p_prompt=>'Dosage/day'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_PCSK9_DOSAGE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41958520798843615)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_NAME'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>360
+,p_item_sequence=>460
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Natural Name'
+,p_prompt=>'Name'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_NATURAL_NAME'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>5
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41958905128843615)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_DOSAGE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>370
+,p_item_sequence=>470
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Natural Dosage'
+,p_prompt=>'Dosage/day'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_NATURAL_DOSAGE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41959356615843615)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER_NAME'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>380
+,p_item_sequence=>520
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Other Name'
+,p_prompt=>'Name'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_OTHER_NAME'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>5
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41959794294843615)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER_DOSAGE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>390
+,p_item_sequence=>530
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Current Other Dosage'
+,p_prompt=>'Dosage/day'
 ,p_source=>'CHOLESTEROL_TREATMENT_CURRENT_OTHER_DOSAGE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41960155128843615)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_STOP'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>400
+,p_item_sequence=>550
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Stop'
 ,p_source=>'CHOLESTEROL_TREATMENT_STOP'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No;0'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41960547891843617)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_STOP_SIDE_EFFECTS'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>410
+,p_item_sequence=>580
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Stop Side Effects'
+,p_prompt=>'Side Effects'
 ,p_source=>'CHOLESTEROL_TREATMENT_STOP_SIDE_EFFECTS'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41960988818843617)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_STOP_OTHER'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>420
+,p_item_sequence=>590
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cholesterol Treatment Stop Other'
+,p_prompt=>'Other'
 ,p_source=>'CHOLESTEROL_TREATMENT_STOP_OTHER'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_begin_on_new_field=>'N'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41961373112843617)
 ,p_name=>'P5_CUR_MEDICATIONS'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>10
+,p_item_sequence=>30
 ,p_item_plug_id=>wwv_flow_imp.id(41452554721982519)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cur Medications'
 ,p_source=>'CUR_MEDICATIONS'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No -> Go to Question 5;0'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'1'
+,p_attribute_02=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41961710877843617)
 ,p_name=>'P5_CUR_MEDICATIONS_ASPIRIN'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>20
+,p_item_sequence=>60
 ,p_item_plug_id=>wwv_flow_imp.id(41452554721982519)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cur Medications Aspirin'
+,p_prompt=>'Aspirin'
 ,p_source=>'CUR_MEDICATIONS_ASPIRIN'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_SINGLE_CHECKBOX'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_attribute_01=>'N'
+,p_attribute_02=>'1'
+,p_attribute_03=>'0'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41962137349843617)
 ,p_name=>'P5_CUR_MEDICATIONS_BLD_PRES'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>30
+,p_item_sequence=>70
 ,p_item_plug_id=>wwv_flow_imp.id(41452554721982519)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cur Medications Bld Pres'
+,p_prompt=>'Blood Pressure lowering medication '
 ,p_source=>'CUR_MEDICATIONS_BLD_PRES'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_SINGLE_CHECKBOX'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_attribute_01=>'N'
+,p_attribute_02=>'1'
+,p_attribute_03=>'0'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41962587608843618)
 ,p_name=>'P5_CUR_MEDICATIONS_BLD_PRES_NAME'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>40
+,p_item_sequence=>80
 ,p_item_plug_id=>wwv_flow_imp.id(41452554721982519)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cur Medications Bld Pres Name'
 ,p_source=>'CUR_MEDICATIONS_BLD_PRES_NAME'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
+,p_begin_on_new_line=>'N'
 ,p_field_template=>wwv_flow_imp.id(41745618844843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41962979714843618)
 ,p_name=>'P5_CUR_MEDICATIONS_BLD_SUG'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>50
+,p_item_sequence=>90
 ,p_item_plug_id=>wwv_flow_imp.id(41452554721982519)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cur Medications Bld Sug'
+,p_prompt=>'Blood Sugar lowering medication'
 ,p_source=>'CUR_MEDICATIONS_BLD_SUG'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_SINGLE_CHECKBOX'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_attribute_01=>'N'
+,p_attribute_02=>'1'
+,p_attribute_03=>'0'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41963379301843618)
 ,p_name=>'P5_CUR_MEDICATIONS_BLD_SUG_NAME'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>60
+,p_item_sequence=>100
 ,p_item_plug_id=>wwv_flow_imp.id(41452554721982519)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cur Medications Bld Sug Name'
 ,p_source=>'CUR_MEDICATIONS_BLD_SUG_NAME'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
+,p_begin_on_new_line=>'N'
 ,p_field_template=>wwv_flow_imp.id(41745618844843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41963746768843618)
 ,p_name=>'P5_CUR_MEDICATIONS_OTHER'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>70
+,p_item_sequence=>110
 ,p_item_plug_id=>wwv_flow_imp.id(41452554721982519)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cur Medications Other'
+,p_prompt=>'Other'
 ,p_source=>'CUR_MEDICATIONS_OTHER'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_SINGLE_CHECKBOX'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_attribute_01=>'N'
+,p_attribute_02=>'1'
+,p_attribute_03=>'0'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41964184245843620)
 ,p_name=>'P5_CUR_MEDICATIONS_OTHER_NAME'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>80
+,p_item_sequence=>120
 ,p_item_plug_id=>wwv_flow_imp.id(41452554721982519)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Cur Medications Other Name'
 ,p_source=>'CUR_MEDICATIONS_OTHER_NAME'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
-,p_cSize=>60
-,p_cMaxlength=>500
-,p_cHeight=>4
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>30
+,p_begin_on_new_line=>'N'
 ,p_field_template=>wwv_flow_imp.id(41745618844843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41964553403843620)
 ,p_name=>'P5_PERSONAL_BLOOD_PROBLEMS'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>90
+,p_item_sequence=>30
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Personal Blood Problems'
 ,p_source=>'PERSONAL_BLOOD_PROBLEMS'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No -> Go to Question 6;0'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'1'
+,p_attribute_02=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41964966836843620)
 ,p_name=>'P5_PERSONAL_BLOOD_ANGINA'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>100
+,p_item_sequence=>60
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Personal Blood Angina'
@@ -19949,7 +20102,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41965344870843620)
 ,p_name=>'P5_PERSONAL_BLOOD_ANGINA_DATE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>110
+,p_item_sequence=>70
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Personal Blood Angina Date'
@@ -19971,7 +20124,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41965746537843620)
 ,p_name=>'P5_PERSONAL_BLOOD_HEART_ATTACK'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>120
+,p_item_sequence=>80
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Personal Blood Heart Attack'
@@ -19990,7 +20143,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41966132267843621)
 ,p_name=>'P5_PERSONAL_BLOOD_HEART_ATTACK_DATE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>130
+,p_item_sequence=>90
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Personal Blood Heart Attack Date'
@@ -20012,7 +20165,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41966585354843621)
 ,p_name=>'P5_PERSONAL_BLOOD_STENT'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>140
+,p_item_sequence=>100
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Personal Blood Stent'
@@ -20031,7 +20184,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41966942146843621)
 ,p_name=>'P5_PERSONAL_BLOOD_STENT_DATE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>150
+,p_item_sequence=>110
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Personal Blood Stent Date'
@@ -20053,7 +20206,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41967364597843621)
 ,p_name=>'P5_PERSONAL_BLOOD_BYPASS'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>160
+,p_item_sequence=>120
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Personal Blood Bypass'
@@ -20072,7 +20225,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41967785036843623)
 ,p_name=>'P5_PERSONAL_BLOOD_BYPASS_DATE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>170
+,p_item_sequence=>130
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Personal Blood Bypass Date'
@@ -20090,11 +20243,14 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_03=>'N'
 ,p_attribute_04=>'BOTH'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41968199638843623)
 ,p_name=>'P5_PERSONAL_BLOOD_ANGIOGRAPHY'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>180
+,p_item_sequence=>140
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Personal Blood Angiography'
@@ -20113,7 +20269,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41968528136843623)
 ,p_name=>'P5_PERSONAL_BLOOD_ANGIOGRAPHY_DATE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>190
+,p_item_sequence=>150
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Personal Blood Angiography Date'
@@ -20135,7 +20291,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41968946234843623)
 ,p_name=>'P5_PERSONAL_BLOOD_STROKE'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>200
+,p_item_sequence=>160
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Personal Blood Stroke'
@@ -20154,7 +20310,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41969357245843623)
 ,p_name=>'P5_PERSONAL_BLOOD_STROKE_DATE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>210
+,p_item_sequence=>170
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Personal Blood Stroke Date'
@@ -20176,7 +20332,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41969782433843625)
 ,p_name=>'P5_PERSONAL_BLOOD_LEG'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>220
+,p_item_sequence=>180
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Personal Blood Leg'
@@ -20195,7 +20351,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41970161703843625)
 ,p_name=>'P5_PERSONAL_BLOOD_LEG_DATE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>230
+,p_item_sequence=>190
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Personal Blood Leg Date'
@@ -20217,7 +20373,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41970566351843625)
 ,p_name=>'P5_PERSONAL_BLOOD_PERIPHERAL'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>240
+,p_item_sequence=>200
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Personal Blood Peripheral'
@@ -20232,14 +20388,11 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_03=>'left'
 ,p_attribute_04=>'decimal'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41970992658843625)
 ,p_name=>'P5_PERSONAL_BLOOD_PERIPHERAL_DATE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>250
+,p_item_sequence=>210
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Personal Blood Peripheral Date'
@@ -20261,7 +20414,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41971391135843625)
 ,p_name=>'P5_PERSONAL_BLOOD_OTHER'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>260
+,p_item_sequence=>220
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Personal Blood Other'
@@ -20280,7 +20433,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41971772483843626)
 ,p_name=>'P5_PERSONAL_BLOOD_OTHER_DATE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>270
+,p_item_sequence=>230
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Personal Blood Other Date'
@@ -20302,54 +20455,52 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41972130576843626)
 ,p_name=>'P5_PERSONAL_PROBLEMS'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>280
+,p_item_sequence=>250
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Personal Problems'
 ,p_source=>'PERSONAL_PROBLEMS'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Hypertension;1,Kidney Disease;2,Diabetes Mellitus;3,Pre-diabetes;4'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41972533204843626)
 ,p_name=>'P5_LIFESTYLE_SMOKER'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>10
+,p_item_sequence=>40
 ,p_item_plug_id=>wwv_flow_imp.id(41451960215982513)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Lifestyle Smoker'
 ,p_source=>'LIFESTYLE_SMOKER'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Never -> Go to Question 8;1,Ex-smoker;2,Current;3'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'1'
+,p_attribute_02=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41972957009843626)
 ,p_name=>'P5_LIFESTYLE_SMOKER_START'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>20
+,p_item_sequence=>50
 ,p_item_plug_id=>wwv_flow_imp.id(41451960215982513)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Lifestyle Smoker Start'
+,p_prompt=>'Year started'
 ,p_source=>'LIFESTYLE_SMOKER_START'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
 ,p_cSize=>32
 ,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_attribute_03=>'left'
@@ -20359,16 +20510,17 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41973303253843626)
 ,p_name=>'P5_LIFESTYLE_SMOKER_STOP'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>30
+,p_item_sequence=>60
 ,p_item_plug_id=>wwv_flow_imp.id(41451960215982513)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Lifestyle Smoker Stop'
+,p_prompt=>'Year stopped'
 ,p_source=>'LIFESTYLE_SMOKER_STOP'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
 ,p_cSize=>32
 ,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_attribute_03=>'left'
@@ -20378,39 +20530,38 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41973798124843628)
 ,p_name=>'P5_LIFESTYLE_AMOUNT_SMOKE'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>40
+,p_item_sequence=>80
 ,p_item_plug_id=>wwv_flow_imp.id(41451960215982513)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Lifestyle Amount Smoke'
 ,p_source=>'LIFESTYLE_AMOUNT_SMOKE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:5 or less;1,6-10;2,11-20;3,21 or more;4'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'1'
+,p_attribute_02=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41974154482843628)
 ,p_name=>'P5_LIFESTYLE_QUIT'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>50
+,p_item_sequence=>90
 ,p_item_plug_id=>wwv_flow_imp.id(41451960215982513)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Lifestyle Quit'
+,p_prompt=>'b) Have you ever considered quitting?'
 ,p_source=>'LIFESTYLE_QUIT'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Want to quit;1,Have tried quitting;2,Not interested in quitting;3'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'1'
+,p_attribute_02=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41974564104843628)
@@ -21086,6 +21237,9 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_03=>'left'
 ,p_attribute_04=>'decimal'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41988523980843640)
 ,p_name=>'P5_FAMILY_MOTHER_DECEASED_CAUSE'
@@ -21222,9 +21376,6 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_03=>'left'
 ,p_attribute_04=>'decimal'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41991361763843642)
 ,p_name=>'P5_FAMILY_MOTHER_SIBLINGS_DECEASED_COUNT'
@@ -22041,6 +22192,9 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_03=>'left'
 ,p_attribute_04=>'decimal'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(42008123807843656)
 ,p_name=>'P5_FAMILY_FATHER_DECEASED_AGE'
@@ -22177,9 +22331,6 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_03=>'left'
 ,p_attribute_04=>'decimal'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(42010991581843659)
 ,p_name=>'P5_FAMILY_FATHER_SIBLINGS_DECEASED'
@@ -22996,6 +23147,9 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_03=>'left'
 ,p_attribute_04=>'decimal'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(42027779649843673)
 ,p_name=>'P5_FAMILY_GRANDCHILDREN_DAUGHTERS'
@@ -23132,9 +23286,6 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_03=>'N'
 ,p_attribute_04=>'BOTH'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(42030526469843675)
 ,p_name=>'P5_FAMILY_GRANDCHILDREN_ADOPT'
