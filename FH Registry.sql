@@ -28,14 +28,14 @@ prompt APPLICATION 230701 - FH Registry
 -- Application Export:
 --   Application:     230701
 --   Name:            FH Registry
---   Date and Time:   16:56 Wednesday July 19, 2023
+--   Date and Time:   16:58 Thursday July 20, 2023
 --   Exported By:     MWONG
 --   Flashback:       0
 --   Export Type:     Application Export
 --     Pages:                      7
---       Items:                  255
+--       Items:                  251
 --       Processes:                8
---       Regions:                 47
+--       Regions:                 68
 --       Buttons:                 11
 --       Dynamic Actions:          1
 --     Shared Components:
@@ -112,7 +112,7 @@ wwv_flow_imp.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'FH Registry'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230719165551'
+,p_last_upd_yyyymmddhh24miss=>'20230720165755'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>4
 ,p_print_server_type=>'INSTANCE'
@@ -15543,7 +15543,7 @@ wwv_flow_imp_page.create_page(
 '<p>Click the <strong>Reset</strong> button to reset the interactive report back to the default settings.</p>'))
 ,p_page_component_map=>'18'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230719093244'
+,p_last_upd_yyyymmddhh24miss=>'20230720091357'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(41848267056843503)
@@ -15555,6 +15555,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_query_table=>'FAMILIAL_HYPERCHOLESTEROLEMIA_QUESTIONNAIRE'
 ,p_include_rowid_column=>false
 ,p_plug_source_type=>'NATIVE_IR'
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_prn_page_header=>'Hypercholesterolemia Listing'
 );
 wwv_flow_imp_page.create_worksheet(
@@ -15604,50 +15605,6 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_display_order=>3
 ,p_column_identifier=>'C'
 ,p_column_label=>'Today Date'
-,p_column_type=>'STRING'
-,p_heading_alignment=>'LEFT'
-,p_tz_dependent=>'N'
-,p_use_as_row_header=>'N'
-);
-wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(41849950638843521)
-,p_db_column_name=>'WEIGHT_KG'
-,p_display_order=>4
-,p_column_identifier=>'D'
-,p_column_label=>'Weight Kg'
-,p_column_type=>'STRING'
-,p_heading_alignment=>'LEFT'
-,p_tz_dependent=>'N'
-,p_use_as_row_header=>'N'
-);
-wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(41850388784843523)
-,p_db_column_name=>'WEIGHT_ILBS'
-,p_display_order=>5
-,p_column_identifier=>'E'
-,p_column_label=>'Weight Ilbs'
-,p_column_type=>'STRING'
-,p_heading_alignment=>'LEFT'
-,p_tz_dependent=>'N'
-,p_use_as_row_header=>'N'
-);
-wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(41850747192843523)
-,p_db_column_name=>'HEIGHT_CM'
-,p_display_order=>6
-,p_column_identifier=>'F'
-,p_column_label=>'Height Cm'
-,p_column_type=>'STRING'
-,p_heading_alignment=>'LEFT'
-,p_tz_dependent=>'N'
-,p_use_as_row_header=>'N'
-);
-wwv_flow_imp_page.create_worksheet_column(
- p_id=>wwv_flow_imp.id(41851123312843523)
-,p_db_column_name=>'HEIGHT_FT_INCH'
-,p_display_order=>7
-,p_column_identifier=>'G'
-,p_column_label=>'Height Ft Inch'
 ,p_column_type=>'STRING'
 ,p_heading_alignment=>'LEFT'
 ,p_tz_dependent=>'N'
@@ -16557,9 +16514,6 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_tz_dependent=>'N'
 ,p_use_as_row_header=>'N'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_worksheet_column(
  p_id=>wwv_flow_imp.id(41882667130843548)
 ,p_db_column_name=>'FAMILY_SIBLINGS_DECEASED_AGE'
@@ -16595,6 +16549,9 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_tz_dependent=>'N'
 ,p_use_as_row_header=>'N'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_worksheet_column(
  p_id=>wwv_flow_imp.id(41883810767843550)
 ,p_db_column_name=>'FAMILY_SIBLINGS_ADOPTED'
@@ -17616,9 +17573,6 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_tz_dependent=>'N'
 ,p_use_as_row_header=>'N'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_worksheet_column(
  p_id=>wwv_flow_imp.id(41918205664843578)
 ,p_db_column_name=>'FAMILY_FATHER_SIBLINGS_DECEASED_HALF'
@@ -17655,6 +17609,9 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_tz_dependent=>'N'
 ,p_use_as_row_header=>'N'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_worksheet_column(
  p_id=>wwv_flow_imp.id(41919458187843579)
 ,p_db_column_name=>'FAMILY_FATHER_COUSINS_BC'
@@ -18281,6 +18238,43 @@ wwv_flow_imp_page.create_worksheet_column(
 ,p_tz_dependent=>'N'
 ,p_use_as_row_header=>'N'
 );
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(43033327118386331)
+,p_db_column_name=>'WEIGHT'
+,p_display_order=>240
+,p_column_identifier=>'HW'
+,p_column_label=>'Weight'
+,p_column_type=>'NUMBER'
+,p_column_alignment=>'RIGHT'
+,p_use_as_row_header=>'N'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(43033465974386332)
+,p_db_column_name=>'WEIGHT_TYPE'
+,p_display_order=>250
+,p_column_identifier=>'HX'
+,p_column_label=>'Weight Type'
+,p_column_type=>'STRING'
+,p_use_as_row_header=>'N'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(43033520388386333)
+,p_db_column_name=>'HEIGHT'
+,p_display_order=>260
+,p_column_identifier=>'HY'
+,p_column_label=>'Height'
+,p_column_type=>'STRING'
+,p_use_as_row_header=>'N'
+);
+wwv_flow_imp_page.create_worksheet_column(
+ p_id=>wwv_flow_imp.id(43033655829386334)
+,p_db_column_name=>'HEIGHT_TYPE'
+,p_display_order=>270
+,p_column_identifier=>'HZ'
+,p_column_label=>'Height Type'
+,p_column_type=>'STRING'
+,p_use_as_row_header=>'N'
+);
 wwv_flow_imp_page.create_worksheet_rpt(
  p_id=>wwv_flow_imp.id(42127884461843779)
 ,p_application_user=>'APXWS_DEFAULT'
@@ -18288,22 +18282,22 @@ wwv_flow_imp_page.create_worksheet_rpt(
 ,p_report_alias=>'421279'
 ,p_status=>'PUBLIC'
 ,p_is_default=>'Y'
-,p_report_columns=>'TODAY_DATE:WEIGHT_KG:WEIGHT_ILBS:HEIGHT_CM:HEIGHT_FT_INCH:CHOLESTEROL_TREATMENT:CHOLESTEROL_TREATMENT_STATINS:CHOLESTEROL_TREATMENT_NIACIN:CHOLESTEROL_TREATMENT_FENOFIBRATE:CHOLESTEROL_TREATMENT_EZETIMIBE:CHOLESTEROL_TREATMENT_RESINS:CHOLESTEROL_TREA'
-||'TMENT_PCSK9:CHOLESTEROL_TREATMENT_NATURAL:CHOLESTEROL_TREATMENT_OTHER:CHOLESTEROL_AGE:CHOLESTEROL_TREATMENT_CURRENT:CHOLESTEROL_TREATMENT_CURRENT_STATINS:CHOLESTEROL_TREATMENT_CURRENT_NIACIN:CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE:CHOLESTEROL_TREAT'
-||'MENT_CURRENT_EZETIMIBE:CHOLESTEROL_TREATMENT_CURRENT_RESINS:CHOLESTEROL_TREATMENT_CURRENT_PCSK9:CHOLESTEROL_TREATMENT_CURRENT_NATURAL:CHOLESTEROL_TREATMENT_CURRENT_OTHER:CHOLESTEROL_TREATMENT_CURRENT_STATINS_NAME:CHOLESTEROL_TREATMENT_CURRENT_STATINS'
-||'_DOSAGE:CHOLESTEROL_TREATMENT_CURRENT_NIACIN_NAME:CHOLESTEROL_TREATMENT_CURRENT_NIACIN_DOSAGE:CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_NAME:CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_DOSAGE:CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_NAME:CHOLESTEROL_TRE'
-||'ATMENT_CURRENT_EZETIMIBE_DOSAGE:CHOLESTEROL_TREATMENT_CURRENT_RESINS_NAME:CHOLESTEROL_TREATMENT_CURRENT_RESINS_DOSAGE:CHOLESTEROL_TREATMENT_CURRENT_PCSK9_NAME:CHOLESTEROL_TREATMENT_CURRENT_PCSK9_DOSAGE:CHOLESTEROL_TREATMENT_CURRENT_NATURAL_NAME:CHOLE'
-||'STEROL_TREATMENT_CURRENT_NATURAL_DOSAGE:CHOLESTEROL_TREATMENT_CURRENT_OTHER_NAME:CHOLESTEROL_TREATMENT_CURRENT_OTHER_DOSAGE:CHOLESTEROL_TREATMENT_STOP:CHOLESTEROL_TREATMENT_STOP_SIDE_EFFECTS:CHOLESTEROL_TREATMENT_STOP_OTHER:CUR_MEDICATIONS:CUR_MEDICA'
-||'TIONS_ASPIRIN:CUR_MEDICATIONS_BLD_PRES:CUR_MEDICATIONS_BLD_PRES_NAME:CUR_MEDICATIONS_BLD_SUG:CUR_MEDICATIONS_BLD_SUG_NAME:CUR_MEDICATIONS_OTHER:CUR_MEDICATIONS_OTHER_NAME:PERSONAL_BLOOD_PROBLEMS:PERSONAL_BLOOD_ANGINA:PERSONAL_BLOOD_ANGINA_DATE:PERSON'
-||'AL_BLOOD_HEART_ATTACK:PERSONAL_BLOOD_HEART_ATTACK_DATE:PERSONAL_BLOOD_STENT:PERSONAL_BLOOD_STENT_DATE:PERSONAL_BLOOD_BYPASS:PERSONAL_BLOOD_BYPASS_DATE:PERSONAL_BLOOD_ANGIOGRAPHY:PERSONAL_BLOOD_ANGIOGRAPHY_DATE:PERSONAL_BLOOD_STROKE:PERSONAL_BLOOD_STR'
-||'OKE_DATE:PERSONAL_BLOOD_LEG:PERSONAL_BLOOD_LEG_DATE:PERSONAL_BLOOD_PERIPHERAL:PERSONAL_BLOOD_PERIPHERAL_DATE:PERSONAL_BLOOD_OTHER:PERSONAL_BLOOD_OTHER_DATE:PERSONAL_PROBLEMS:LIFESTYLE_SMOKER:LIFESTYLE_SMOKER_START:LIFESTYLE_SMOKER_STOP:LIFESTYLE_AMOU'
-||'NT_SMOKE:LIFESTYLE_QUIT:FAMILY_SIBLINGS:FAMILY_SIBLINGS_BROTHERS:FAMILY_SIBLINGS_SISTERS:FAMILY_SIBLINGS_BC:FAMILY_SIBLINGS_CANADA:FAMILY_SIBLINGS_DECEASED:FAMILY_SIBLINGS_DECEASED_COUNT:FAMILY_SIBLINGS_DECEASED_AGE:FAMILY_SIBLINGS_DECEASED_CAUSE:FAM'
-||'ILY_SIBLINGS_HALF:FAMILY_SIBLINGS_ADOPTED:FAMILY_NIBLINGS:FAMILY_NIBLINGS_NEPHEWS:FAMILY_NIBLINGS_NIECES:FAMILY_NIBLINGS_BC:FAMILY_NIBLINGS_CANADA:FAMILY_NIBLINGS_DECEASED:FAMILY_NIBLINGS_DECEASED_COUNT:FAMILY_NIBLINGS_DECEASED_AGE:FAMILY_NIBLINGS_DE'
-||'CEASED_CAUSE:FAMILY_NIBLINGS_ADOPTED:FAMILY_CHILDREN:FAMILY_CHILDREN_SONS:FAMILY_CHILDREN_DAUGHTERS:FAMILY_CHILDREN_BC:FAMILY_CHILDREN_CANADA:FAMILY_CHILDREN_DECEASED:FAMILY_CHILDREN_DECEASED_COUNT:FAMILY_CHILDREN_DECEASED_AGE:FAMILY_CHILDREN_DECEASE'
-||'D_CAUSE:FAMILY_CHILDREN_ADOPT:FAMILY_MOTHER_STATUS:FAMILY_MOTHER_BC:FAMILY_MOTHER_CANADA:FAMILY_MOTHER_DECEASED_AGE:FAMILY_MOTHER_DECEASED_CAUSE:FAMILY_MOTHER_SIBLINGS:FAMILY_MOTHER_BROTHERS:FAMILY_MOTHER_SISTERS:FAMILY_MOTHER_SIBLINGS_BC:FAMILY_MOTH'
-||'ER_SIBLINGS_CANADA:FAMILY_MOTHER_SIBLINGS_DECEASED:FAMILY_MOTHER_SIBLINGS_DECEASED_COUNT:FAMILY_MOTHER_SIBLINGS_DECEASED_AGE:FAMILY_MOTHER_SIBLINGS_DECEASED_CAUSE:FAMILY_MOTHER_SIBLINGS_ADOPT:FAMILY_MOTHER_SIBLINGS_HALF:FAMILY_MOTHER_COUSIN:FAMILY_MO'
-||'THER_COUSIN_COUNT:FAMILY_MOTHER_COUSIN_BC:FAMILY_MOTHER_COUSIN_CANADA:FAMILY_MOTHER_COUSIN_DECEASED:FAMILY_MOTHER_COUSIN_DECEASED_COUNT:FAMILY_MOTHER_COUSIN_DECEASED_AGE:FAMILY_MOTHER_COUSIN_DECEASED_CAUSE:FAMILY_M_GRANDFATHER:FAMILY_M_GRANDFATHER_BC'
-||':FAMILY_M_GRANDFATHER_CANADA:FAMILY_M_GRANDFATHER_DECEASED_AGE:FAMILY_M_GRANDFATHER_DECEASED_CAUSE:FAMILY_M_GRANDFATHER_SIBLINGS:FAMILY_M_GRANDFATHER_SIBLINGS_COUNT:FAMILY_M_GRANDFATHER_SIBLINGS_BC:FAMILY_M_GRANDFATHER_SIBLINGS_CANADA'
+,p_report_columns=>'TODAY_DATE:CHOLESTEROL_TREATMENT:CHOLESTEROL_TREATMENT_STATINS:CHOLESTEROL_TREATMENT_NIACIN:CHOLESTEROL_TREATMENT_FENOFIBRATE:CHOLESTEROL_TREATMENT_EZETIMIBE:CHOLESTEROL_TREATMENT_RESINS:CHOLESTEROL_TREATMENT_PCSK9:CHOLESTEROL_TREATMENT_NATURAL:CHOLE'
+||'STEROL_TREATMENT_OTHER:CHOLESTEROL_AGE:CHOLESTEROL_TREATMENT_CURRENT:CHOLESTEROL_TREATMENT_CURRENT_STATINS:CHOLESTEROL_TREATMENT_CURRENT_NIACIN:CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE:CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE:CHOLESTEROL_TREATMENT_CU'
+||'RRENT_RESINS:CHOLESTEROL_TREATMENT_CURRENT_PCSK9:CHOLESTEROL_TREATMENT_CURRENT_NATURAL:CHOLESTEROL_TREATMENT_CURRENT_OTHER:CHOLESTEROL_TREATMENT_CURRENT_STATINS_NAME:CHOLESTEROL_TREATMENT_CURRENT_STATINS_DOSAGE:CHOLESTEROL_TREATMENT_CURRENT_NIACIN_NA'
+||'ME:CHOLESTEROL_TREATMENT_CURRENT_NIACIN_DOSAGE:CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_NAME:CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_DOSAGE:CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_NAME:CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_DOSAGE:CHOLESTEROL_TRE'
+||'ATMENT_CURRENT_RESINS_NAME:CHOLESTEROL_TREATMENT_CURRENT_RESINS_DOSAGE:CHOLESTEROL_TREATMENT_CURRENT_PCSK9_NAME:CHOLESTEROL_TREATMENT_CURRENT_PCSK9_DOSAGE:CHOLESTEROL_TREATMENT_CURRENT_NATURAL_NAME:CHOLESTEROL_TREATMENT_CURRENT_NATURAL_DOSAGE:CHOLEST'
+||'EROL_TREATMENT_CURRENT_OTHER_NAME:CHOLESTEROL_TREATMENT_CURRENT_OTHER_DOSAGE:CHOLESTEROL_TREATMENT_STOP:CHOLESTEROL_TREATMENT_STOP_SIDE_EFFECTS:CHOLESTEROL_TREATMENT_STOP_OTHER:CUR_MEDICATIONS:CUR_MEDICATIONS_ASPIRIN:CUR_MEDICATIONS_BLD_PRES:CUR_MEDI'
+||'CATIONS_BLD_PRES_NAME:CUR_MEDICATIONS_BLD_SUG:CUR_MEDICATIONS_BLD_SUG_NAME:CUR_MEDICATIONS_OTHER:CUR_MEDICATIONS_OTHER_NAME:PERSONAL_BLOOD_PROBLEMS:PERSONAL_BLOOD_ANGINA:PERSONAL_BLOOD_ANGINA_DATE:PERSONAL_BLOOD_HEART_ATTACK:PERSONAL_BLOOD_HEART_ATTA'
+||'CK_DATE:PERSONAL_BLOOD_STENT:PERSONAL_BLOOD_STENT_DATE:PERSONAL_BLOOD_BYPASS:PERSONAL_BLOOD_BYPASS_DATE:PERSONAL_BLOOD_ANGIOGRAPHY:PERSONAL_BLOOD_ANGIOGRAPHY_DATE:PERSONAL_BLOOD_STROKE:PERSONAL_BLOOD_STROKE_DATE:PERSONAL_BLOOD_LEG:PERSONAL_BLOOD_LEG_'
+||'DATE:PERSONAL_BLOOD_PERIPHERAL:PERSONAL_BLOOD_PERIPHERAL_DATE:PERSONAL_BLOOD_OTHER:PERSONAL_BLOOD_OTHER_DATE:PERSONAL_PROBLEMS:LIFESTYLE_SMOKER:LIFESTYLE_SMOKER_START:LIFESTYLE_SMOKER_STOP:LIFESTYLE_AMOUNT_SMOKE:LIFESTYLE_QUIT:FAMILY_SIBLINGS:FAMILY_'
+||'SIBLINGS_BROTHERS:FAMILY_SIBLINGS_SISTERS:FAMILY_SIBLINGS_BC:FAMILY_SIBLINGS_CANADA:FAMILY_SIBLINGS_DECEASED:FAMILY_SIBLINGS_DECEASED_COUNT:FAMILY_SIBLINGS_DECEASED_AGE:FAMILY_SIBLINGS_DECEASED_CAUSE:FAMILY_SIBLINGS_HALF:FAMILY_SIBLINGS_ADOPTED:FAMIL'
+||'Y_NIBLINGS:FAMILY_NIBLINGS_NEPHEWS:FAMILY_NIBLINGS_NIECES:FAMILY_NIBLINGS_BC:FAMILY_NIBLINGS_CANADA:FAMILY_NIBLINGS_DECEASED:FAMILY_NIBLINGS_DECEASED_COUNT:FAMILY_NIBLINGS_DECEASED_AGE:FAMILY_NIBLINGS_DECEASED_CAUSE:FAMILY_NIBLINGS_ADOPTED:FAMILY_CHI'
+||'LDREN:FAMILY_CHILDREN_SONS:FAMILY_CHILDREN_DAUGHTERS:FAMILY_CHILDREN_BC:FAMILY_CHILDREN_CANADA:FAMILY_CHILDREN_DECEASED:FAMILY_CHILDREN_DECEASED_COUNT:FAMILY_CHILDREN_DECEASED_AGE:FAMILY_CHILDREN_DECEASED_CAUSE:FAMILY_CHILDREN_ADOPT:FAMILY_MOTHER_STA'
+||'TUS:FAMILY_MOTHER_BC:FAMILY_MOTHER_CANADA:FAMILY_MOTHER_DECEASED_AGE:FAMILY_MOTHER_DECEASED_CAUSE:FAMILY_MOTHER_SIBLINGS:FAMILY_MOTHER_BROTHERS:FAMILY_MOTHER_SISTERS:FAMILY_MOTHER_SIBLINGS_BC:FAMILY_MOTHER_SIBLINGS_CANADA:FAMILY_MOTHER_SIBLINGS_DECEA'
+||'SED:FAMILY_MOTHER_SIBLINGS_DECEASED_COUNT:FAMILY_MOTHER_SIBLINGS_DECEASED_AGE:FAMILY_MOTHER_SIBLINGS_DECEASED_CAUSE:FAMILY_MOTHER_SIBLINGS_ADOPT:FAMILY_MOTHER_SIBLINGS_HALF:FAMILY_MOTHER_COUSIN:FAMILY_MOTHER_COUSIN_COUNT:FAMILY_MOTHER_COUSIN_BC:FAMIL'
+||'Y_MOTHER_COUSIN_CANADA:FAMILY_MOTHER_COUSIN_DECEASED:FAMILY_MOTHER_COUSIN_DECEASED_COUNT:FAMILY_MOTHER_COUSIN_DECEASED_AGE:FAMILY_MOTHER_COUSIN_DECEASED_CAUSE:FAMILY_M_GRANDFATHER:FAMILY_M_GRANDFATHER_BC:FAMILY_M_GRANDFATHER_CANADA:FAMILY_M_GRANDFATH'
+||'ER_DECEASED_AGE:FAMILY_M_GRANDFATHER_DECEASED_CAUSE:FAMILY_M_GRANDFATHER_SIBLINGS:FAMILY_M_GRANDFATHER_SIBLINGS_COUNT:FAMILY_M_GRANDFATHER_SIBLINGS_BC:FAMILY_M_GRANDFATHER_SIBLINGS_CANADA'
 ,p_sort_column_1=>'TODAY_DATE'
 ,p_sort_direction_1=>'ASC'
 );
@@ -18347,12 +18341,12 @@ wwv_flow_imp_page.create_page(
 ,p_protection_level=>'C'
 ,p_page_component_map=>'02'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230719165551'
+,p_last_upd_yyyymmddhh24miss=>'20230720165755'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(41942945761843600)
 ,p_plug_name=>'Creation and Implementation of a BC/Canadian Registry for Familial Hypercholesterolemia Questionnaire'
-,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody:t-Form--leftLabels'
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
 ,p_plug_display_sequence=>10
 ,p_plug_grid_column_span=>7
@@ -18399,7 +18393,7 @@ wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(41451554102982509)
 ,p_plug_name=>'Cholesterol'
 ,p_parent_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody:t-Form--leftLabels'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
 ,p_plug_display_sequence=>90
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
@@ -18458,7 +18452,7 @@ wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(41451702480982511)
 ,p_plug_name=>'Family History'
 ,p_parent_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody:t-Form--leftLabels'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
 ,p_plug_display_sequence=>140
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
@@ -18477,24 +18471,15 @@ wwv_flow_imp_page.create_page_plug(
 ,p_attribute_02=>'HTML'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(41452739123982521)
-,p_plug_name=>'Niblings'
-,p_parent_plug_id=>wwv_flow_imp.id(41451702480982511)
-,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
-,p_plug_template=>wwv_flow_imp.id(41683783340843215)
-,p_plug_display_sequence=>20
+ p_id=>wwv_flow_imp.id(43033785889386335)
+,p_plug_name=>'Question 8'
+,p_parent_plug_id=>wwv_flow_imp.id(41452363153982517)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>10
+,p_plug_grid_column_span=>4
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
-,p_attribute_01=>'N'
-,p_attribute_02=>'HTML'
-);
-wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(41453071678982524)
-,p_plug_name=>'Children'
-,p_parent_plug_id=>wwv_flow_imp.id(41451702480982511)
-,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
-,p_plug_template=>wwv_flow_imp.id(41683783340843215)
-,p_plug_display_sequence=>30
-,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'8. Do you have any brothers or sisters?'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
 );
@@ -18510,19 +18495,21 @@ wwv_flow_imp_page.create_page_plug(
 ,p_attribute_02=>'HTML'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(41453450029982528)
-,p_plug_name=>'Mother Siblings'
-,p_parent_plug_id=>wwv_flow_imp.id(41451702480982511)
-,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
-,p_plug_template=>wwv_flow_imp.id(41683783340843215)
-,p_plug_display_sequence=>50
+ p_id=>wwv_flow_imp.id(43469418687185914)
+,p_plug_name=>'Question 11'
+,p_parent_plug_id=>wwv_flow_imp.id(41453279118982526)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>10
+,p_plug_grid_column_span=>4
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'11. Your biological mother'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(41453615742982530)
-,p_plug_name=>'Mother Cousins'
+ p_id=>wwv_flow_imp.id(41453450029982528)
+,p_plug_name=>'Mother Siblings'
 ,p_parent_plug_id=>wwv_flow_imp.id(41451702480982511)
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
@@ -18532,8 +18519,21 @@ wwv_flow_imp_page.create_page_plug(
 ,p_attribute_02=>'HTML'
 );
 wwv_flow_imp_page.create_page_plug(
- p_id=>wwv_flow_imp.id(41453855604982532)
-,p_plug_name=>'Maternal Grandfather'
+ p_id=>wwv_flow_imp.id(43469938713185919)
+,p_plug_name=>'Question 12'
+,p_parent_plug_id=>wwv_flow_imp.id(41453450029982528)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>20
+,p_plug_grid_column_span=>4
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'12. Does your mother have any brothers or sisters?'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(41453615742982530)
+,p_plug_name=>'Mother Cousins'
 ,p_parent_plug_id=>wwv_flow_imp.id(41451702480982511)
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
@@ -18543,13 +18543,63 @@ wwv_flow_imp_page.create_page_plug(
 ,p_attribute_02=>'HTML'
 );
 wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43471270977185932)
+,p_plug_name=>'Question 13'
+,p_parent_plug_id=>wwv_flow_imp.id(41453615742982530)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>10
+,p_plug_grid_column_span=>5
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'13. Do you have any cousin''s from your mother''s side?'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(41453855604982532)
+,p_plug_name=>'Maternal Grandfather'
+,p_parent_plug_id=>wwv_flow_imp.id(41451702480982511)
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>wwv_flow_imp.id(41683783340843215)
+,p_plug_display_sequence=>80
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43472195860185941)
+,p_plug_name=>'Question 14'
+,p_parent_plug_id=>wwv_flow_imp.id(41453855604982532)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>10
+,p_plug_grid_column_span=>4
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'14. Maternal grandfather'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(41454060123982534)
 ,p_plug_name=>'Maternal Grandmother'
 ,p_parent_plug_id=>wwv_flow_imp.id(41451702480982511)
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
-,p_plug_display_sequence=>90
+,p_plug_display_sequence=>100
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43579407843689206)
+,p_plug_name=>'Question 16'
+,p_parent_plug_id=>wwv_flow_imp.id(41454060123982534)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>10
+,p_plug_grid_column_span=>4
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'16. Maternal grandmother'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
 );
@@ -18559,8 +18609,21 @@ wwv_flow_imp_page.create_page_plug(
 ,p_parent_plug_id=>wwv_flow_imp.id(41451702480982511)
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
-,p_plug_display_sequence=>110
+,p_plug_display_sequence=>120
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43580956784689221)
+,p_plug_name=>'Question 18'
+,p_parent_plug_id=>wwv_flow_imp.id(41454215331982536)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>10
+,p_plug_grid_column_span=>4
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'18. Your biological father'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
 );
@@ -18570,8 +18633,21 @@ wwv_flow_imp_page.create_page_plug(
 ,p_parent_plug_id=>wwv_flow_imp.id(41451702480982511)
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
-,p_plug_display_sequence=>120
+,p_plug_display_sequence=>150
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43581586282689227)
+,p_plug_name=>'Question 19'
+,p_parent_plug_id=>wwv_flow_imp.id(41454425041982538)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>10
+,p_plug_grid_column_span=>6
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'19.  Does your father have any brothers or sisters?'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
 );
@@ -18581,8 +18657,21 @@ wwv_flow_imp_page.create_page_plug(
 ,p_parent_plug_id=>wwv_flow_imp.id(41451702480982511)
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
-,p_plug_display_sequence=>130
+,p_plug_display_sequence=>160
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43582791938689239)
+,p_plug_name=>'Question 20'
+,p_parent_plug_id=>wwv_flow_imp.id(41454619483982540)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>10
+,p_plug_grid_column_span=>6
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>unistr('20.  Do you have any cousins from father\2019s side?')
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
 );
@@ -18592,8 +18681,21 @@ wwv_flow_imp_page.create_page_plug(
 ,p_parent_plug_id=>wwv_flow_imp.id(41451702480982511)
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
-,p_plug_display_sequence=>140
+,p_plug_display_sequence=>170
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43583640378689248)
+,p_plug_name=>'Question 21'
+,p_parent_plug_id=>wwv_flow_imp.id(41454849946982542)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>10
+,p_plug_grid_column_span=>6
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'21. Paternal grandfather'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
 );
@@ -18603,8 +18705,21 @@ wwv_flow_imp_page.create_page_plug(
 ,p_parent_plug_id=>wwv_flow_imp.id(41451702480982511)
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
-,p_plug_display_sequence=>150
+,p_plug_display_sequence=>180
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43663363666698010)
+,p_plug_name=>'Question 22'
+,p_parent_plug_id=>wwv_flow_imp.id(41455028963982544)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>10
+,p_plug_grid_column_span=>6
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'22. Does your grandfather have any brothers and sisters?'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
 );
@@ -18614,8 +18729,21 @@ wwv_flow_imp_page.create_page_plug(
 ,p_parent_plug_id=>wwv_flow_imp.id(41451702480982511)
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
-,p_plug_display_sequence=>160
+,p_plug_display_sequence=>190
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43662757028698004)
+,p_plug_name=>'Question 23'
+,p_parent_plug_id=>wwv_flow_imp.id(41455241129982546)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>10
+,p_plug_grid_column_span=>6
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'23. Paternal grandmother'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
 );
@@ -18625,8 +18753,21 @@ wwv_flow_imp_page.create_page_plug(
 ,p_parent_plug_id=>wwv_flow_imp.id(41451702480982511)
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
-,p_plug_display_sequence=>170
+,p_plug_display_sequence=>200
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43664524929698022)
+,p_plug_name=>'Question 24'
+,p_parent_plug_id=>wwv_flow_imp.id(41455458166982548)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>10
+,p_plug_grid_column_span=>6
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'24. Does your grandmother have any brothers and sisters?'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
 );
@@ -18636,8 +18777,21 @@ wwv_flow_imp_page.create_page_plug(
 ,p_parent_plug_id=>wwv_flow_imp.id(41451702480982511)
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
-,p_plug_display_sequence=>180
+,p_plug_display_sequence=>220
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43665597182698032)
+,p_plug_name=>'Question 25'
+,p_parent_plug_id=>wwv_flow_imp.id(41455687252982550)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>10
+,p_plug_grid_column_span=>6
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'25. Do you have any grandchildren?'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
 );
@@ -18647,7 +18801,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_parent_plug_id=>wwv_flow_imp.id(41451702480982511)
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
-,p_plug_display_sequence=>190
+,p_plug_display_sequence=>230
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
@@ -18658,8 +18812,21 @@ wwv_flow_imp_page.create_page_plug(
 ,p_parent_plug_id=>wwv_flow_imp.id(41451702480982511)
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
-,p_plug_display_sequence=>80
+,p_plug_display_sequence=>90
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43472783486185947)
+,p_plug_name=>'Question 15'
+,p_parent_plug_id=>wwv_flow_imp.id(43030883052386306)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>10
+,p_plug_grid_column_span=>6
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'15. Does your grandfather have any brothers and sisters?'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
 );
@@ -18669,8 +18836,69 @@ wwv_flow_imp_page.create_page_plug(
 ,p_parent_plug_id=>wwv_flow_imp.id(41451702480982511)
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
-,p_plug_display_sequence=>100
+,p_plug_display_sequence=>110
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43580008480689212)
+,p_plug_name=>'Question 17'
+,p_parent_plug_id=>wwv_flow_imp.id(43031068408386308)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>10
+,p_plug_grid_column_span=>6
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'17. Does your grandmother have any brothers and sisters?'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43033812807386336)
+,p_plug_name=>'Niblings'
+,p_parent_plug_id=>wwv_flow_imp.id(41451702480982511)
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>wwv_flow_imp.id(41683783340843215)
+,p_plug_display_sequence=>20
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43034077667386338)
+,p_plug_name=>'Question 9'
+,p_parent_plug_id=>wwv_flow_imp.id(43033812807386336)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>20
+,p_plug_grid_column_span=>4
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'9. Do you have any nieces/nephews?'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43468100491185901)
+,p_plug_name=>'Children'
+,p_parent_plug_id=>wwv_flow_imp.id(41451702480982511)
+,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
+,p_plug_template=>wwv_flow_imp.id(41683783340843215)
+,p_plug_display_sequence=>30
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43468423190185904)
+,p_plug_name=>'Question 10'
+,p_parent_plug_id=>wwv_flow_imp.id(43468100491185901)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>10
+,p_plug_grid_column_span=>4
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_header=>'10. Do you have children?'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
 );
@@ -18802,6 +19030,46 @@ wwv_flow_imp_page.create_page_plug(
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
 );
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43664237987698019)
+,p_plug_name=>'End Info'
+,p_parent_plug_id=>wwv_flow_imp.id(43030616804386304)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>10
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_footer=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'FH is a treatable inherited disease. You can help your relatives to get diagnosed and treated by passing by information about the FH Registry Project to them. ',
+'After we receive from you number of your relatives living in BC/Canada you will be sent packages with invitation letter, consent form, and patient Info contact sheet for them. They will be in the ',
+'pre-stamped envelope so there will be no cost to you to pass these packages to your relatives. ',
+''))
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43664310982698020)
+,p_plug_name=>'Willingness info'
+,p_parent_plug_id=>wwv_flow_imp.id(43030616804386304)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>20
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_footer=>'<br> I am willing to pass out packages with Invitation letter, consent form, and Patient Info Contact sheet to my relatives:'
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
+wwv_flow_imp_page.create_page_plug(
+ p_id=>wwv_flow_imp.id(43664435572698021)
+,p_plug_name=>'Footer Info'
+,p_parent_plug_id=>wwv_flow_imp.id(43030616804386304)
+,p_region_template_options=>'#DEFAULT#'
+,p_plug_template=>wwv_flow_imp.id(41693526701843220)
+,p_plug_display_sequence=>50
+,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
+,p_plug_footer=>'* There will be no cost to you to pass these packages to your relatives.       '
+,p_attribute_01=>'N'
+,p_attribute_02=>'HTML'
+);
 wwv_flow_imp_page.create_page_button(
  p_id=>wwv_flow_imp.id(42106001882843737)
 ,p_button_sequence=>30
@@ -18860,66 +19128,6 @@ wwv_flow_imp_page.create_page_button(
 ,p_button_condition=>'P5_DBID'
 ,p_button_condition_type=>'ITEM_IS_NOT_NULL'
 ,p_database_action=>'DELETE'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41452904083982523)
-,p_name=>'P5_NEW_1'
-,p_item_sequence=>110
-,p_item_plug_id=>wwv_flow_imp.id(41452739123982521)
-,p_prompt=>'New'
-,p_display_as=>'NATIVE_TEXT_FIELD'
-,p_cSize=>30
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_attribute_01=>'N'
-,p_attribute_02=>'N'
-,p_attribute_04=>'TEXT'
-,p_attribute_05=>'BOTH'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41454384661982537)
-,p_name=>'P5_NEW_3'
-,p_item_sequence=>130
-,p_item_plug_id=>wwv_flow_imp.id(41454215331982536)
-,p_prompt=>'New'
-,p_display_as=>'NATIVE_TEXT_FIELD'
-,p_cSize=>30
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_attribute_01=>'N'
-,p_attribute_02=>'N'
-,p_attribute_04=>'TEXT'
-,p_attribute_05=>'BOTH'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41454511735982539)
-,p_name=>'P5_NEW_4'
-,p_item_sequence=>120
-,p_item_plug_id=>wwv_flow_imp.id(41454425041982538)
-,p_prompt=>'New'
-,p_display_as=>'NATIVE_TEXT_FIELD'
-,p_cSize=>30
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_attribute_01=>'N'
-,p_attribute_02=>'N'
-,p_attribute_04=>'TEXT'
-,p_attribute_05=>'BOTH'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41455154297982545)
-,p_name=>'P5_NEW_6'
-,p_item_sequence=>90
-,p_item_plug_id=>wwv_flow_imp.id(41455028963982544)
-,p_prompt=>'New'
-,p_display_as=>'NATIVE_TEXT_FIELD'
-,p_cSize=>30
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_attribute_01=>'N'
-,p_attribute_02=>'N'
-,p_attribute_04=>'TEXT'
-,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41943310879843601)
@@ -18982,6 +19190,9 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_09=>'N'
 ,p_attribute_11=>'Y'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41944546352843603)
 ,p_name=>'P5_WEIGHT'
@@ -19245,9 +19456,6 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_04=>'TEXT'
 ,p_attribute_05=>'BOTH'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41949738072843607)
 ,p_name=>'P5_CHOLESTEROL_AGE'
@@ -19984,6 +20192,9 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_04=>'TEXT'
 ,p_attribute_05=>'BOTH'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41962979714843618)
 ,p_name=>'P5_CUR_MEDICATIONS_BLD_SUG'
@@ -20086,17 +20297,16 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>60
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Personal Blood Angina'
+,p_prompt=>'Angina (chest pain particularly in exertion)'
 ,p_source=>'PERSONAL_BLOOD_ANGINA'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_SINGLE_CHECKBOX'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_attribute_01=>'N'
+,p_attribute_02=>'1'
+,p_attribute_03=>'0'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41965344870843620)
@@ -20105,20 +20315,25 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>70
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Personal Blood Angina Date'
+,p_prompt=>'Date'
+,p_format_mask=>'DD-MON-YYYY'
 ,p_source=>'PERSONAL_BLOOD_ANGINA_DATE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_01=>'N'
+,p_attribute_02=>'POPUP'
+,p_attribute_03=>'NONE'
+,p_attribute_06=>'NONE'
+,p_attribute_09=>'N'
+,p_attribute_11=>'Y'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41965746537843620)
@@ -20127,17 +20342,16 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>80
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Personal Blood Heart Attack'
+,p_prompt=>'Heart Attack'
 ,p_source=>'PERSONAL_BLOOD_HEART_ATTACK'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_SINGLE_CHECKBOX'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_attribute_01=>'N'
+,p_attribute_02=>'1'
+,p_attribute_03=>'0'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41966132267843621)
@@ -20146,20 +20360,25 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>90
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Personal Blood Heart Attack Date'
+,p_prompt=>'Date'
+,p_format_mask=>'DD-MON-YYYY'
 ,p_source=>'PERSONAL_BLOOD_HEART_ATTACK_DATE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_01=>'N'
+,p_attribute_02=>'POPUP'
+,p_attribute_03=>'NONE'
+,p_attribute_06=>'NONE'
+,p_attribute_09=>'N'
+,p_attribute_11=>'Y'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41966585354843621)
@@ -20168,17 +20387,16 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>100
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Personal Blood Stent'
+,p_prompt=>'Angioplasty / Stent (inserting tube inside the coronary artery)'
 ,p_source=>'PERSONAL_BLOOD_STENT'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_SINGLE_CHECKBOX'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_attribute_01=>'N'
+,p_attribute_02=>'1'
+,p_attribute_03=>'0'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41966942146843621)
@@ -20187,20 +20405,25 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>110
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Personal Blood Stent Date'
+,p_prompt=>'Date'
+,p_format_mask=>'DD-MON-YYYY'
 ,p_source=>'PERSONAL_BLOOD_STENT_DATE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_01=>'N'
+,p_attribute_02=>'POPUP'
+,p_attribute_03=>'NONE'
+,p_attribute_06=>'NONE'
+,p_attribute_09=>'N'
+,p_attribute_11=>'Y'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41967364597843621)
@@ -20209,17 +20432,16 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>120
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Personal Blood Bypass'
+,p_prompt=>'Bypass Surgery'
 ,p_source=>'PERSONAL_BLOOD_BYPASS'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_SINGLE_CHECKBOX'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_attribute_01=>'N'
+,p_attribute_02=>'1'
+,p_attribute_03=>'0'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41967785036843623)
@@ -20228,24 +20450,26 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>130
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Personal Blood Bypass Date'
+,p_prompt=>'Date'
+,p_format_mask=>'DD-MON-YYYY'
 ,p_source=>'PERSONAL_BLOOD_BYPASS_DATE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_01=>'N'
+,p_attribute_02=>'POPUP'
+,p_attribute_03=>'NONE'
+,p_attribute_06=>'NONE'
+,p_attribute_09=>'N'
+,p_attribute_11=>'Y'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41968199638843623)
 ,p_name=>'P5_PERSONAL_BLOOD_ANGIOGRAPHY'
@@ -20253,17 +20477,16 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>140
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Personal Blood Angiography'
+,p_prompt=>'Angiography (invasive X ray  image of your coronary arteries)'
 ,p_source=>'PERSONAL_BLOOD_ANGIOGRAPHY'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_SINGLE_CHECKBOX'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_attribute_01=>'N'
+,p_attribute_02=>'1'
+,p_attribute_03=>'0'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41968528136843623)
@@ -20272,20 +20495,25 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>150
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Personal Blood Angiography Date'
+,p_prompt=>'Date'
+,p_format_mask=>'DD-MON-YYYY'
 ,p_source=>'PERSONAL_BLOOD_ANGIOGRAPHY_DATE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_01=>'N'
+,p_attribute_02=>'POPUP'
+,p_attribute_03=>'NONE'
+,p_attribute_06=>'NONE'
+,p_attribute_09=>'N'
+,p_attribute_11=>'Y'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41968946234843623)
@@ -20294,17 +20522,16 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>160
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Personal Blood Stroke'
+,p_prompt=>'Stroke/TIA'
 ,p_source=>'PERSONAL_BLOOD_STROKE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_SINGLE_CHECKBOX'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_attribute_01=>'N'
+,p_attribute_02=>'1'
+,p_attribute_03=>'0'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41969357245843623)
@@ -20313,20 +20540,25 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>170
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Personal Blood Stroke Date'
+,p_prompt=>'Date'
+,p_format_mask=>'DD-MON-YYYY'
 ,p_source=>'PERSONAL_BLOOD_STROKE_DATE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_01=>'N'
+,p_attribute_02=>'POPUP'
+,p_attribute_03=>'NONE'
+,p_attribute_06=>'NONE'
+,p_attribute_09=>'N'
+,p_attribute_11=>'Y'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41969782433843625)
@@ -20335,17 +20567,16 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>180
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Personal Blood Leg'
+,p_prompt=>'Leg Pain (in the calf area when walking)'
 ,p_source=>'PERSONAL_BLOOD_LEG'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_SINGLE_CHECKBOX'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_attribute_01=>'N'
+,p_attribute_02=>'1'
+,p_attribute_03=>'0'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41970161703843625)
@@ -20354,20 +20585,25 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>190
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Personal Blood Leg Date'
+,p_prompt=>'Date'
+,p_format_mask=>'DD-MON-YYYY'
 ,p_source=>'PERSONAL_BLOOD_LEG_DATE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_01=>'N'
+,p_attribute_02=>'POPUP'
+,p_attribute_03=>'NONE'
+,p_attribute_06=>'NONE'
+,p_attribute_09=>'N'
+,p_attribute_11=>'Y'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41970566351843625)
@@ -20376,17 +20612,16 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>200
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Personal Blood Peripheral'
+,p_prompt=>'Peripheral Vascular Surgery'
 ,p_source=>'PERSONAL_BLOOD_PERIPHERAL'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_SINGLE_CHECKBOX'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_attribute_01=>'N'
+,p_attribute_02=>'1'
+,p_attribute_03=>'0'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41970992658843625)
@@ -20395,20 +20630,25 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>210
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Personal Blood Peripheral Date'
+,p_prompt=>'Date'
+,p_format_mask=>'DD-MON-YYYY'
 ,p_source=>'PERSONAL_BLOOD_PERIPHERAL_DATE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_01=>'N'
+,p_attribute_02=>'POPUP'
+,p_attribute_03=>'NONE'
+,p_attribute_06=>'NONE'
+,p_attribute_09=>'N'
+,p_attribute_11=>'Y'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41971391135843625)
@@ -20417,17 +20657,16 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>220
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Personal Blood Other'
+,p_prompt=>'Other'
 ,p_source=>'PERSONAL_BLOOD_OTHER'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_SINGLE_CHECKBOX'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_attribute_01=>'N'
+,p_attribute_02=>'1'
+,p_attribute_03=>'0'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41971772483843626)
@@ -20436,20 +20675,25 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>230
 ,p_item_plug_id=>wwv_flow_imp.id(41451885574982512)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Personal Blood Other Date'
+,p_prompt=>'Date'
+,p_format_mask=>'DD-MON-YYYY'
 ,p_source=>'PERSONAL_BLOOD_OTHER_DATE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_DATE_PICKER_APEX'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_01=>'N'
+,p_attribute_02=>'POPUP'
+,p_attribute_03=>'NONE'
+,p_attribute_06=>'NONE'
+,p_attribute_09=>'N'
+,p_attribute_11=>'Y'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41972130576843626)
@@ -20530,7 +20774,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41973798124843628)
 ,p_name=>'P5_LIFESTYLE_AMOUNT_SMOKE'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>80
+,p_item_sequence=>90
 ,p_item_plug_id=>wwv_flow_imp.id(41451960215982513)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_source=>'LIFESTYLE_AMOUNT_SMOKE'
@@ -20548,7 +20792,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41974154482843628)
 ,p_name=>'P5_LIFESTYLE_QUIT'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>90
+,p_item_sequence=>100
 ,p_item_plug_id=>wwv_flow_imp.id(41451960215982513)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'b) Have you ever considered quitting?'
@@ -20567,35 +20811,39 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41974564104843628)
 ,p_name=>'P5_FAMILY_SIBLINGS'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>10
+,p_item_sequence=>30
 ,p_item_plug_id=>wwv_flow_imp.id(41452363153982517)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Siblings'
 ,p_source=>'FAMILY_SIBLINGS'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No -> Go to Question 9;0'
+,p_begin_on_new_line=>'N'
+,p_grid_label_column_span=>0
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'1'
+,p_attribute_02=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41974983713843628)
 ,p_name=>'P5_FAMILY_SIBLINGS_BROTHERS'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>20
+,p_item_sequence=>50
 ,p_item_plug_id=>wwv_flow_imp.id(41452363153982517)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Siblings Brothers'
+,p_prompt=>'a) If yes, how many brothers '
 ,p_source=>'FAMILY_SIBLINGS_BROTHERS'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
 ,p_cSize=>32
 ,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_attribute_03=>'left'
@@ -20605,16 +20853,20 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41975333733843628)
 ,p_name=>'P5_FAMILY_SIBLINGS_SISTERS'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>30
+,p_item_sequence=>70
 ,p_item_plug_id=>wwv_flow_imp.id(41452363153982517)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Siblings Sisters'
+,p_prompt=>'and sisters '
 ,p_source=>'FAMILY_SIBLINGS_SISTERS'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
 ,p_cSize=>32
 ,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>2
+,p_grid_column=>6
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_attribute_03=>'left'
@@ -20624,16 +20876,19 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41975708697843629)
 ,p_name=>'P5_FAMILY_SIBLINGS_BC'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>40
+,p_item_sequence=>90
 ,p_item_plug_id=>wwv_flow_imp.id(41452363153982517)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Siblings Bc'
+,p_prompt=>'b) How many of them live in BC'
 ,p_source=>'FAMILY_SIBLINGS_BC'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
 ,p_cSize=>32
 ,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_attribute_03=>'left'
@@ -20643,16 +20898,20 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41976145764843629)
 ,p_name=>'P5_FAMILY_SIBLINGS_CANADA'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>50
+,p_item_sequence=>110
 ,p_item_plug_id=>wwv_flow_imp.id(41452363153982517)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Siblings Canada'
+,p_prompt=>'in other provinces of Canada '
 ,p_source=>'FAMILY_SIBLINGS_CANADA'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
 ,p_cSize=>32
 ,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_attribute_03=>'left'
@@ -20662,35 +20921,42 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41976502219843629)
 ,p_name=>'P5_FAMILY_SIBLINGS_DECEASED'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>60
+,p_item_sequence=>130
 ,p_item_plug_id=>wwv_flow_imp.id(41452363153982517)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Siblings Deceased'
+,p_prompt=>'c)  Are any of your siblings deceased?'
 ,p_source=>'FAMILY_SIBLINGS_DECEASED'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:No;0,Yes;1'
+,p_colspan=>5
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41976965449843631)
 ,p_name=>'P5_FAMILY_SIBLINGS_DECEASED_COUNT'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>70
+,p_item_sequence=>150
 ,p_item_plug_id=>wwv_flow_imp.id(41452363153982517)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Siblings Deceased Count'
+,p_prompt=>'how many? '
 ,p_source=>'FAMILY_SIBLINGS_DECEASED_COUNT'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
 ,p_cSize=>32
 ,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>3
+,p_grid_column=>7
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_attribute_03=>'left'
@@ -20700,16 +20966,19 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41977372675843631)
 ,p_name=>'P5_FAMILY_SIBLINGS_DECEASED_AGE'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>80
+,p_item_sequence=>170
 ,p_item_plug_id=>wwv_flow_imp.id(41452363153982517)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Siblings Deceased Age'
+,p_prompt=>'What age did they die at?'
 ,p_source=>'FAMILY_SIBLINGS_DECEASED_AGE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
 ,p_cSize=>32
 ,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_colspan=>3
+,p_grid_column=>2
+,p_grid_label_column_span=>2
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_attribute_03=>'left'
@@ -20719,38 +20988,43 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41977765534843631)
 ,p_name=>'P5_FAMILY_SIBLINGS_DECEASED_CAUSE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>90
+,p_item_sequence=>190
 ,p_item_plug_id=>wwv_flow_imp.id(41452363153982517)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Siblings Deceased Cause'
+,p_prompt=>'What was the cause of death?'
 ,p_source=>'FAMILY_SIBLINGS_DECEASED_CAUSE'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
+,p_display_as=>'NATIVE_TEXT_FIELD'
 ,p_cSize=>60
 ,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_begin_on_new_line=>'N'
+,p_colspan=>6
+,p_grid_column=>5
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
+,p_attribute_01=>'N'
 ,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41978190620843631)
 ,p_name=>'P5_FAMILY_SIBLINGS_HALF'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>100
+,p_item_sequence=>210
 ,p_item_plug_id=>wwv_flow_imp.id(41452363153982517)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Siblings Half'
+,p_prompt=>'d) Are any of the above half-brother/sister(s) or step-brother/sister(s)?'
 ,p_source=>'FAMILY_SIBLINGS_HALF'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
 ,p_cSize=>32
 ,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_grid_column=>2
+,p_grid_label_column_span=>5
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_attribute_03=>'left'
@@ -20760,402 +21034,18 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41978587932843631)
 ,p_name=>'P5_FAMILY_SIBLINGS_ADOPTED'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>110
+,p_item_sequence=>230
 ,p_item_plug_id=>wwv_flow_imp.id(41452363153982517)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Siblings Adopted'
+,p_prompt=>'e) Are any of the above adopted or foster children? '
 ,p_source=>'FAMILY_SIBLINGS_ADOPTED'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
 ,p_cSize=>32
 ,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41978979347843632)
-,p_name=>'P5_FAMILY_NIBLINGS'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(41452739123982521)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Niblings'
-,p_source=>'FAMILY_NIBLINGS'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41979328661843632)
-,p_name=>'P5_FAMILY_NIBLINGS_NEPHEWS'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>20
-,p_item_plug_id=>wwv_flow_imp.id(41452739123982521)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Niblings Nephews'
-,p_source=>'FAMILY_NIBLINGS_NEPHEWS'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41979749948843632)
-,p_name=>'P5_FAMILY_NIBLINGS_NIECES'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>30
-,p_item_plug_id=>wwv_flow_imp.id(41452739123982521)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Niblings Nieces'
-,p_source=>'FAMILY_NIBLINGS_NIECES'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41980114859843632)
-,p_name=>'P5_FAMILY_NIBLINGS_BC'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>40
-,p_item_plug_id=>wwv_flow_imp.id(41452739123982521)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Niblings Bc'
-,p_source=>'FAMILY_NIBLINGS_BC'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41980540429843634)
-,p_name=>'P5_FAMILY_NIBLINGS_CANADA'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>50
-,p_item_plug_id=>wwv_flow_imp.id(41452739123982521)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Niblings Canada'
-,p_source=>'FAMILY_NIBLINGS_CANADA'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41980901796843634)
-,p_name=>'P5_FAMILY_NIBLINGS_DECEASED'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>60
-,p_item_plug_id=>wwv_flow_imp.id(41452739123982521)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Niblings Deceased'
-,p_source=>'FAMILY_NIBLINGS_DECEASED'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41981310915843634)
-,p_name=>'P5_FAMILY_NIBLINGS_DECEASED_COUNT'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>70
-,p_item_plug_id=>wwv_flow_imp.id(41452739123982521)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Niblings Deceased Count'
-,p_source=>'FAMILY_NIBLINGS_DECEASED_COUNT'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41981744453843634)
-,p_name=>'P5_FAMILY_NIBLINGS_DECEASED_AGE'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>80
-,p_item_plug_id=>wwv_flow_imp.id(41452739123982521)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Niblings Deceased Age'
-,p_source=>'FAMILY_NIBLINGS_DECEASED_AGE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41982130310843634)
-,p_name=>'P5_FAMILY_NIBLINGS_DECEASED_CAUSE'
-,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>90
-,p_item_plug_id=>wwv_flow_imp.id(41452739123982521)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Niblings Deceased Cause'
-,p_source=>'FAMILY_NIBLINGS_DECEASED_CAUSE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
-,p_cSize=>60
-,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41982596441843635)
-,p_name=>'P5_FAMILY_NIBLINGS_ADOPTED'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>100
-,p_item_plug_id=>wwv_flow_imp.id(41452739123982521)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Niblings Adopted'
-,p_source=>'FAMILY_NIBLINGS_ADOPTED'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41982965207843635)
-,p_name=>'P5_FAMILY_CHILDREN'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(41453071678982524)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Children'
-,p_source=>'FAMILY_CHILDREN'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41983372243843635)
-,p_name=>'P5_FAMILY_CHILDREN_SONS'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>20
-,p_item_plug_id=>wwv_flow_imp.id(41453071678982524)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Children Sons'
-,p_source=>'FAMILY_CHILDREN_SONS'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41983759747843635)
-,p_name=>'P5_FAMILY_CHILDREN_DAUGHTERS'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>30
-,p_item_plug_id=>wwv_flow_imp.id(41453071678982524)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Children Daughters'
-,p_source=>'FAMILY_CHILDREN_DAUGHTERS'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41984162543843635)
-,p_name=>'P5_FAMILY_CHILDREN_BC'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>40
-,p_item_plug_id=>wwv_flow_imp.id(41453071678982524)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Children Bc'
-,p_source=>'FAMILY_CHILDREN_BC'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41984553040843637)
-,p_name=>'P5_FAMILY_CHILDREN_CANADA'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>50
-,p_item_plug_id=>wwv_flow_imp.id(41453071678982524)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Children Canada'
-,p_source=>'FAMILY_CHILDREN_CANADA'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41984902776843637)
-,p_name=>'P5_FAMILY_CHILDREN_DECEASED'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>60
-,p_item_plug_id=>wwv_flow_imp.id(41453071678982524)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Children Deceased'
-,p_source=>'FAMILY_CHILDREN_DECEASED'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41985399863843637)
-,p_name=>'P5_FAMILY_CHILDREN_DECEASED_COUNT'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>70
-,p_item_plug_id=>wwv_flow_imp.id(41453071678982524)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Children Deceased Count'
-,p_source=>'FAMILY_CHILDREN_DECEASED_COUNT'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41985707265843637)
-,p_name=>'P5_FAMILY_CHILDREN_DECEASED_AGE'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>80
-,p_item_plug_id=>wwv_flow_imp.id(41453071678982524)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Children Deceased Age'
-,p_source=>'FAMILY_CHILDREN_DECEASED_AGE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41986143116843639)
-,p_name=>'P5_FAMILY_CHILDREN_DECEASED_CAUSE'
-,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>90
-,p_item_plug_id=>wwv_flow_imp.id(41453071678982524)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Children Deceased Cause'
-,p_source=>'FAMILY_CHILDREN_DECEASED_CAUSE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
-,p_cSize=>60
-,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41986586224843639)
-,p_name=>'P5_FAMILY_CHILDREN_ADOPT'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>100
-,p_item_plug_id=>wwv_flow_imp.id(41453071678982524)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Children Adopt'
-,p_source=>'FAMILY_CHILDREN_ADOPT'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_grid_column=>2
+,p_grid_label_column_span=>4
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_attribute_03=>'left'
@@ -21165,2141 +21055,61 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41986982537843639)
 ,p_name=>'P5_FAMILY_MOTHER_STATUS'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>10
+,p_item_sequence=>30
 ,p_item_plug_id=>wwv_flow_imp.id(41453279118982526)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Status'
+,p_prompt=>'Is she alive?'
 ,p_source=>'FAMILY_MOTHER_STATUS'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41987335119843639)
-,p_name=>'P5_FAMILY_MOTHER_BC'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>20
-,p_item_plug_id=>wwv_flow_imp.id(41453279118982526)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Bc'
-,p_source=>'FAMILY_MOTHER_BC'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41987733386843639)
-,p_name=>'P5_FAMILY_MOTHER_CANADA'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>30
-,p_item_plug_id=>wwv_flow_imp.id(41453279118982526)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Canada'
-,p_source=>'FAMILY_MOTHER_CANADA'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41988135022843640)
-,p_name=>'P5_FAMILY_MOTHER_DECEASED_AGE'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>40
-,p_item_plug_id=>wwv_flow_imp.id(41453279118982526)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Deceased Age'
-,p_source=>'FAMILY_MOTHER_DECEASED_AGE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-end;
-/
-begin
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41988523980843640)
-,p_name=>'P5_FAMILY_MOTHER_DECEASED_CAUSE'
-,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>50
-,p_item_plug_id=>wwv_flow_imp.id(41453279118982526)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Deceased Cause'
-,p_source=>'FAMILY_MOTHER_DECEASED_CAUSE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
-,p_cSize=>60
-,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41988935995843640)
-,p_name=>'P5_FAMILY_MOTHER_SIBLINGS'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(41453450029982528)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Siblings'
-,p_source=>'FAMILY_MOTHER_SIBLINGS'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41989304079843640)
-,p_name=>'P5_FAMILY_MOTHER_BROTHERS'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>20
-,p_item_plug_id=>wwv_flow_imp.id(41453450029982528)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Brothers'
-,p_source=>'FAMILY_MOTHER_BROTHERS'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41989713548843640)
-,p_name=>'P5_FAMILY_MOTHER_SISTERS'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>30
-,p_item_plug_id=>wwv_flow_imp.id(41453450029982528)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Sisters'
-,p_source=>'FAMILY_MOTHER_SISTERS'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41990158041843642)
-,p_name=>'P5_FAMILY_MOTHER_SIBLINGS_BC'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>40
-,p_item_plug_id=>wwv_flow_imp.id(41453450029982528)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Siblings Bc'
-,p_source=>'FAMILY_MOTHER_SIBLINGS_BC'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41990502485843642)
-,p_name=>'P5_FAMILY_MOTHER_SIBLINGS_CANADA'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>50
-,p_item_plug_id=>wwv_flow_imp.id(41453450029982528)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Siblings Canada'
-,p_source=>'FAMILY_MOTHER_SIBLINGS_CANADA'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41990924974843642)
-,p_name=>'P5_FAMILY_MOTHER_SIBLINGS_DECEASED'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>60
-,p_item_plug_id=>wwv_flow_imp.id(41453450029982528)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Siblings Deceased'
-,p_source=>'FAMILY_MOTHER_SIBLINGS_DECEASED'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41991361763843642)
-,p_name=>'P5_FAMILY_MOTHER_SIBLINGS_DECEASED_COUNT'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>70
-,p_item_plug_id=>wwv_flow_imp.id(41453450029982528)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Siblings Deceased Count'
-,p_source=>'FAMILY_MOTHER_SIBLINGS_DECEASED_COUNT'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41991748029843642)
-,p_name=>'P5_FAMILY_MOTHER_SIBLINGS_DECEASED_AGE'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>80
-,p_item_plug_id=>wwv_flow_imp.id(41453450029982528)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Siblings Deceased Age'
-,p_source=>'FAMILY_MOTHER_SIBLINGS_DECEASED_AGE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41992144314843643)
-,p_name=>'P5_FAMILY_MOTHER_SIBLINGS_DECEASED_CAUSE'
-,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>90
-,p_item_plug_id=>wwv_flow_imp.id(41453450029982528)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Siblings Deceased Cause'
-,p_source=>'FAMILY_MOTHER_SIBLINGS_DECEASED_CAUSE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
-,p_cSize=>60
-,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41992524819843643)
-,p_name=>'P5_FAMILY_MOTHER_SIBLINGS_ADOPT'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>100
-,p_item_plug_id=>wwv_flow_imp.id(41453450029982528)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Siblings Adopt'
-,p_source=>'FAMILY_MOTHER_SIBLINGS_ADOPT'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41992967661843643)
-,p_name=>'P5_FAMILY_MOTHER_SIBLINGS_HALF'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>110
-,p_item_plug_id=>wwv_flow_imp.id(41453450029982528)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Siblings Half'
-,p_source=>'FAMILY_MOTHER_SIBLINGS_HALF'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41993366714843643)
-,p_name=>'P5_FAMILY_MOTHER_COUSIN'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(41453615742982530)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Cousin'
-,p_source=>'FAMILY_MOTHER_COUSIN'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41993771042843645)
-,p_name=>'P5_FAMILY_MOTHER_COUSIN_COUNT'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>20
-,p_item_plug_id=>wwv_flow_imp.id(41453615742982530)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Cousin Count'
-,p_source=>'FAMILY_MOTHER_COUSIN_COUNT'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41994191147843645)
-,p_name=>'P5_FAMILY_MOTHER_COUSIN_BC'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>30
-,p_item_plug_id=>wwv_flow_imp.id(41453615742982530)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Cousin Bc'
-,p_source=>'FAMILY_MOTHER_COUSIN_BC'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41994592383843645)
-,p_name=>'P5_FAMILY_MOTHER_COUSIN_CANADA'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>40
-,p_item_plug_id=>wwv_flow_imp.id(41453615742982530)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Cousin Canada'
-,p_source=>'FAMILY_MOTHER_COUSIN_CANADA'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41994939718843645)
-,p_name=>'P5_FAMILY_MOTHER_COUSIN_DECEASED'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>50
-,p_item_plug_id=>wwv_flow_imp.id(41453615742982530)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Cousin Deceased'
-,p_source=>'FAMILY_MOTHER_COUSIN_DECEASED'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41995350730843645)
-,p_name=>'P5_FAMILY_MOTHER_COUSIN_DECEASED_COUNT'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>60
-,p_item_plug_id=>wwv_flow_imp.id(41453615742982530)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Cousin Deceased Count'
-,p_source=>'FAMILY_MOTHER_COUSIN_DECEASED_COUNT'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41995709725843646)
-,p_name=>'P5_FAMILY_MOTHER_COUSIN_DECEASED_AGE'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>70
-,p_item_plug_id=>wwv_flow_imp.id(41453615742982530)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Cousin Deceased Age'
-,p_source=>'FAMILY_MOTHER_COUSIN_DECEASED_AGE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41996101309843646)
-,p_name=>'P5_FAMILY_MOTHER_COUSIN_DECEASED_CAUSE'
-,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>80
-,p_item_plug_id=>wwv_flow_imp.id(41453615742982530)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Mother Cousin Deceased Cause'
-,p_source=>'FAMILY_MOTHER_COUSIN_DECEASED_CAUSE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
-,p_cSize=>60
-,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41996506103843646)
-,p_name=>'P5_FAMILY_M_GRANDFATHER'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(41453855604982532)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandfather'
-,p_source=>'FAMILY_M_GRANDFATHER'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41996945779843646)
-,p_name=>'P5_FAMILY_M_GRANDFATHER_BC'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>20
-,p_item_plug_id=>wwv_flow_imp.id(41453855604982532)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandfather Bc'
-,p_source=>'FAMILY_M_GRANDFATHER_BC'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41997353184843646)
-,p_name=>'P5_FAMILY_M_GRANDFATHER_CANADA'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>30
-,p_item_plug_id=>wwv_flow_imp.id(41453855604982532)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandfather Canada'
-,p_source=>'FAMILY_M_GRANDFATHER_CANADA'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41997700418843648)
-,p_name=>'P5_FAMILY_M_GRANDFATHER_DECEASED_AGE'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>40
-,p_item_plug_id=>wwv_flow_imp.id(41453855604982532)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandfather Deceased Age'
-,p_source=>'FAMILY_M_GRANDFATHER_DECEASED_AGE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41998195825843648)
-,p_name=>'P5_FAMILY_M_GRANDFATHER_DECEASED_CAUSE'
-,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>50
-,p_item_plug_id=>wwv_flow_imp.id(41453855604982532)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandfather Deceased Cause'
-,p_source=>'FAMILY_M_GRANDFATHER_DECEASED_CAUSE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
-,p_cSize=>60
-,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41998544016843648)
-,p_name=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(43030883052386306)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandfather Siblings'
-,p_source=>'FAMILY_M_GRANDFATHER_SIBLINGS'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41998997709843648)
-,p_name=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_COUNT'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>20
-,p_item_plug_id=>wwv_flow_imp.id(43030883052386306)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandfather Siblings Count'
-,p_source=>'FAMILY_M_GRANDFATHER_SIBLINGS_COUNT'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41999318621843650)
-,p_name=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_BC'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>30
-,p_item_plug_id=>wwv_flow_imp.id(43030883052386306)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandfather Siblings Bc'
-,p_source=>'FAMILY_M_GRANDFATHER_SIBLINGS_BC'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(41999726179843650)
-,p_name=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_CANADA'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>40
-,p_item_plug_id=>wwv_flow_imp.id(43030883052386306)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandfather Siblings Canada'
-,p_source=>'FAMILY_M_GRANDFATHER_SIBLINGS_CANADA'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42000122914843650)
-,p_name=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>50
-,p_item_plug_id=>wwv_flow_imp.id(43030883052386306)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandfather Siblings Deceased'
-,p_source=>'FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42000594725843650)
-,p_name=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_COUNT'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>60
-,p_item_plug_id=>wwv_flow_imp.id(43030883052386306)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandfather Siblings Deceased Count'
-,p_source=>'FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_COUNT'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42000925296843650)
-,p_name=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_AGE'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>80
-,p_item_plug_id=>wwv_flow_imp.id(43030883052386306)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandfather Siblings Deceased Age'
-,p_source=>'FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_AGE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42001366392843651)
-,p_name=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_CAUSE'
-,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>90
-,p_item_plug_id=>wwv_flow_imp.id(43030883052386306)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandfather Siblings Deceased Cause'
-,p_source=>'FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_CAUSE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
-,p_cSize=>60
-,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42001740254843651)
-,p_name=>'P5_FAMILY_M_GRANDMOTHER'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(41454060123982534)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandmother'
-,p_source=>'FAMILY_M_GRANDMOTHER'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42002145379843651)
-,p_name=>'P5_FAMILY_M_GRANDMOTHER_BC'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>20
-,p_item_plug_id=>wwv_flow_imp.id(41454060123982534)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandmother Bc'
-,p_source=>'FAMILY_M_GRANDMOTHER_BC'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42002567120843651)
-,p_name=>'P5_FAMILY_M_GRANDMOTHER_CANADA'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>30
-,p_item_plug_id=>wwv_flow_imp.id(41454060123982534)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandmother Canada'
-,p_source=>'FAMILY_M_GRANDMOTHER_CANADA'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42002963301843651)
-,p_name=>'P5_FAMILY_M_GRANDMOTHER_DECEASED_AGE'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>40
-,p_item_plug_id=>wwv_flow_imp.id(41454060123982534)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandmother Deceased Age'
-,p_source=>'FAMILY_M_GRANDMOTHER_DECEASED_AGE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42003377074843653)
-,p_name=>'P5_FAMILY_M_GRANDMOTHER_DECEASED_CAUSE'
-,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>50
-,p_item_plug_id=>wwv_flow_imp.id(41454060123982534)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandmother Deceased Cause'
-,p_source=>'FAMILY_M_GRANDMOTHER_DECEASED_CAUSE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
-,p_cSize=>60
-,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42003702147843653)
-,p_name=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(43031068408386308)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandmother Siblings'
-,p_source=>'FAMILY_M_GRANDMOTHER_SIBLINGS'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42004136421843653)
-,p_name=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS_COUNT'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>20
-,p_item_plug_id=>wwv_flow_imp.id(43031068408386308)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandmother Siblings Count'
-,p_source=>'FAMILY_M_GRANDMOTHER_SIBLINGS_COUNT'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42004593793843653)
-,p_name=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS_BC'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>30
-,p_item_plug_id=>wwv_flow_imp.id(43031068408386308)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandmother Siblings Bc'
-,p_source=>'FAMILY_M_GRANDMOTHER_SIBLINGS_BC'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42004916971843654)
-,p_name=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS_CANADA'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>40
-,p_item_plug_id=>wwv_flow_imp.id(43031068408386308)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandmother Siblings Canada'
-,p_source=>'FAMILY_M_GRANDMOTHER_SIBLINGS_CANADA'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42005385936843654)
-,p_name=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>50
-,p_item_plug_id=>wwv_flow_imp.id(43031068408386308)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandmother Siblings Deceased'
-,p_source=>'FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42005728156843654)
-,p_name=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_COUNT'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>60
-,p_item_plug_id=>wwv_flow_imp.id(43031068408386308)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandmother Siblings Deceased Count'
-,p_source=>'FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_COUNT'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42006167706843654)
-,p_name=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_AGE'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>80
-,p_item_plug_id=>wwv_flow_imp.id(43031068408386308)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandmother Siblings Deceased Age'
-,p_source=>'FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_AGE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42006524150843654)
-,p_name=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_CAUSE'
-,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>90
-,p_item_plug_id=>wwv_flow_imp.id(43031068408386308)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family M Grandmother Siblings Deceased Cause'
-,p_source=>'FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_CAUSE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
-,p_cSize=>60
-,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42006935034843656)
-,p_name=>'P5_FAMILY_FATHER'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(41454215331982536)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father'
-,p_source=>'FAMILY_FATHER'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42007335237843656)
-,p_name=>'P5_FAMILY_FATHER_BC'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>20
-,p_item_plug_id=>wwv_flow_imp.id(41454215331982536)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father Bc'
-,p_source=>'FAMILY_FATHER_BC'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42007743605843656)
-,p_name=>'P5_FAMILY_FATHER_CANADA'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>30
-,p_item_plug_id=>wwv_flow_imp.id(41454215331982536)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father Canada'
-,p_source=>'FAMILY_FATHER_CANADA'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-end;
-/
-begin
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42008123807843656)
-,p_name=>'P5_FAMILY_FATHER_DECEASED_AGE'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>40
-,p_item_plug_id=>wwv_flow_imp.id(41454215331982536)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father Deceased Age'
-,p_source=>'FAMILY_FATHER_DECEASED_AGE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42008536993843657)
-,p_name=>'P5_FAMILY_FATHER_DECEASED_CAUSE'
-,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>50
-,p_item_plug_id=>wwv_flow_imp.id(41454215331982536)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father Deceased Cause'
-,p_source=>'FAMILY_FATHER_DECEASED_CAUSE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
-,p_cSize=>60
-,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42008902436843657)
-,p_name=>'P5_FAMILY_FATHER_SIBLINGS'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(41454425041982538)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father Siblings'
-,p_source=>'FAMILY_FATHER_SIBLINGS'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42009302462843657)
-,p_name=>'P5_FAMILY_FATHER_BROTHERS'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>20
-,p_item_plug_id=>wwv_flow_imp.id(41454425041982538)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father Brothers'
-,p_source=>'FAMILY_FATHER_BROTHERS'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42009730822843657)
-,p_name=>'P5_FAMILY_FATHER_SISTERS'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>30
-,p_item_plug_id=>wwv_flow_imp.id(41454425041982538)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father Sisters'
-,p_source=>'FAMILY_FATHER_SISTERS'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42010183586843657)
-,p_name=>'P5_FAMILY_FATHER_SIBLINGS_BC'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>40
-,p_item_plug_id=>wwv_flow_imp.id(41454425041982538)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father Siblings Bc'
-,p_source=>'FAMILY_FATHER_SIBLINGS_BC'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42010540021843659)
-,p_name=>'P5_FAMILY_FATHER_SIBLINGS_CANADA'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>50
-,p_item_plug_id=>wwv_flow_imp.id(41454425041982538)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father Siblings Canada'
-,p_source=>'FAMILY_FATHER_SIBLINGS_CANADA'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42010991581843659)
-,p_name=>'P5_FAMILY_FATHER_SIBLINGS_DECEASED'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>60
-,p_item_plug_id=>wwv_flow_imp.id(41454425041982538)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father Siblings Deceased'
-,p_source=>'FAMILY_FATHER_SIBLINGS_DECEASED'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42011382655843659)
-,p_name=>'P5_FAMILY_FATHER_SIBLINGS_DECEASED_COUNT'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>70
-,p_item_plug_id=>wwv_flow_imp.id(41454425041982538)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father Siblings Deceased Count'
-,p_source=>'FAMILY_FATHER_SIBLINGS_DECEASED_COUNT'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42011786001843659)
-,p_name=>'P5_FAMILY_FATHER_SIBLINGS_DECEASED_AGE'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>80
-,p_item_plug_id=>wwv_flow_imp.id(41454425041982538)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father Siblings Deceased Age'
-,p_source=>'FAMILY_FATHER_SIBLINGS_DECEASED_AGE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42012172190843660)
-,p_name=>'P5_FAMILY_FATHER_SIBLINGS_DECEASED_CAUSE'
-,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>90
-,p_item_plug_id=>wwv_flow_imp.id(41454425041982538)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father Siblings Deceased Cause'
-,p_source=>'FAMILY_FATHER_SIBLINGS_DECEASED_CAUSE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
-,p_cSize=>60
-,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42012565106843660)
-,p_name=>'P5_FAMILY_FATHER_SIBLINGS_ADOPT'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>100
-,p_item_plug_id=>wwv_flow_imp.id(41454425041982538)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father Siblings Adopt'
-,p_source=>'FAMILY_FATHER_SIBLINGS_ADOPT'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42012940120843660)
-,p_name=>'P5_FAMILY_FATHER_SIBLINGS_HALF'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>110
-,p_item_plug_id=>wwv_flow_imp.id(41454425041982538)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father Siblings Half'
-,p_source=>'FAMILY_FATHER_SIBLINGS_DECEASED_HALF'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42013350902843660)
-,p_name=>'P5_FAMILY_FATHER_COUSINS'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(41454619483982540)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father Cousins'
-,p_source=>'FAMILY_FATHER_COUSINS'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42013752350843660)
-,p_name=>'P5_FAMILY_FATHER_COUSINS_COUNT'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>20
-,p_item_plug_id=>wwv_flow_imp.id(41454619483982540)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father Cousins Count'
-,p_source=>'FAMILY_FATHER_COUSINS_COUNT'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42014174401843662)
-,p_name=>'P5_FAMILY_FATHER_COUSINS_BC'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>30
-,p_item_plug_id=>wwv_flow_imp.id(41454619483982540)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father Cousins Bc'
-,p_source=>'FAMILY_FATHER_COUSINS_BC'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42014525122843662)
-,p_name=>'P5_FAMILY_FATHER_COUSINS_CANADA'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>40
-,p_item_plug_id=>wwv_flow_imp.id(41454619483982540)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father Cousins Canada'
-,p_source=>'FAMILY_FATHER_COUSINS_CANADA'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42014933332843662)
-,p_name=>'P5_FAMILY_FATHER_COUSINS_DECEASED'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>50
-,p_item_plug_id=>wwv_flow_imp.id(41454619483982540)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father Cousins Deceased'
-,p_source=>'FAMILY_FATHER_COUSINS_DECEASED'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42015322241843662)
-,p_name=>'P5_FAMILY_FATHER_COUSINS_DECEASED_COUNT'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>60
-,p_item_plug_id=>wwv_flow_imp.id(41454619483982540)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father Cousins Deceased Count'
-,p_source=>'FAMILY_FATHER_COUSINS_DECEASED_COUNT'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42015733077843662)
-,p_name=>'P5_FAMILY_FATHER_COUSINS_DECEASED_AGE'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>70
-,p_item_plug_id=>wwv_flow_imp.id(41454619483982540)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father Cousins Deceased Age'
-,p_source=>'FAMILY_FATHER_COUSINS_DECEASED_AGE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42016100307843664)
-,p_name=>'P5_FAMILY_FATHER_COUSINS_DECEASED_CAUSE'
-,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>80
-,p_item_plug_id=>wwv_flow_imp.id(41454619483982540)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Father Cousins Deceased Cause'
-,p_source=>'FAMILY_FATHER_COUSINS_DECEASED_CAUSE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
-,p_cSize=>60
-,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42016553609843664)
-,p_name=>'P5_FAMILY_P_GRANDFATHER'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(41454849946982542)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandfather'
-,p_source=>'FAMILY_P_GRANDFATHER'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42016988664843664)
-,p_name=>'P5_FAMILY_P_GRANDFATHER_BC'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>20
-,p_item_plug_id=>wwv_flow_imp.id(41454849946982542)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandfather Bc'
-,p_source=>'FAMILY_P_GRANDFATHER_BC'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42017352148843664)
-,p_name=>'P5_FAMILY_P_GRANDFATHER_CANADA'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>30
-,p_item_plug_id=>wwv_flow_imp.id(41454849946982542)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandfather Canada'
-,p_source=>'FAMILY_P_GRANDFATHER_CANADA'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42017770076843665)
-,p_name=>'P5_FAMILY_P_GRANDFATHER_DECEASED_AGE'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>40
-,p_item_plug_id=>wwv_flow_imp.id(41454849946982542)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandfather Deceased Age'
-,p_source=>'FAMILY_P_GRANDFATHER_DECEASED_AGE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42018177241843665)
-,p_name=>'P5_FAMILY_P_GRANDFATHER_DECEASED_CAUSE'
-,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>50
-,p_item_plug_id=>wwv_flow_imp.id(41454849946982542)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandfather Deceased Cause'
-,p_source=>'FAMILY_P_GRANDFATHER_DECEASED_CAUSE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
-,p_cSize=>60
-,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42018503332843665)
-,p_name=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(41455028963982544)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandfather Siblings'
-,p_source=>'FAMILY_P_GRANDFATHER_SIBLINGS'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42018973739843665)
-,p_name=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS_COUNT'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>20
-,p_item_plug_id=>wwv_flow_imp.id(41455028963982544)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandfather Siblings Count'
-,p_source=>'FAMILY_P_GRANDFATHER_SIBLINGS_COUNT'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42019348433843665)
-,p_name=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS_BC'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>30
-,p_item_plug_id=>wwv_flow_imp.id(41455028963982544)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandfather Siblings Bc'
-,p_source=>'FAMILY_P_GRANDFATHER_SIBLINGS_BC'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42019799777843667)
-,p_name=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS_CANADA'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>40
-,p_item_plug_id=>wwv_flow_imp.id(41455028963982544)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandfather Siblings Canada'
-,p_source=>'FAMILY_P_GRANDFATHER_SIBLINGS_CANADA'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42020133723843667)
-,p_name=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>50
-,p_item_plug_id=>wwv_flow_imp.id(41455028963982544)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandfather Siblings Deceased'
-,p_source=>'FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42020553251843667)
-,p_name=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_COUNT'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>60
-,p_item_plug_id=>wwv_flow_imp.id(41455028963982544)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandfather Siblings Deceased Count'
-,p_source=>'FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_COUNT'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42020991713843667)
-,p_name=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_AGE'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>70
-,p_item_plug_id=>wwv_flow_imp.id(41455028963982544)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandfather Siblings Deceased Age'
-,p_source=>'FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_AGE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42021366901843667)
-,p_name=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_CAUSE'
-,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>80
-,p_item_plug_id=>wwv_flow_imp.id(41455028963982544)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandfather Siblings Deceased Cause'
-,p_source=>'FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_CAUSE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
-,p_cSize=>60
-,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42021775011843668)
-,p_name=>'P5_FAMILY_P_GRANDMOTHER'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(41455241129982546)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandmother'
-,p_source=>'FAMILY_P_GRANDMOTHER'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42022122231843668)
-,p_name=>'P5_FAMILY_P_GRANDMOTHER_BC'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>20
-,p_item_plug_id=>wwv_flow_imp.id(41455241129982546)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandmother Bc'
-,p_source=>'FAMILY_P_GRANDMOTHER_BC'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42022523463843668)
-,p_name=>'P5_FAMILY_P_GRANDMOTHER_CANADA'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>30
-,p_item_plug_id=>wwv_flow_imp.id(41455241129982546)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandmother Canada'
-,p_source=>'FAMILY_P_GRANDMOTHER_CANADA'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42022928810843668)
-,p_name=>'P5_FAMILY_P_GRANDMOTHER_DECEASED_AGE'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>40
-,p_item_plug_id=>wwv_flow_imp.id(41455241129982546)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandmother Deceased Age'
-,p_source=>'FAMILY_P_GRANDMOTHER_DECEASED_AGE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42023323620843668)
-,p_name=>'P5_FAMILY_P_GRANDMOTHER_DECEASED_CAUSE'
-,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>50
-,p_item_plug_id=>wwv_flow_imp.id(41455241129982546)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandmother Deceased Cause'
-,p_source=>'FAMILY_P_GRANDMOTHER_DECEASED_CAUSE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
-,p_cSize=>60
-,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42023735897843670)
-,p_name=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(41455458166982548)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandmother Siblings'
-,p_source=>'FAMILY_P_GRANDMOTHER_SIBLINGS'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42024157982843670)
-,p_name=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS_COUNT'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>20
-,p_item_plug_id=>wwv_flow_imp.id(41455458166982548)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandmother Siblings Count'
-,p_source=>'FAMILY_P_GRANDMOTHER_SIBLINGS_COUNT'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42024529807843670)
-,p_name=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS_BC'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>30
-,p_item_plug_id=>wwv_flow_imp.id(41455458166982548)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandmother Siblings Bc'
-,p_source=>'FAMILY_P_GRANDMOTHER_SIBLINGS_BC'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42024901194843670)
-,p_name=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS_CANADA'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>40
-,p_item_plug_id=>wwv_flow_imp.id(41455458166982548)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandmother Siblings Canada'
-,p_source=>'FAMILY_P_GRANDMOTHER_SIBLINGS_CANADA'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42025372518843671)
-,p_name=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>50
-,p_item_plug_id=>wwv_flow_imp.id(41455458166982548)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandmother Siblings Deceased'
-,p_source=>'FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42025795562843671)
-,p_name=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED_COUNT'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>60
-,p_item_plug_id=>wwv_flow_imp.id(41455458166982548)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandmother Siblings Deceased Count'
-,p_source=>'FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED_COUNT'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42026138107843671)
-,p_name=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED_AGE'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>70
-,p_item_plug_id=>wwv_flow_imp.id(41455458166982548)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandmother Siblings Deceased Age'
-,p_source=>'FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED_AGE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42026562437843671)
-,p_name=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED_CAUSE'
-,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>80
-,p_item_plug_id=>wwv_flow_imp.id(41455458166982548)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family P Grandmother Siblings Deceased Cause'
-,p_source=>'FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED_CAUSE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
-,p_cSize=>60
-,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42026927620843671)
-,p_name=>'P5_FAMILY_GRANDCHILDREN'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>10
-,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Grandchildren'
-,p_source=>'FAMILY_GRANDCHILDREN'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No;0'
+,p_grid_column=>2
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(42027387097843673)
 ,p_name=>'P5_FAMILY_GRANDCHILDREN_SONS'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>20
+,p_item_sequence=>50
 ,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Grandchildren Sons'
+,p_prompt=>'a) If yes, how many grandsons'
 ,p_source=>'FAMILY_GRANDCHILDREN_SONS'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
 ,p_cSize=>32
 ,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_attribute_03=>'left'
 ,p_attribute_04=>'decimal'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(42027779649843673)
 ,p_name=>'P5_FAMILY_GRANDCHILDREN_DAUGHTERS'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>30
+,p_item_sequence=>60
 ,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Grandchildren Daughters'
+,p_prompt=>'and granddaughters'
 ,p_source=>'FAMILY_GRANDCHILDREN_DAUGHTERS'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
 ,p_cSize=>32
 ,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42028125006843673)
-,p_name=>'P5_FAMILY_GRANDCHILDREN_BC'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>40
-,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Grandchildren Bc'
-,p_source=>'FAMILY_GRANDCHILDREN_BC'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42028538363843673)
-,p_name=>'P5_FAMILY_GRANDCHILDREN_CANADA'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>50
-,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Grandchildren Canada'
-,p_source=>'FAMILY_GRANDCHILDREN_CANADA'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42028953252843675)
-,p_name=>'P5_FAMILY_GRANDCHILDREN_DECEASED'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>60
-,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Grandchildren Deceased'
-,p_source=>'FAMILY_GRANDCHILDREN_DECEASED'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42029340902843675)
-,p_name=>'P5_FAMILY_GRANDCHILDREN_DECEASED_COUNT'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>70
-,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Grandchildren Deceased Count'
-,p_source=>'FAMILY_GRANDCHILDREN_DECEASED_COUNT'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42029739355843675)
-,p_name=>'P5_FAMILY_GRANDCHILDREN_DECEASED_AGE'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>80
-,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Grandchildren Deceased Age'
-,p_source=>'FAMILY_GRANDCHILDREN_DECEASED_AGE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42030193605843675)
-,p_name=>'P5_FAMILY_GRANDCHILDREN_DECEASED_CAUSE'
-,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>90
-,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Grandchildren Deceased Cause'
-,p_source=>'FAMILY_GRANDCHILDREN_DECEASED_CAUSE'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
-,p_cSize=>60
-,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42030526469843675)
-,p_name=>'P5_FAMILY_GRANDCHILDREN_ADOPT'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>100
-,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family Grandchildren Adopt'
-,p_source=>'FAMILY_GRANDCHILDREN_ADOPT'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_colspan=>3
+,p_grid_column=>6
+,p_grid_label_column_span=>2
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_attribute_03=>'left'
@@ -23387,43 +21197,39 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_03=>'N'
 ,p_attribute_04=>'BOTH'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(42032576032843678)
 ,p_name=>'P5_WILLINGNESS'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>10
+,p_item_sequence=>40
 ,p_item_plug_id=>wwv_flow_imp.id(43030616804386304)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Willingness'
 ,p_source=>'WILLINGNESS'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:YES*;1,NO;0'
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'1'
+,p_attribute_02=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(42032904192843678)
 ,p_name=>'P5_PATIENT_DBID'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>20
+,p_item_sequence=>60
 ,p_item_plug_id=>wwv_flow_imp.id(43030616804386304)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Patient Dbid'
 ,p_source=>'PATIENT_DBID'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
+,p_display_as=>'NATIVE_HIDDEN'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_attribute_01=>'Y'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43031591999386313)
@@ -23439,6 +21245,2767 @@ wwv_flow_imp_page.create_page_item(
 ,p_lov_display_extra=>'NO'
 ,p_attribute_01=>'2'
 ,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43034156230386339)
+,p_name=>'P5_FAMILY_NIBLINGS'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>40
+,p_item_plug_id=>wwv_flow_imp.id(43033812807386336)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_source=>'FAMILY_NIBLINGS'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No -> Go to Question 10;0'
+,p_begin_on_new_line=>'N'
+,p_grid_label_column_span=>0
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'1'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43034375394386341)
+,p_name=>'P5_FAMILY_NIBLINGS_NEPHEWS'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(43033812807386336)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'a) If yes, how many nephews'
+,p_source=>'FAMILY_NIBLINGS_NEPHEWS'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43034486587386342)
+,p_name=>'P5_FAMILY_NIBLINGS_NIECES'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>70
+,p_item_plug_id=>wwv_flow_imp.id(43033812807386336)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'and nieces'
+,p_source=>'FAMILY_NIBLINGS_NIECES'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>2
+,p_grid_column=>6
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43034597289386343)
+,p_name=>'P5_FAMILY_NIBLINGS_BC'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>90
+,p_item_plug_id=>wwv_flow_imp.id(43033812807386336)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'b) How many of them live in BC'
+,p_source=>'FAMILY_NIBLINGS_BC'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43034607469386344)
+,p_name=>'P5_FAMILY_NIBLINGS_CANADA'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>110
+,p_item_plug_id=>wwv_flow_imp.id(43033812807386336)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'in other provinces of Canada '
+,p_source=>'FAMILY_NIBLINGS_CANADA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43034795881386345)
+,p_name=>'P5_FAMILY_NIBLINGS_DECEASED'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>130
+,p_item_plug_id=>wwv_flow_imp.id(43033812807386336)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'c)  Are any of them deceased?'
+,p_source=>'FAMILY_NIBLINGS_DECEASED'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:No;0,Yes;1'
+,p_colspan=>5
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43034803031386346)
+,p_name=>'P5_FAMILY_NIBLINGS_DECEASED_COUNT'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>150
+,p_item_plug_id=>wwv_flow_imp.id(43033812807386336)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'how many? '
+,p_source=>'FAMILY_NIBLINGS_DECEASED_COUNT'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>3
+,p_grid_column=>7
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43034966053386347)
+,p_name=>'P5_FAMILY_NIBLINGS_DECEASED_AGE'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>170
+,p_item_plug_id=>wwv_flow_imp.id(43033812807386336)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What age did they die at?'
+,p_source=>'FAMILY_NIBLINGS_DECEASED_AGE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>3
+,p_grid_column=>2
+,p_grid_label_column_span=>2
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43035045750386348)
+,p_name=>'P5_FAMILY_NIBLINGS_DECEASED_CAUSE'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>190
+,p_item_plug_id=>wwv_flow_imp.id(43033812807386336)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What was the cause of death?'
+,p_source=>'FAMILY_NIBLINGS_DECEASED_CAUSE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>60
+,p_cMaxlength=>500
+,p_begin_on_new_line=>'N'
+,p_colspan=>6
+,p_grid_column=>5
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43035217442386350)
+,p_name=>'P5_FAMILY_NIBLINGS_ADOPTED'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>210
+,p_item_plug_id=>wwv_flow_imp.id(43033812807386336)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'d) Are any of the above adopted or foster children? '
+,p_source=>'FAMILY_NIBLINGS_ADOPTED'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_grid_column=>2
+,p_grid_label_column_span=>4
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43468327318185903)
+,p_name=>'P5_FAMILY_CHILDREN'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(43468100491185901)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_source=>'FAMILY_CHILDREN'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No -> Go to Question 11;0'
+,p_begin_on_new_line=>'N'
+,p_grid_label_column_span=>0
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'1'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43468588973185905)
+,p_name=>'P5_FAMILY_CHILDREN_SONS'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(43468100491185901)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'a) If yes, how many sons'
+,p_source=>'FAMILY_CHILDREN_SONS'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43468667911185906)
+,p_name=>'P5_FAMILY_CHILDREN_DAUGHTERS'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>60
+,p_item_plug_id=>wwv_flow_imp.id(43468100491185901)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'and daughters'
+,p_source=>'FAMILY_CHILDREN_DAUGHTERS'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>3
+,p_grid_column=>6
+,p_grid_label_column_span=>2
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43468785281185907)
+,p_name=>'P5_FAMILY_CHILDREN_BC'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>70
+,p_item_plug_id=>wwv_flow_imp.id(43468100491185901)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'b) How many of them live in BC'
+,p_source=>'FAMILY_CHILDREN_BC'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43468860442185908)
+,p_name=>'P5_FAMILY_CHILDREN_CANADA'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>80
+,p_item_plug_id=>wwv_flow_imp.id(43468100491185901)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'in other provinces of Canada '
+,p_source=>'FAMILY_CHILDREN_CANADA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43468937495185909)
+,p_name=>'P5_FAMILY_CHILDREN_DECEASED'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>90
+,p_item_plug_id=>wwv_flow_imp.id(43468100491185901)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'c)  Are any of your children deceased?'
+,p_source=>'FAMILY_CHILDREN_DECEASED'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:No;0,Yes;1'
+,p_colspan=>5
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43469013997185910)
+,p_name=>'P5_FAMILY_CHILDREN_DECEASED_COUNT'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>100
+,p_item_plug_id=>wwv_flow_imp.id(43468100491185901)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'how many? '
+,p_source=>'FAMILY_CHILDREN_DECEASED_COUNT'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>3
+,p_grid_column=>7
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43469150809185911)
+,p_name=>'P5_FAMILY_CHILDREN_DECEASED_AGE'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>110
+,p_item_plug_id=>wwv_flow_imp.id(43468100491185901)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What age did they die at?'
+,p_source=>'FAMILY_CHILDREN_DECEASED_AGE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>3
+,p_grid_column=>2
+,p_grid_label_column_span=>2
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43469218334185912)
+,p_name=>'P5_FAMILY_CHILDREN_DECEASED_CAUSE'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>120
+,p_item_plug_id=>wwv_flow_imp.id(43468100491185901)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What was the cause of death?'
+,p_source=>'FAMILY_CHILDREN_DECEASED_CAUSE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>60
+,p_cMaxlength=>500
+,p_begin_on_new_line=>'N'
+,p_colspan=>6
+,p_grid_column=>5
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43469399136185913)
+,p_name=>'P5_FAMILY_CHILDREN_ADOPT'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>130
+,p_item_plug_id=>wwv_flow_imp.id(43468100491185901)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'d) Are any of your children adopted or foster children? '
+,p_source=>'FAMILY_CHILDREN_ADOPT'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_grid_column=>2
+,p_grid_label_column_span=>4
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43469595538185915)
+,p_name=>'P5_FAMILY_MOTHER_BC'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(41453279118982526)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'a) If yes, does she live in BC'
+,p_source=>'FAMILY_MOTHER_BC'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43469642595185916)
+,p_name=>'P5_FAMILY_MOTHER_CANADA'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>60
+,p_item_plug_id=>wwv_flow_imp.id(41453279118982526)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'in another province of Canada '
+,p_source=>'FAMILY_MOTHER_CANADA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43469790685185917)
+,p_name=>'P5_FAMILY_MOTHER_DECEASED_AGE'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>70
+,p_item_plug_id=>wwv_flow_imp.id(41453279118982526)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'b) If no, what age did she die at?'
+,p_source=>'FAMILY_MOTHER_DECEASED_AGE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43469825849185918)
+,p_name=>'P5_FAMILY_MOTHER_DECEASED_CAUSE'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>80
+,p_item_plug_id=>wwv_flow_imp.id(41453279118982526)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What was the cause of death?'
+,p_source=>'FAMILY_MOTHER_DECEASED_CAUSE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>60
+,p_cMaxlength=>500
+,p_begin_on_new_line=>'N'
+,p_colspan=>6
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43470052670185920)
+,p_name=>'P5_FAMILY_MOTHER_SIBLINGS'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>40
+,p_item_plug_id=>wwv_flow_imp.id(41453450029982528)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_source=>'FAMILY_MOTHER_SIBLINGS'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No -> Go to Question 13;0'
+,p_begin_on_new_line=>'N'
+,p_grid_label_column_span=>0
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'1'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43470192451185921)
+,p_name=>'P5_FAMILY_MOTHER_BROTHERS'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>60
+,p_item_plug_id=>wwv_flow_imp.id(41453450029982528)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'a) If yes, how many brothers '
+,p_source=>'FAMILY_MOTHER_BROTHERS'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43470212149185922)
+,p_name=>'P5_FAMILY_MOTHER_SISTERS'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>80
+,p_item_plug_id=>wwv_flow_imp.id(41453450029982528)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'and sisters '
+,p_source=>'FAMILY_MOTHER_SISTERS'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>2
+,p_grid_column=>6
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43470308027185923)
+,p_name=>'P5_FAMILY_MOTHER_SIBLINGS_BC'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>100
+,p_item_plug_id=>wwv_flow_imp.id(41453450029982528)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'b) How many of them live in BC'
+,p_source=>'FAMILY_MOTHER_SIBLINGS_BC'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43470414642185924)
+,p_name=>'P5_FAMILY_MOTHER_SIBLINGS_CANADA'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>120
+,p_item_plug_id=>wwv_flow_imp.id(41453450029982528)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'in other provinces of Canada '
+,p_source=>'FAMILY_MOTHER_SIBLINGS_CANADA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43470553164185925)
+,p_name=>'P5_FAMILY_MOTHER_SIBLINGS_DECEASED'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>140
+,p_item_plug_id=>wwv_flow_imp.id(41453450029982528)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'c)  Are any of her siblings deceased?'
+,p_source=>'FAMILY_MOTHER_SIBLINGS_DECEASED'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:No;0,Yes;1'
+,p_colspan=>5
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43470686898185926)
+,p_name=>'P5_FAMILY_MOTHER_SIBLINGS_DECEASED_COUNT'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>160
+,p_item_plug_id=>wwv_flow_imp.id(41453450029982528)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'how many? '
+,p_source=>'FAMILY_MOTHER_SIBLINGS_DECEASED_COUNT'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>3
+,p_grid_column=>7
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43470770832185927)
+,p_name=>'P5_FAMILY_MOTHER_SIBLINGS_DECEASED_AGE'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>180
+,p_item_plug_id=>wwv_flow_imp.id(41453450029982528)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What age did they die at?'
+,p_source=>'FAMILY_MOTHER_SIBLINGS_DECEASED_AGE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43470869111185928)
+,p_name=>'P5_FAMILY_MOTHER_SIBLINGS_DECEASED_CAUSE'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>200
+,p_item_plug_id=>wwv_flow_imp.id(41453450029982528)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What was the cause of death?'
+,p_source=>'FAMILY_MOTHER_SIBLINGS_DECEASED_CAUSE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>60
+,p_cMaxlength=>500
+,p_begin_on_new_line=>'N'
+,p_colspan=>6
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43470935338185929)
+,p_name=>'P5_FAMILY_MOTHER_SIBLINGS_HALF'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>240
+,p_item_plug_id=>wwv_flow_imp.id(41453450029982528)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'e) Are any of them half-brother/sister(s) or step-brother/sister(s)?'
+,p_source=>'FAMILY_MOTHER_SIBLINGS_HALF'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_grid_column=>2
+,p_grid_label_column_span=>6
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43471007304185930)
+,p_name=>'P5_FAMILY_MOTHER_SIBLINGS_ADOPT'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>220
+,p_item_plug_id=>wwv_flow_imp.id(41453450029982528)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'d) Are any of them adopted or foster children? '
+,p_source=>'FAMILY_MOTHER_SIBLINGS_ADOPT'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_grid_column=>2
+,p_grid_label_column_span=>4
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43471371928185933)
+,p_name=>'P5_FAMILY_MOTHER_COUSIN'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(41453615742982530)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_source=>'FAMILY_MOTHER_SIBLINGS'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No -> Go to Question 14;0'
+,p_begin_on_new_line=>'N'
+,p_grid_label_column_span=>0
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'1'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43471445242185934)
+,p_name=>'P5_FAMILY_MOTHER_COUSIN_COUNT'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(41453615742982530)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'a) If yes, how many cousins'
+,p_source=>'FAMILY_MOTHER_COUSIN_COUNT'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43471591673185935)
+,p_name=>'P5_FAMILY_MOTHER_COUSIN_BC'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>70
+,p_item_plug_id=>wwv_flow_imp.id(41453615742982530)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'b) How many of them live in BC'
+,p_source=>'FAMILY_MOTHER_COUSIN_BC'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43471614874185936)
+,p_name=>'P5_FAMILY_MOTHER_COUSIN_CANADA'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>90
+,p_item_plug_id=>wwv_flow_imp.id(41453615742982530)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'in other provinces of Canada '
+,p_source=>'FAMILY_MOTHER_COUSIN_CANADA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43471706197185937)
+,p_name=>'P5_FAMILY_MOTHER_COUSIN_DECEASED'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>110
+,p_item_plug_id=>wwv_flow_imp.id(41453615742982530)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'c)  Are any of your cousins deceased?'
+,p_source=>'FAMILY_MOTHER_COUSIN_DECEASED'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:No;0,Yes;1'
+,p_colspan=>5
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43471811705185938)
+,p_name=>'P5_FAMILY_MOTHER_COUSIN_DECEASED_COUNT'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>130
+,p_item_plug_id=>wwv_flow_imp.id(41453615742982530)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'how many? '
+,p_source=>'FAMILY_MOTHER_COUSIN_DECEASED_COUNT'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>3
+,p_grid_column=>7
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43471915994185939)
+,p_name=>'P5_FAMILY_MOTHER_COUSIN_DECEASED_AGE'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>150
+,p_item_plug_id=>wwv_flow_imp.id(41453615742982530)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What age did they die at?'
+,p_source=>'FAMILY_MOTHER_COUSIN_DECEASED_AGE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>3
+,p_grid_column=>2
+,p_grid_label_column_span=>2
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43472070087185940)
+,p_name=>'P5_FAMILY_MOTHER_COUSIN_DECEASED_CAUSE'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>170
+,p_item_plug_id=>wwv_flow_imp.id(41453615742982530)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What was the cause of death?'
+,p_source=>'FAMILY_MOTHER_COUSIN_DECEASED_CAUSE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>60
+,p_cMaxlength=>500
+,p_begin_on_new_line=>'N'
+,p_colspan=>6
+,p_grid_column=>5
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43472258863185942)
+,p_name=>'P5_FAMILY_M_GRANDFATHER'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(41453855604982532)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'Is he alive?'
+,p_source=>'FAMILY_M_GRANDFATHER'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No;0'
+,p_grid_column=>2
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
+);
+end;
+/
+begin
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43472393056185943)
+,p_name=>'P5_FAMILY_M_GRANDFATHER_BC'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(41453855604982532)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'a) If yes, does he live in BC'
+,p_source=>'FAMILY_M_GRANDFATHER_BC'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43472496617185944)
+,p_name=>'P5_FAMILY_M_GRANDFATHER_CANADA'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>70
+,p_item_plug_id=>wwv_flow_imp.id(41453855604982532)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'in another provinces of Canada '
+,p_source=>'FAMILY_M_GRANDFATHER_CANADA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43472596272185945)
+,p_name=>'P5_FAMILY_M_GRANDFATHER_DECEASED_AGE'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>90
+,p_item_plug_id=>wwv_flow_imp.id(41453855604982532)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'b) If no, what age did he die at?'
+,p_source=>'FAMILY_M_GRANDFATHER_DECEASED_AGE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43472627503185946)
+,p_name=>'P5_FAMILY_M_GRANDFATHER_DECEASED_CAUSE'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>110
+,p_item_plug_id=>wwv_flow_imp.id(41453855604982532)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What was the cause of death?'
+,p_source=>'FAMILY_M_GRANDFATHER_DECEASED_CAUSE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>60
+,p_cMaxlength=>500
+,p_begin_on_new_line=>'N'
+,p_colspan=>6
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43472861317185948)
+,p_name=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(43030883052386306)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_source=>'FAMILY_M_GRANDFATHER_SIBLINGS'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No -> Go to Question 16;0'
+,p_begin_on_new_line=>'N'
+,p_grid_label_column_span=>0
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'1'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43472936188185949)
+,p_name=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_COUNT'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(43030883052386306)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'a) If yes, how many siblings'
+,p_source=>'FAMILY_M_GRANDFATHER_SIBLINGS_COUNT'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43473073286185950)
+,p_name=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_BC'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>70
+,p_item_plug_id=>wwv_flow_imp.id(43030883052386306)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'b) How many of them live in BC'
+,p_source=>'FAMILY_M_GRANDFATHER_SIBLINGS_BC'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43578996132689201)
+,p_name=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_CANADA'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>90
+,p_item_plug_id=>wwv_flow_imp.id(43030883052386306)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'in other provinces of Canada '
+,p_source=>'FAMILY_M_GRANDFATHER_SIBLINGS_CANADA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43579010440689202)
+,p_name=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>110
+,p_item_plug_id=>wwv_flow_imp.id(43030883052386306)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'c)  Are any of his siblings deceased?'
+,p_source=>'FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:No;0,Yes;1'
+,p_colspan=>5
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43579116939689203)
+,p_name=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_COUNT'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>130
+,p_item_plug_id=>wwv_flow_imp.id(43030883052386306)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'how many? '
+,p_source=>'FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_COUNT'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>3
+,p_grid_column=>7
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43579297073689204)
+,p_name=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_AGE'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>150
+,p_item_plug_id=>wwv_flow_imp.id(43030883052386306)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What age did they die at?'
+,p_source=>'FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_AGE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43579327964689205)
+,p_name=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_CAUSE'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>170
+,p_item_plug_id=>wwv_flow_imp.id(43030883052386306)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What was the cause of death?'
+,p_source=>'FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_CAUSE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>60
+,p_cMaxlength=>500
+,p_begin_on_new_line=>'N'
+,p_colspan=>6
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43579517895689207)
+,p_name=>'P5_FAMILY_M_GRANDMOTHER'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(41454060123982534)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'Is she alive?'
+,p_source=>'FAMILY_M_GRANDFATHER'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No;0'
+,p_grid_column=>2
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43579655699689208)
+,p_name=>'P5_FAMILY_M_GRANDMOTHER_BC'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(41454060123982534)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'a) If yes, does she live in BC'
+,p_source=>'FAMILY_M_GRANDMOTHER_BC'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43579729980689209)
+,p_name=>'P5_FAMILY_M_GRANDMOTHER_CANADA'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>70
+,p_item_plug_id=>wwv_flow_imp.id(41454060123982534)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'in another province of Canada '
+,p_source=>'FAMILY_M_GRANDMOTHER_CANADA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43579856172689210)
+,p_name=>'P5_FAMILY_M_GRANDMOTHER_DECEASED_AGE'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>90
+,p_item_plug_id=>wwv_flow_imp.id(41454060123982534)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'b) If no, what age did she die at?'
+,p_source=>'FAMILY_M_GRANDMOTHER_DECEASED_AGE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43579911251689211)
+,p_name=>'P5_FAMILY_M_GRANDMOTHER_DECEASED_CAUSE'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>110
+,p_item_plug_id=>wwv_flow_imp.id(41454060123982534)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What was the cause of death?'
+,p_source=>'FAMILY_M_GRANDMOTHER_DECEASED_CAUSE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>60
+,p_cMaxlength=>500
+,p_begin_on_new_line=>'N'
+,p_colspan=>6
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43580196253689213)
+,p_name=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(43031068408386308)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_source=>'FAMILY_M_GRANDMOTHER_SIBLINGS'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No -> Go to Question 18;0'
+,p_begin_on_new_line=>'N'
+,p_grid_label_column_span=>0
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'1'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43580224486689214)
+,p_name=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS_COUNT'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(43031068408386308)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'a) If yes, how many siblings'
+,p_source=>'FAMILY_M_GRANDMOTHER_SIBLINGS_COUNT'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43580300412689215)
+,p_name=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS_BC'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>60
+,p_item_plug_id=>wwv_flow_imp.id(43031068408386308)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'b) How many of them live in BC'
+,p_source=>'FAMILY_M_GRANDMOTHER_SIBLINGS_BC'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43580410103689216)
+,p_name=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS_CANADA'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>70
+,p_item_plug_id=>wwv_flow_imp.id(43031068408386308)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'in other provinces of Canada '
+,p_source=>'FAMILY_M_GRANDMOTHER_SIBLINGS_CANADA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43580558650689217)
+,p_name=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>80
+,p_item_plug_id=>wwv_flow_imp.id(43031068408386308)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'c)  Are any of his siblings deceased?'
+,p_source=>'FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:No;0,Yes;1'
+,p_colspan=>5
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43580692895689218)
+,p_name=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_COUNT'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>90
+,p_item_plug_id=>wwv_flow_imp.id(43031068408386308)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'how many? '
+,p_source=>'FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_COUNT'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>3
+,p_grid_column=>7
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43580711826689219)
+,p_name=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_AGE'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>100
+,p_item_plug_id=>wwv_flow_imp.id(43031068408386308)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What age did they die at?'
+,p_source=>'FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_AGE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43580849966689220)
+,p_name=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_CAUSE'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>110
+,p_item_plug_id=>wwv_flow_imp.id(43031068408386308)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What was the cause of death?'
+,p_source=>'FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_CAUSE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>60
+,p_cMaxlength=>500
+,p_begin_on_new_line=>'N'
+,p_colspan=>6
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43581051722689222)
+,p_name=>'P5_FAMILY_FATHER'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>20
+,p_item_plug_id=>wwv_flow_imp.id(41454215331982536)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'Is he alive?'
+,p_source=>'FAMILY_FATHER'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No;0'
+,p_grid_column=>2
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43581154179689223)
+,p_name=>'P5_FAMILY_FATHER_BC'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>40
+,p_item_plug_id=>wwv_flow_imp.id(41454215331982536)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'a) If yes, does he live in BC'
+,p_source=>'FAMILY_FATHER_BC'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43581263456689224)
+,p_name=>'P5_FAMILY_FATHER_CANADA'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(41454215331982536)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'in another province of Canada '
+,p_source=>'FAMILY_FATHER_CANADA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43581337542689225)
+,p_name=>'P5_FAMILY_FATHER_DECEASED_AGE'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>60
+,p_item_plug_id=>wwv_flow_imp.id(41454215331982536)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'b) If no, what age did he die at?'
+,p_source=>'FAMILY_FATHER_DECEASED_AGE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43581403248689226)
+,p_name=>'P5_FAMILY_FATHER_DECEASED_CAUSE'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>70
+,p_item_plug_id=>wwv_flow_imp.id(41454215331982536)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What was the cause of death?'
+,p_source=>'FAMILY_FATHER_DECEASED_CAUSE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>60
+,p_cMaxlength=>500
+,p_begin_on_new_line=>'N'
+,p_colspan=>6
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43581605632689228)
+,p_name=>'P5_FAMILY_FATHER_SIBLINGS'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(41454425041982538)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_source=>'FAMILY_FATHER_SIBLINGS'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No -> Go to Question 20;0'
+,p_begin_on_new_line=>'N'
+,p_grid_label_column_span=>0
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'1'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43581719313689229)
+,p_name=>'P5_FAMILY_FATHER_BROTHERS'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(41454425041982538)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'a) If yes, how many brothers '
+,p_source=>'FAMILY_FATHER_BROTHERS'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43581894382689230)
+,p_name=>'P5_FAMILY_FATHER_SISTERS'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>70
+,p_item_plug_id=>wwv_flow_imp.id(41454425041982538)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'and sisters '
+,p_source=>'FAMILY_FATHER_SISTERS'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>2
+,p_grid_column=>6
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43581909895689231)
+,p_name=>'P5_FAMILY_FATHER_SIBLINGS_BC'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>80
+,p_item_plug_id=>wwv_flow_imp.id(41454425041982538)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'b) How many of them live in BC'
+,p_source=>'FAMILY_FATHER_SIBLINGS_BC'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43582011820689232)
+,p_name=>'P5_FAMILY_FATHER_SIBLINGS_CANADA'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>100
+,p_item_plug_id=>wwv_flow_imp.id(41454425041982538)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'in other provinces of Canada '
+,p_source=>'FAMILY_FATHER_SIBLINGS_CANADA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43582167191689233)
+,p_name=>'P5_FAMILY_FATHER_SIBLINGS_DECEASED'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>120
+,p_item_plug_id=>wwv_flow_imp.id(41454425041982538)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'c)  Are any of her siblings deceased?'
+,p_source=>'FAMILY_FATHER_SIBLINGS_DECEASED'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:No;0,Yes;1'
+,p_colspan=>5
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43582278797689234)
+,p_name=>'P5_FAMILY_FATHER_SIBLINGS_DECEASED_COUNT'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>140
+,p_item_plug_id=>wwv_flow_imp.id(41454425041982538)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'how many? '
+,p_source=>'FAMILY_FATHER_SIBLINGS_DECEASED_COUNT'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>3
+,p_grid_column=>7
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43582330827689235)
+,p_name=>'P5_FAMILY_FATHER_SIBLINGS_DECEASED_AGE'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>160
+,p_item_plug_id=>wwv_flow_imp.id(41454425041982538)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What age did they die at?'
+,p_source=>'FAMILY_FATHER_SIBLINGS_DECEASED_AGE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43582494477689236)
+,p_name=>'P5_FAMILY_FATHER_SIBLINGS_DECEASED_CAUSE'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>180
+,p_item_plug_id=>wwv_flow_imp.id(41454425041982538)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What was the cause of death?'
+,p_source=>'FAMILY_FATHER_SIBLINGS_DECEASED_CAUSE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>60
+,p_cMaxlength=>500
+,p_begin_on_new_line=>'N'
+,p_colspan=>6
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43582532366689237)
+,p_name=>'P5_FAMILY_FATHER_SIBLINGS_ADOPT'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>200
+,p_item_plug_id=>wwv_flow_imp.id(41454425041982538)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'d) Are any of them adopted or foster children? '
+,p_source=>'FAMILY_FATHER_SIBLINGS_ADOPT'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_grid_column=>2
+,p_grid_label_column_span=>4
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43582667381689238)
+,p_name=>'P5_FAMILY_FATHER_SIBLINGS_HALF'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>220
+,p_item_plug_id=>wwv_flow_imp.id(41454425041982538)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'e) Are any of them half-brother/sister(s) or step-brother/sister(s)?'
+,p_source=>'FAMILY_FATHER_SIBLINGS_DECEASED_HALF'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_grid_column=>2
+,p_grid_label_column_span=>6
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43582837308689240)
+,p_name=>'P5_FAMILY_FATHER_COUSINS'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(41454619483982540)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_source=>'FAMILY_FATHER_COUSINS'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No -> Go to Question 21;0'
+,p_begin_on_new_line=>'N'
+,p_grid_label_column_span=>0
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'1'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43582911628689241)
+,p_name=>'P5_FAMILY_FATHER_COUSINS_COUNT'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(41454619483982540)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'a) If yes, how many cousins'
+,p_source=>'FAMILY_FATHER_COUSINS_COUNT'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43583042549689242)
+,p_name=>'P5_FAMILY_FATHER_COUSINS_BC'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>70
+,p_item_plug_id=>wwv_flow_imp.id(41454619483982540)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'b) How many of them live in BC'
+,p_source=>'FAMILY_FATHER_COUSINS_BC'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43583102026689243)
+,p_name=>'P5_FAMILY_FATHER_COUSINS_CANADA'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>90
+,p_item_plug_id=>wwv_flow_imp.id(41454619483982540)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'in other provinces of Canada '
+,p_source=>'FAMILY_FATHER_COUSINS_CANADA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43583259504689244)
+,p_name=>'P5_FAMILY_FATHER_COUSINS_DECEASED'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>110
+,p_item_plug_id=>wwv_flow_imp.id(41454619483982540)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'c)  Are any of your cousins deceased?'
+,p_source=>'FAMILY_FATHER_COUSINS_DECEASED'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:No;0,Yes;1'
+,p_colspan=>5
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
+);
+end;
+/
+begin
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43583374738689245)
+,p_name=>'P5_FAMILY_FATHER_COUSINS_DECEASED_COUNT'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>130
+,p_item_plug_id=>wwv_flow_imp.id(41454619483982540)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'how many? '
+,p_source=>'FAMILY_FATHER_COUSINS_DECEASED_COUNT'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>3
+,p_grid_column=>7
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43583483089689246)
+,p_name=>'P5_FAMILY_FATHER_COUSINS_DECEASED_AGE'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>150
+,p_item_plug_id=>wwv_flow_imp.id(41454619483982540)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What age did they die at?'
+,p_source=>'FAMILY_FATHER_COUSINS_DECEASED_AGE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43583579536689247)
+,p_name=>'P5_FAMILY_FATHER_COUSINS_DECEASED_CAUSE'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>170
+,p_item_plug_id=>wwv_flow_imp.id(41454619483982540)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What was the cause of death?'
+,p_source=>'FAMILY_FATHER_COUSINS_DECEASED_CAUSE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>60
+,p_cMaxlength=>500
+,p_begin_on_new_line=>'N'
+,p_colspan=>6
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43583753324689249)
+,p_name=>'P5_FAMILY_P_GRANDFATHER'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(41454849946982542)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'Is he alive?'
+,p_source=>'FAMILY_P_GRANDFATHER'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No;0'
+,p_grid_column=>2
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43583807809689250)
+,p_name=>'P5_FAMILY_P_GRANDFATHER_BC'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(41454849946982542)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'b) How many of them live in BC'
+,p_source=>'FAMILY_P_GRANDFATHER_BC'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43662402995698001)
+,p_name=>'P5_FAMILY_P_GRANDFATHER_CANADA'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>70
+,p_item_plug_id=>wwv_flow_imp.id(41454849946982542)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'in other provinces of Canada '
+,p_source=>'FAMILY_P_GRANDFATHER_CANADA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43662510740698002)
+,p_name=>'P5_FAMILY_P_GRANDFATHER_DECEASED_AGE'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>90
+,p_item_plug_id=>wwv_flow_imp.id(41454849946982542)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What age did they die at?'
+,p_source=>'FAMILY_P_GRANDFATHER_DECEASED_AGE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43662685471698003)
+,p_name=>'P5_FAMILY_P_GRANDFATHER_DECEASED_CAUSE'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>110
+,p_item_plug_id=>wwv_flow_imp.id(41454849946982542)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What was the cause of death?'
+,p_source=>'FAMILY_P_GRANDFATHER_DECEASED_CAUSE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>60
+,p_cMaxlength=>500
+,p_begin_on_new_line=>'N'
+,p_colspan=>6
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43662873089698005)
+,p_name=>'P5_FAMILY_P_GRANDMOTHER'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(41455241129982546)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'Is she alive?'
+,p_source=>'FAMILY_P_GRANDMOTHER'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No;0'
+,p_grid_column=>2
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43662980463698006)
+,p_name=>'P5_FAMILY_P_GRANDMOTHER_BC'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(41455241129982546)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'a) If yes, does she live in BC'
+,p_source=>'FAMILY_P_GRANDMOTHER_BC'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43663078928698007)
+,p_name=>'P5_FAMILY_P_GRANDMOTHER_CANADA'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>70
+,p_item_plug_id=>wwv_flow_imp.id(41455241129982546)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'in another province of Canada '
+,p_source=>'FAMILY_P_GRANDMOTHER_CANADA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43663111779698008)
+,p_name=>'P5_FAMILY_P_GRANDMOTHER_DECEASED_AGE'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>90
+,p_item_plug_id=>wwv_flow_imp.id(41455241129982546)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What age did they die at?'
+,p_source=>'FAMILY_P_GRANDMOTHER_DECEASED_AGE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43663205692698009)
+,p_name=>'P5_FAMILY_P_GRANDMOTHER_DECEASED_CAUSE'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>110
+,p_item_plug_id=>wwv_flow_imp.id(41455241129982546)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What was the cause of death?'
+,p_source=>'FAMILY_P_GRANDMOTHER_DECEASED_CAUSE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>60
+,p_cMaxlength=>500
+,p_begin_on_new_line=>'N'
+,p_colspan=>6
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43663401129698011)
+,p_name=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(41455028963982544)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_source=>'FAMILY_P_GRANDFATHER_SIBLINGS'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No -> Go to Question 23;0'
+,p_begin_on_new_line=>'N'
+,p_grid_label_column_span=>0
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'1'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43663507719698012)
+,p_name=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS_COUNT'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(41455028963982544)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'a) If yes, how many siblings'
+,p_source=>'FAMILY_P_GRANDFATHER_SIBLINGS_COUNT'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43663692919698013)
+,p_name=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS_BC'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>70
+,p_item_plug_id=>wwv_flow_imp.id(41455028963982544)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'b) How many of them live in BC'
+,p_source=>'FAMILY_P_GRANDFATHER_SIBLINGS_BC'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43663791731698014)
+,p_name=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS_CANADA'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>90
+,p_item_plug_id=>wwv_flow_imp.id(41455028963982544)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'in other provinces of Canada '
+,p_source=>'FAMILY_P_GRANDFATHER_SIBLINGS_CANADA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43663875949698015)
+,p_name=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>110
+,p_item_plug_id=>wwv_flow_imp.id(41455028963982544)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'c)  Are any of his siblings deceased?'
+,p_source=>'FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:No;0,Yes;1'
+,p_colspan=>5
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43663967201698016)
+,p_name=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_COUNT'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>130
+,p_item_plug_id=>wwv_flow_imp.id(41455028963982544)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'how many? '
+,p_source=>'FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_COUNT'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>3
+,p_grid_column=>7
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43664016307698017)
+,p_name=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_AGE'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>150
+,p_item_plug_id=>wwv_flow_imp.id(41455028963982544)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What age did they die at?'
+,p_source=>'FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_AGE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43664193527698018)
+,p_name=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_CAUSE'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>170
+,p_item_plug_id=>wwv_flow_imp.id(41455028963982544)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What was the cause of death?'
+,p_source=>'FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_CAUSE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>60
+,p_cMaxlength=>500
+,p_begin_on_new_line=>'N'
+,p_colspan=>6
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43664676079698023)
+,p_name=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(41455458166982548)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_source=>'FAMILY_P_GRANDMOTHER_SIBLINGS'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No -> Go to Question 25;0'
+,p_begin_on_new_line=>'N'
+,p_grid_label_column_span=>0
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'1'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43664786329698024)
+,p_name=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS_COUNT'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>50
+,p_item_plug_id=>wwv_flow_imp.id(41455458166982548)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'a) If yes, how many siblings'
+,p_source=>'FAMILY_P_GRANDMOTHER_SIBLINGS_COUNT'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43664863977698025)
+,p_name=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS_BC'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>60
+,p_item_plug_id=>wwv_flow_imp.id(41455458166982548)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'b) How many of them live in BC'
+,p_source=>'FAMILY_P_GRANDMOTHER_SIBLINGS_BC'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43664971108698026)
+,p_name=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS_CANADA'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>80
+,p_item_plug_id=>wwv_flow_imp.id(41455458166982548)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'in other provinces of Canada '
+,p_source=>'FAMILY_P_GRANDMOTHER_SIBLINGS_CANADA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43665078956698027)
+,p_name=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>100
+,p_item_plug_id=>wwv_flow_imp.id(41455458166982548)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'c)  Are any of his siblings deceased?'
+,p_source=>'FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:No;0,Yes;1'
+,p_colspan=>5
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43665159803698028)
+,p_name=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED_COUNT'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>120
+,p_item_plug_id=>wwv_flow_imp.id(41455458166982548)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'how many? '
+,p_source=>'FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED_COUNT'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>3
+,p_grid_column=>7
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43665264745698029)
+,p_name=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED_AGE'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>140
+,p_item_plug_id=>wwv_flow_imp.id(41455458166982548)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What age did they die at?'
+,p_source=>'FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED_AGE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43665309284698030)
+,p_name=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED_CAUSE'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>160
+,p_item_plug_id=>wwv_flow_imp.id(41455458166982548)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What was the cause of death?'
+,p_source=>'FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED_CAUSE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>60
+,p_cMaxlength=>500
+,p_begin_on_new_line=>'N'
+,p_colspan=>6
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43665787139698034)
+,p_name=>'P5_FAMILY_GRANDCHILDREN'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_source=>'FAMILY_P_GRANDMOTHER_SIBLINGS'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:Yes;1,No;0'
+,p_begin_on_new_line=>'N'
+,p_grid_label_column_span=>0
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43665818656698035)
+,p_name=>'P5_FAMILY_GRANDCHILDREN_BC'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>70
+,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'b) How many of them live in BC'
+,p_source=>'FAMILY_GRANDCHILDREN_BC'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43665941119698036)
+,p_name=>'P5_FAMILY_GRANDCHILDREN_CANADA'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>80
+,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'in other provinces of Canada '
+,p_source=>'FAMILY_GRANDCHILDREN_CANADA'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>4
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43666064212698037)
+,p_name=>'P5_FAMILY_GRANDCHILDREN_DECEASED'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>110
+,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'c)  Are any of your grandchildren deceased?'
+,p_source=>'FAMILY_GRANDCHILDREN_DECEASED'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:No;0,Yes;1'
+,p_colspan=>5
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43666153705698038)
+,p_name=>'P5_FAMILY_GRANDCHILDREN_DECEASED_COUNT'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>130
+,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'how many? '
+,p_source=>'FAMILY_GRANDCHILDREN_DECEASED_COUNT'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_begin_on_new_line=>'N'
+,p_colspan=>3
+,p_grid_column=>7
+,p_grid_label_column_span=>1
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43666295149698039)
+,p_name=>'P5_FAMILY_GRANDCHILDREN_DECEASED_AGE'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>160
+,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What age did they die at?'
+,p_source=>'FAMILY_GRANDCHILDREN_DECEASED_AGE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_colspan=>4
+,p_grid_column=>2
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43666326572698040)
+,p_name=>'P5_FAMILY_GRANDCHILDREN_DECEASED_CAUSE'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>190
+,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'What was the cause of death?'
+,p_source=>'FAMILY_GRANDCHILDREN_DECEASED_CAUSE'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXT_FIELD'
+,p_cSize=>60
+,p_cMaxlength=>500
+,p_begin_on_new_line=>'N'
+,p_colspan=>6
+,p_grid_column=>6
+,p_grid_label_column_span=>3
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'N'
+,p_attribute_02=>'N'
+,p_attribute_04=>'TEXT'
+,p_attribute_05=>'BOTH'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(43666435235698041)
+,p_name=>'P5_FAMILY_GRANDCHILDREN_ADOPT'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>210
+,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'d) Are any of your grandchildren adopted or foster children? '
+,p_source=>'FAMILY_GRANDCHILDREN_ADOPT'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_NUMBER_FIELD'
+,p_cSize=>32
+,p_grid_column=>2
+,p_grid_label_column_span=>4
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_03=>'left'
+,p_attribute_04=>'decimal'
 );
 wwv_flow_imp_page.create_page_da_event(
  p_id=>wwv_flow_imp.id(43031296837386310)
