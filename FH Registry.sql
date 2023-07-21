@@ -28,17 +28,17 @@ prompt APPLICATION 230701 - FH Registry
 -- Application Export:
 --   Application:     230701
 --   Name:            FH Registry
---   Date and Time:   11:12 Friday July 21, 2023
+--   Date and Time:   11:46 Friday July 21, 2023
 --   Exported By:     MWONG
 --   Flashback:       0
 --   Export Type:     Application Export
 --     Pages:                      7
 --       Items:                  251
---       Validations:             10
+--       Validations:             34
 --       Processes:                8
 --       Regions:                 68
 --       Buttons:                 11
---       Dynamic Actions:         47
+--       Dynamic Actions:         55
 --     Shared Components:
 --       Logic:
 --         Build Options:          1
@@ -113,7 +113,7 @@ wwv_flow_imp.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'FH Registry'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230721111144'
+,p_last_upd_yyyymmddhh24miss=>'20230721114620'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>4
 ,p_print_server_type=>'INSTANCE'
@@ -18342,7 +18342,7 @@ wwv_flow_imp_page.create_page(
 ,p_protection_level=>'C'
 ,p_page_component_map=>'02'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230721111144'
+,p_last_upd_yyyymmddhh24miss=>'20230721114620'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(41942945761843600)
@@ -24200,6 +24200,438 @@ wwv_flow_imp_page.create_page_validation(
 ,p_associated_item=>wwv_flow_imp.id(41949738072843607)
 ,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
 );
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43889004860695008)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS'
+,p_validation_sequence=>110
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41950555387843607)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43889110384695009)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_NAME'
+,p_validation_sequence=>120
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_STATINS = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_NAME is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41953721557843610)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43889322313695011)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_DOSAGE'
+,p_validation_sequence=>130
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_STATINS = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_DOSAGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41954144548843610)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43892874452695046)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN'
+,p_validation_sequence=>140
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing Value'
+,p_associated_item=>wwv_flow_imp.id(41950953601843609)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43892955997695047)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN_NAME'
+,p_validation_sequence=>150
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_STATINS = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN_NAME is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing Value'
+,p_associated_item=>wwv_flow_imp.id(41954550018843610)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43893062345695048)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN_DOSAGE'
+,p_validation_sequence=>160
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_STATINS = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN_DOSAGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41954955158843612)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43910344523844201)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE'
+,p_validation_sequence=>170
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41951306852843609)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43910430328844202)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE'
+,p_validation_sequence=>180
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41951761919843609)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43910538800844203)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS'
+,p_validation_sequence=>190
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41952179456843609)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43910631770844204)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9'
+,p_validation_sequence=>200
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9 is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41952552407843609)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43910706866844205)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL'
+,p_validation_sequence=>210
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41952942684843610)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43910843501844206)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER'
+,p_validation_sequence=>220
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41953302822843610)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43910979721844207)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_NAME'
+,p_validation_sequence=>230
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_NAME is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41955314558843612)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43911049395844208)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_DOSAGE'
+,p_validation_sequence=>240
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_DOSAGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41955735845843612)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43911187060844209)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_NAME'
+,p_validation_sequence=>250
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_NAME is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41956177194843612)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43911256369844210)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_DOSAGE'
+,p_validation_sequence=>260
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_DOSAGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41956520882843614)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43911342874844211)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_NAME'
+,p_validation_sequence=>270
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_NAME is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41956922566843614)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43911485259844212)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_DOSAGE'
+,p_validation_sequence=>280
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_DOSAGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41957359889843614)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43911537626844213)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_NAME'
+,p_validation_sequence=>290
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9 = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_NAME is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41957763380843614)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43911693884844214)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_DOSAGE'
+,p_validation_sequence=>300
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9 = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_DOSAGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41958175300843614)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43911719313844215)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_NAME'
+,p_validation_sequence=>310
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_NAME is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41958520798843615)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43911825784844216)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_DOSAGE'
+,p_validation_sequence=>320
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_DOSAGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41958905128843615)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43911919647844217)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER_NAME'
+,p_validation_sequence=>330
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER_NAME is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41959356615843615)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43912031270844218)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER_DOSAGE'
+,p_validation_sequence=>340
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER_NAME is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41959794294843615)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
 wwv_flow_imp_page.create_page_da_event(
  p_id=>wwv_flow_imp.id(43031296837386310)
 ,p_name=>'Set Today''s Date'
@@ -24302,11 +24734,8 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_execute_on_page_init=>'Y'
 ,p_action=>'NATIVE_SHOW'
 ,p_affected_elements_type=>'ITEM'
-,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS,P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN,P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN_NAME,P5_CHOLESTEROL_TREATMENT_CURRE'
-||'NT_NIACIN_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_'
-||'NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9,P5_CHOLESTEROL_TREATMENT'
-||'_CURRENT_PCSK9_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL,P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER,P5_CHOLEST'
-||'EROL_TREATMENT_CURRENT_OTHER_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER_DOSAGE'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS,P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS,P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9,P5'
+||'_CHOLESTEROL_TREATMENT_CURRENT_NATURAL,P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER'
 );
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(43765490973199803)
@@ -24316,11 +24745,8 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_execute_on_page_init=>'N'
 ,p_action=>'NATIVE_CLEAR'
 ,p_affected_elements_type=>'ITEM'
-,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS,P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN,P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN_NAME,P5_CHOLESTEROL_TREATMENT_CURRE'
-||'NT_NIACIN_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_'
-||'NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9,P5_CHOLESTEROL_TREATMENT'
-||'_CURRENT_PCSK9_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL,P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER,P5_CHOLEST'
-||'EROL_TREATMENT_CURRENT_OTHER_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER_DOSAGE'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS,P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS,P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9,P5'
+||'_CHOLESTEROL_TREATMENT_CURRENT_NATURAL,P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER'
 );
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(43765556537199804)
@@ -24330,11 +24756,8 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_execute_on_page_init=>'Y'
 ,p_action=>'NATIVE_HIDE'
 ,p_affected_elements_type=>'ITEM'
-,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS,P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN,P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN_NAME,P5_CHOLESTEROL_TREATMENT_CURRE'
-||'NT_NIACIN_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_'
-||'NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9,P5_CHOLESTEROL_TREATMENT'
-||'_CURRENT_PCSK9_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL,P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER,P5_CHOLEST'
-||'EROL_TREATMENT_CURRENT_OTHER_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER_DOSAGE'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS,P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS,P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9,P5'
+||'_CHOLESTEROL_TREATMENT_CURRENT_NATURAL,P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER'
 );
 wwv_flow_imp_page.create_page_da_event(
  p_id=>wwv_flow_imp.id(43765660978199805)
@@ -24509,6 +24932,9 @@ wwv_flow_imp_page.create_page_da_action(
 ||'GIOGRAPHY,P5_PERSONAL_BLOOD_ANGIOGRAPHY_DATE,P5_PERSONAL_BLOOD_STROKE,P5_PERSONAL_BLOOD_STROKE_DATE,P5_PERSONAL_BLOOD_LEG,P5_PERSONAL_BLOOD_LEG_DATE,P5_PERSONAL_BLOOD_PERIPHERAL,P5_PERSONAL_BLOOD_PERIPHERAL_DATE,P5_PERSONAL_BLOOD_OTHER,P5_PERSONAL_BL'
 ||'OOD_OTHER_DATE'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(43767278689199821)
 ,p_event_id=>wwv_flow_imp.id(43766820722199817)
@@ -24885,9 +25311,6 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements_type=>'ITEM'
 ,p_affected_elements=>'P5_FAMILY_CHILDREN_SONS,P5_FAMILY_CHILDREN_DAUGHTERS,P5_FAMILY_CHILDREN_BC,P5_FAMILY_CHILDREN_CANADA,P5_FAMILY_CHILDREN_DECEASED,P5_FAMILY_CHILDREN_ADOPT'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(43809617816376812)
 ,p_event_id=>wwv_flow_imp.id(43809333779376809)
@@ -25351,6 +25774,9 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements_type=>'ITEM'
 ,p_affected_elements=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_COUNT,P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_AGE,P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_CAUSE'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(43838928774520607)
 ,p_event_id=>wwv_flow_imp.id(43838742726520605)
@@ -25728,9 +26154,6 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_execution_type=>'IMMEDIATE'
 ,p_bind_event_type=>'change'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(43842437285520642)
 ,p_event_id=>wwv_flow_imp.id(43842382712520641)
@@ -26181,6 +26604,9 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements_type=>'ITEM'
 ,p_affected_elements=>'P5_FAMILY_GRANDCHILDREN_SONS,P5_FAMILY_GRANDCHILDREN_DAUGHTERS,P5_FAMILY_GRANDCHILDREN_BC,P5_FAMILY_GRANDCHILDREN_CANADA,P5_FAMILY_GRANDCHILDREN_DECEASED,P5_FAMILY_GRANDCHILDREN_ADOPT'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(43861284910591436)
 ,p_event_id=>wwv_flow_imp.id(43860725046591431)
@@ -26319,6 +26745,350 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_action=>'NATIVE_CLEAR'
 ,p_affected_elements_type=>'ITEM'
 ,p_affected_elements=>'P5_FAMILY_1_DEGREE_FAM_CHOL_INFO'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43889648103695014)
+,p_name=>'Display current statins'
+,p_event_sequence=>480
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS'
+,p_condition_element=>'P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43889750151695015)
+,p_event_id=>wwv_flow_imp.id(43889648103695014)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43891254740695030)
+,p_event_id=>wwv_flow_imp.id(43889648103695014)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43891314044695031)
+,p_event_id=>wwv_flow_imp.id(43889648103695014)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43889872505695016)
+,p_name=>'Display current niacin'
+,p_event_sequence=>490
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN'
+,p_condition_element=>'P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43889977605695017)
+,p_event_id=>wwv_flow_imp.id(43889872505695016)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43891463955695032)
+,p_event_id=>wwv_flow_imp.id(43889872505695016)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43891595380695033)
+,p_event_id=>wwv_flow_imp.id(43889872505695016)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43890010106695018)
+,p_name=>'Display current fenofibrate'
+,p_event_sequence=>500
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE'
+,p_condition_element=>'P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43890197872695019)
+,p_event_id=>wwv_flow_imp.id(43890010106695018)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43891694182695034)
+,p_event_id=>wwv_flow_imp.id(43890010106695018)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43891791446695035)
+,p_event_id=>wwv_flow_imp.id(43890010106695018)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43890203405695020)
+,p_name=>'Display current ezetimibe'
+,p_event_sequence=>510
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE'
+,p_condition_element=>'P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43890395867695021)
+,p_event_id=>wwv_flow_imp.id(43890203405695020)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43891877939695036)
+,p_event_id=>wwv_flow_imp.id(43890203405695020)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43891977598695037)
+,p_event_id=>wwv_flow_imp.id(43890203405695020)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43890451225695022)
+,p_name=>'Display current resins'
+,p_event_sequence=>520
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS'
+,p_condition_element=>'P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43890596364695023)
+,p_event_id=>wwv_flow_imp.id(43890451225695022)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43892023158695038)
+,p_event_id=>wwv_flow_imp.id(43890451225695022)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43892103242695039)
+,p_event_id=>wwv_flow_imp.id(43890451225695022)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43890600070695024)
+,p_name=>'Display current pcsk9'
+,p_event_sequence=>530
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9'
+,p_condition_element=>'P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43890733579695025)
+,p_event_id=>wwv_flow_imp.id(43890600070695024)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43892251641695040)
+,p_event_id=>wwv_flow_imp.id(43890600070695024)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43892335813695041)
+,p_event_id=>wwv_flow_imp.id(43890600070695024)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43890864375695026)
+,p_name=>'Display current natural'
+,p_event_sequence=>540
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL'
+,p_condition_element=>'P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43890982055695027)
+,p_event_id=>wwv_flow_imp.id(43890864375695026)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43892499430695042)
+,p_event_id=>wwv_flow_imp.id(43890864375695026)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43892539268695043)
+,p_event_id=>wwv_flow_imp.id(43890864375695026)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43891068923695028)
+,p_name=>'Display current other'
+,p_event_sequence=>550
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER'
+,p_condition_element=>'P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43891138188695029)
+,p_event_id=>wwv_flow_imp.id(43891068923695028)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43892672516695044)
+,p_event_id=>wwv_flow_imp.id(43891068923695028)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43892753672695045)
+,p_event_id=>wwv_flow_imp.id(43891068923695028)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER_DOSAGE'
 );
 wwv_flow_imp_page.create_page_process(
  p_id=>wwv_flow_imp.id(42107246718843737)
