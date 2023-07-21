@@ -28,16 +28,17 @@ prompt APPLICATION 230701 - FH Registry
 -- Application Export:
 --   Application:     230701
 --   Name:            FH Registry
---   Date and Time:   16:58 Thursday July 20, 2023
+--   Date and Time:   11:12 Friday July 21, 2023
 --   Exported By:     MWONG
 --   Flashback:       0
 --   Export Type:     Application Export
 --     Pages:                      7
 --       Items:                  251
+--       Validations:             10
 --       Processes:                8
 --       Regions:                 68
 --       Buttons:                 11
---       Dynamic Actions:          1
+--       Dynamic Actions:         47
 --     Shared Components:
 --       Logic:
 --         Build Options:          1
@@ -112,7 +113,7 @@ wwv_flow_imp.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'FH Registry'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230720165755'
+,p_last_upd_yyyymmddhh24miss=>'20230721111144'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>4
 ,p_print_server_type=>'INSTANCE'
@@ -18341,7 +18342,7 @@ wwv_flow_imp_page.create_page(
 ,p_protection_level=>'C'
 ,p_page_component_map=>'02'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230720165755'
+,p_last_upd_yyyymmddhh24miss=>'20230721111144'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(41942945761843600)
@@ -18430,7 +18431,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_parent_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_region_template_options=>'#DEFAULT#'
 ,p_plug_template=>wwv_flow_imp.id(41693526701843220)
-,p_plug_display_sequence=>540
+,p_plug_display_sequence=>420
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_plug_header=>'3. Have you ever had to stop using cholesterol-lowering medications?'
 ,p_attribute_01=>'N'
@@ -18442,7 +18443,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_parent_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_region_template_options=>'#DEFAULT#'
 ,p_plug_template=>wwv_flow_imp.id(41693526701843220)
-,p_plug_display_sequence=>560
+,p_plug_display_sequence=>440
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_plug_header=>'a) If yes, what was the reason you had to stop?'
 ,p_attribute_01=>'N'
@@ -18525,7 +18526,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_region_template_options=>'#DEFAULT#'
 ,p_plug_template=>wwv_flow_imp.id(41693526701843220)
 ,p_plug_display_sequence=>20
-,p_plug_grid_column_span=>4
+,p_plug_grid_column_span=>5
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_plug_header=>'12. Does your mother have any brothers or sisters?'
 ,p_attribute_01=>'N'
@@ -19148,6 +19149,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41943720311843601)
 ,p_name=>'P5_FHID'
 ,p_source_data_type=>'NUMBER'
+,p_is_required=>true
 ,p_item_sequence=>10
 ,p_item_plug_id=>wwv_flow_imp.id(41451414550982508)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
@@ -19167,6 +19169,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41944182178843601)
 ,p_name=>'P5_TODAY_DATE'
 ,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
 ,p_item_sequence=>20
 ,p_item_plug_id=>wwv_flow_imp.id(41451414550982508)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
@@ -19197,6 +19200,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41944546352843603)
 ,p_name=>'P5_WEIGHT'
 ,p_source_data_type=>'NUMBER'
+,p_is_required=>true
 ,p_item_sequence=>30
 ,p_item_plug_id=>wwv_flow_imp.id(41451414550982508)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
@@ -19215,6 +19219,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41944902252843603)
 ,p_name=>'P5_WEIGHT_TYPE'
 ,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
 ,p_item_sequence=>40
 ,p_item_plug_id=>wwv_flow_imp.id(41451414550982508)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
@@ -19236,6 +19241,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41945331376843603)
 ,p_name=>'P5_HEIGHT'
 ,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
 ,p_item_sequence=>60
 ,p_item_plug_id=>wwv_flow_imp.id(41451414550982508)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
@@ -19258,6 +19264,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41945777278843603)
 ,p_name=>'P5_HEIGHT_TYPE'
 ,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
 ,p_item_sequence=>70
 ,p_item_plug_id=>wwv_flow_imp.id(41451414550982508)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
@@ -19498,7 +19505,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41950555387843607)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>220
+,p_item_sequence=>170
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'a. Statins (Crestor, Lipitor etc.)'
@@ -19519,7 +19526,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41950953601843609)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>250
+,p_item_sequence=>210
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'b. Niacin'
@@ -19540,7 +19547,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41951306852843609)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>290
+,p_item_sequence=>240
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'c. Fenofibrate'
@@ -19561,7 +19568,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41951761919843609)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>330
+,p_item_sequence=>270
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'d. Ezetimibe'
@@ -19582,7 +19589,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41952179456843609)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>370
+,p_item_sequence=>300
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'e. Resins'
@@ -19603,7 +19610,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41952552407843609)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>410
+,p_item_sequence=>330
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'d. PCSK9'
@@ -19624,7 +19631,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41952942684843610)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>450
+,p_item_sequence=>360
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'f. Natural Products'
@@ -19645,7 +19652,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41953302822843610)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>490
+,p_item_sequence=>390
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'h. Other'
@@ -19666,7 +19673,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41953721557843610)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_NAME'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>230
+,p_item_sequence=>180
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Name'
@@ -19691,7 +19698,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41954144548843610)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_DOSAGE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>240
+,p_item_sequence=>190
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Dosage/day'
@@ -19715,7 +19722,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41954550018843610)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN_NAME'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>260
+,p_item_sequence=>220
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Name'
@@ -19740,7 +19747,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41954955158843612)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN_DOSAGE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>270
+,p_item_sequence=>230
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Dosage/day'
@@ -19764,7 +19771,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41955314558843612)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_NAME'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>300
+,p_item_sequence=>250
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Name'
@@ -19789,7 +19796,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41955735845843612)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_DOSAGE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>310
+,p_item_sequence=>260
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Dosage/day'
@@ -19813,7 +19820,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41956177194843612)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_NAME'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>340
+,p_item_sequence=>280
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Name'
@@ -19838,7 +19845,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41956520882843614)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_DOSAGE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>350
+,p_item_sequence=>290
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Dosage/day'
@@ -19862,7 +19869,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41956922566843614)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_NAME'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>380
+,p_item_sequence=>310
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Name'
@@ -19887,7 +19894,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41957359889843614)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_DOSAGE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>390
+,p_item_sequence=>320
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Dosage/day'
@@ -19911,7 +19918,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41957763380843614)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_NAME'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>420
+,p_item_sequence=>340
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Name'
@@ -19936,7 +19943,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41958175300843614)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_DOSAGE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>430
+,p_item_sequence=>350
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Dosage/day'
@@ -19960,7 +19967,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41958520798843615)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_NAME'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>460
+,p_item_sequence=>370
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Name'
@@ -19985,7 +19992,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41958905128843615)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_DOSAGE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>470
+,p_item_sequence=>380
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Dosage/day'
@@ -20009,7 +20016,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41959356615843615)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER_NAME'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>520
+,p_item_sequence=>400
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Name'
@@ -20034,7 +20041,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41959794294843615)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER_DOSAGE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>530
+,p_item_sequence=>410
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Dosage/day'
@@ -20058,7 +20065,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41960155128843615)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_STOP'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>550
+,p_item_sequence=>430
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_source=>'CHOLESTEROL_TREATMENT_STOP'
@@ -20076,7 +20083,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41960547891843617)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_STOP_SIDE_EFFECTS'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>580
+,p_item_sequence=>450
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Side Effects'
@@ -20098,7 +20105,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41960988818843617)
 ,p_name=>'P5_CHOLESTEROL_TREATMENT_STOP_OTHER'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>590
+,p_item_sequence=>460
 ,p_item_plug_id=>wwv_flow_imp.id(41451554102982509)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'Other'
@@ -20171,6 +20178,9 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_02=>'1'
 ,p_attribute_03=>'0'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41962587608843618)
 ,p_name=>'P5_CUR_MEDICATIONS_BLD_PRES_NAME'
@@ -20192,9 +20202,6 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_04=>'TEXT'
 ,p_attribute_05=>'BOTH'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41962979714843618)
 ,p_name=>'P5_CUR_MEDICATIONS_BLD_SUG'
@@ -20863,9 +20870,9 @@ wwv_flow_imp_page.create_page_item(
 ,p_cSize=>32
 ,p_cMaxlength=>255
 ,p_begin_on_new_line=>'N'
-,p_colspan=>2
+,p_colspan=>3
 ,p_grid_column=>6
-,p_grid_label_column_span=>1
+,p_grid_label_column_span=>2
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -20955,7 +20962,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>3
 ,p_grid_column=>7
-,p_grid_label_column_span=>1
+,p_grid_label_column_span=>2
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -20975,9 +20982,9 @@ wwv_flow_imp_page.create_page_item(
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
 ,p_cSize=>32
 ,p_cMaxlength=>255
-,p_colspan=>3
+,p_colspan=>4
 ,p_grid_column=>2
-,p_grid_label_column_span=>2
+,p_grid_label_column_span=>3
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -20999,7 +21006,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cMaxlength=>500
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>6
-,p_grid_column=>5
+,p_grid_column=>6
 ,p_grid_label_column_span=>3
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
@@ -21023,7 +21030,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cSize=>32
 ,p_cMaxlength=>255
 ,p_grid_column=>2
-,p_grid_label_column_span=>5
+,p_grid_label_column_span=>6
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -21044,7 +21051,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cSize=>32
 ,p_cMaxlength=>255
 ,p_grid_column=>2
-,p_grid_label_column_span=>4
+,p_grid_label_column_span=>5
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -21106,8 +21113,8 @@ wwv_flow_imp_page.create_page_item(
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
 ,p_cSize=>32
 ,p_cMaxlength=>255
+,p_begin_on_new_line=>'N'
 ,p_colspan=>3
-,p_grid_column=>6
 ,p_grid_label_column_span=>2
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
@@ -21122,17 +21129,18 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>10
 ,p_item_plug_id=>wwv_flow_imp.id(43030430404386302)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family 1 Degree Fam Card'
+,p_prompt=>'26. Do any of your first degree relatives (parents, sisters/brothers, and children) have a        history of cardiovascular disease (heart attack, stroke, angina, bypass surgery, stent, peripheral vascular disease)?'
 ,p_source=>'FAMILY_1_DEGREE_FAM_CARD'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:No;0,Yes;1'
+,p_grid_label_column_span=>8
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#:t-Form-fieldContainer--large'
 ,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
 );
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(42031357950843676)
@@ -21141,55 +21149,15 @@ wwv_flow_imp_page.create_page_item(
 ,p_item_sequence=>20
 ,p_item_plug_id=>wwv_flow_imp.id(43030430404386302)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family 1 Degree Fam Card Info'
+,p_prompt=>'Please note their age, relationship to you, and their condition: '
 ,p_source=>'FAMILY_1_DEGREE_FAM_CARD_INFO'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_TEXTAREA'
 ,p_cSize=>60
 ,p_cMaxlength=>500
 ,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_01=>'Y'
-,p_attribute_02=>'N'
-,p_attribute_03=>'N'
-,p_attribute_04=>'BOTH'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42031702267843676)
-,p_name=>'P5_FAMILY_1_DEGREE_FAM_CHOL'
-,p_source_data_type=>'NUMBER'
-,p_item_sequence=>30
-,p_item_plug_id=>wwv_flow_imp.id(43030430404386302)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family 1 Degree Fam Chol'
-,p_source=>'FAMILY_1_DEGREE_FAM_CHOL'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
-,p_item_template_options=>'#DEFAULT#'
-,p_is_persistent=>'N'
-,p_attribute_03=>'left'
-,p_attribute_04=>'decimal'
-);
-wwv_flow_imp_page.create_page_item(
- p_id=>wwv_flow_imp.id(42032182015843676)
-,p_name=>'P5_FAMILY_1_DEGREE_FAM_CHOL_INFO'
-,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>40
-,p_item_plug_id=>wwv_flow_imp.id(43030430404386302)
-,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
-,p_prompt=>'Family 1 Degree Fam Chol Info'
-,p_source=>'FAMILY_1_DEGREE_FAM_CHOL_INFO'
-,p_source_type=>'REGION_SOURCE_COLUMN'
-,p_display_as=>'NATIVE_TEXTAREA'
-,p_cSize=>60
-,p_cMaxlength=>500
-,p_cHeight=>4
-,p_field_template=>wwv_flow_imp.id(41745618844843256)
+,p_grid_label_column_span=>5
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_attribute_01=>'Y'
@@ -21200,6 +21168,49 @@ wwv_flow_imp_page.create_page_item(
 end;
 /
 begin
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(42031702267843676)
+,p_name=>'P5_FAMILY_1_DEGREE_FAM_CHOL'
+,p_source_data_type=>'NUMBER'
+,p_item_sequence=>30
+,p_item_plug_id=>wwv_flow_imp.id(43030430404386302)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'27. Do any of your first degree relatives (parents, sisters/brothers, and children) have high cholesterol?'
+,p_source=>'FAMILY_1_DEGREE_FAM_CHOL'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_RADIOGROUP'
+,p_lov=>'STATIC2:No;0,Yes;1'
+,p_grid_label_column_span=>8
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#:t-Form-fieldContainer--large'
+,p_is_persistent=>'N'
+,p_lov_display_extra=>'NO'
+,p_attribute_01=>'2'
+,p_attribute_02=>'NONE'
+);
+wwv_flow_imp_page.create_page_item(
+ p_id=>wwv_flow_imp.id(42032182015843676)
+,p_name=>'P5_FAMILY_1_DEGREE_FAM_CHOL_INFO'
+,p_source_data_type=>'VARCHAR2'
+,p_item_sequence=>40
+,p_item_plug_id=>wwv_flow_imp.id(43030430404386302)
+,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
+,p_prompt=>'How many and what is their relationship to you?'
+,p_source=>'FAMILY_1_DEGREE_FAM_CHOL_INFO'
+,p_source_type=>'REGION_SOURCE_COLUMN'
+,p_display_as=>'NATIVE_TEXTAREA'
+,p_cSize=>60
+,p_cMaxlength=>500
+,p_cHeight=>4
+,p_grid_label_column_span=>5
+,p_field_template=>wwv_flow_imp.id(41745422404843256)
+,p_item_template_options=>'#DEFAULT#'
+,p_is_persistent=>'N'
+,p_attribute_01=>'Y'
+,p_attribute_02=>'N'
+,p_attribute_03=>'N'
+,p_attribute_04=>'BOTH'
+);
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(42032576032843678)
 ,p_name=>'P5_WILLINGNESS'
@@ -21270,7 +21281,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43034375394386341)
 ,p_name=>'P5_FAMILY_NIBLINGS_NEPHEWS'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>50
+,p_item_sequence=>60
 ,p_item_plug_id=>wwv_flow_imp.id(43033812807386336)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'a) If yes, how many nephews'
@@ -21300,9 +21311,9 @@ wwv_flow_imp_page.create_page_item(
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
 ,p_cSize=>32
 ,p_begin_on_new_line=>'N'
-,p_colspan=>2
+,p_colspan=>3
 ,p_grid_column=>6
-,p_grid_label_column_span=>1
+,p_grid_label_column_span=>2
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -21313,7 +21324,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43034597289386343)
 ,p_name=>'P5_FAMILY_NIBLINGS_BC'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>90
+,p_item_sequence=>80
 ,p_item_plug_id=>wwv_flow_imp.id(43033812807386336)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'b) How many of them live in BC'
@@ -21334,7 +21345,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43034607469386344)
 ,p_name=>'P5_FAMILY_NIBLINGS_CANADA'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>110
+,p_item_sequence=>90
 ,p_item_plug_id=>wwv_flow_imp.id(43033812807386336)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'in other provinces of Canada '
@@ -21356,7 +21367,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43034795881386345)
 ,p_name=>'P5_FAMILY_NIBLINGS_DECEASED'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>130
+,p_item_sequence=>100
 ,p_item_plug_id=>wwv_flow_imp.id(43033812807386336)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'c)  Are any of them deceased?'
@@ -21378,7 +21389,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43034803031386346)
 ,p_name=>'P5_FAMILY_NIBLINGS_DECEASED_COUNT'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>150
+,p_item_sequence=>110
 ,p_item_plug_id=>wwv_flow_imp.id(43033812807386336)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'how many? '
@@ -21389,7 +21400,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>3
 ,p_grid_column=>7
-,p_grid_label_column_span=>1
+,p_grid_label_column_span=>2
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -21400,7 +21411,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43034966053386347)
 ,p_name=>'P5_FAMILY_NIBLINGS_DECEASED_AGE'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>170
+,p_item_sequence=>120
 ,p_item_plug_id=>wwv_flow_imp.id(43033812807386336)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'What age did they die at?'
@@ -21408,9 +21419,9 @@ wwv_flow_imp_page.create_page_item(
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
 ,p_cSize=>32
-,p_colspan=>3
+,p_colspan=>4
 ,p_grid_column=>2
-,p_grid_label_column_span=>2
+,p_grid_label_column_span=>3
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -21421,7 +21432,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43035045750386348)
 ,p_name=>'P5_FAMILY_NIBLINGS_DECEASED_CAUSE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>190
+,p_item_sequence=>130
 ,p_item_plug_id=>wwv_flow_imp.id(43033812807386336)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'What was the cause of death?'
@@ -21432,7 +21443,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cMaxlength=>500
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>6
-,p_grid_column=>5
+,p_grid_column=>6
 ,p_grid_label_column_span=>3
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
@@ -21446,7 +21457,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43035217442386350)
 ,p_name=>'P5_FAMILY_NIBLINGS_ADOPTED'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>210
+,p_item_sequence=>140
 ,p_item_plug_id=>wwv_flow_imp.id(43033812807386336)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'d) Are any of the above adopted or foster children? '
@@ -21455,7 +21466,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
 ,p_cSize=>32
 ,p_grid_column=>2
-,p_grid_label_column_span=>4
+,p_grid_label_column_span=>5
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -21605,7 +21616,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>3
 ,p_grid_column=>7
-,p_grid_label_column_span=>1
+,p_grid_label_column_span=>2
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -21624,9 +21635,9 @@ wwv_flow_imp_page.create_page_item(
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
 ,p_cSize=>32
-,p_colspan=>3
+,p_colspan=>4
 ,p_grid_column=>2
-,p_grid_label_column_span=>2
+,p_grid_label_column_span=>3
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -21648,7 +21659,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cMaxlength=>500
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>6
-,p_grid_column=>5
+,p_grid_column=>6
 ,p_grid_label_column_span=>3
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
@@ -21671,7 +21682,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
 ,p_cSize=>32
 ,p_grid_column=>2
-,p_grid_label_column_span=>4
+,p_grid_label_column_span=>5
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -21821,9 +21832,9 @@ wwv_flow_imp_page.create_page_item(
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
 ,p_cSize=>32
 ,p_begin_on_new_line=>'N'
-,p_colspan=>2
+,p_colspan=>3
 ,p_grid_column=>6
-,p_grid_label_column_span=>1
+,p_grid_label_column_span=>2
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -21910,7 +21921,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>3
 ,p_grid_column=>7
-,p_grid_label_column_span=>1
+,p_grid_label_column_span=>2
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -22099,9 +22110,9 @@ wwv_flow_imp_page.create_page_item(
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_RADIOGROUP'
 ,p_lov=>'STATIC2:No;0,Yes;1'
-,p_colspan=>5
+,p_colspan=>6
 ,p_grid_column=>2
-,p_grid_label_column_span=>3
+,p_grid_label_column_span=>4
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -22123,8 +22134,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cSize=>32
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>3
-,p_grid_column=>7
-,p_grid_label_column_span=>1
+,p_grid_label_column_span=>2
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -22143,15 +22153,18 @@ wwv_flow_imp_page.create_page_item(
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
 ,p_cSize=>32
-,p_colspan=>3
+,p_colspan=>4
 ,p_grid_column=>2
-,p_grid_label_column_span=>2
+,p_grid_label_column_span=>3
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_attribute_03=>'left'
 ,p_attribute_04=>'decimal'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43472070087185940)
 ,p_name=>'P5_FAMILY_MOTHER_COUSIN_DECEASED_CAUSE'
@@ -22167,7 +22180,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_cMaxlength=>500
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>6
-,p_grid_column=>5
+,p_grid_column=>6
 ,p_grid_label_column_span=>3
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
@@ -22197,9 +22210,6 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_01=>'2'
 ,p_attribute_02=>'NONE'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43472393056185943)
 ,p_name=>'P5_FAMILY_M_GRANDFATHER_BC'
@@ -22410,7 +22420,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>3
 ,p_grid_column=>7
-,p_grid_label_column_span=>1
+,p_grid_label_column_span=>2
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -22693,7 +22703,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>3
 ,p_grid_column=>7
-,p_grid_label_column_span=>1
+,p_grid_label_column_span=>2
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -22998,7 +23008,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>3
 ,p_grid_column=>7
-,p_grid_label_column_span=>1
+,p_grid_label_column_span=>2
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -23132,6 +23142,9 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_03=>'left'
 ,p_attribute_04=>'decimal'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43583042549689242)
 ,p_name=>'P5_FAMILY_FATHER_COUSINS_BC'
@@ -23187,9 +23200,9 @@ wwv_flow_imp_page.create_page_item(
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_RADIOGROUP'
 ,p_lov=>'STATIC2:No;0,Yes;1'
-,p_colspan=>5
+,p_colspan=>6
 ,p_grid_column=>2
-,p_grid_label_column_span=>3
+,p_grid_label_column_span=>4
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -23197,9 +23210,6 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_01=>'2'
 ,p_attribute_02=>'NONE'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43583374738689245)
 ,p_name=>'P5_FAMILY_FATHER_COUSINS_DECEASED_COUNT'
@@ -23214,8 +23224,8 @@ wwv_flow_imp_page.create_page_item(
 ,p_cSize=>32
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>3
-,p_grid_column=>7
-,p_grid_label_column_span=>1
+,p_grid_column=>8
+,p_grid_label_column_span=>2
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -23607,7 +23617,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>3
 ,p_grid_column=>7
-,p_grid_label_column_span=>1
+,p_grid_label_column_span=>2
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -23781,7 +23791,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>3
 ,p_grid_column=>7
-,p_grid_label_column_span=>1
+,p_grid_label_column_span=>2
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -23858,7 +23868,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43665818656698035)
 ,p_name=>'P5_FAMILY_GRANDCHILDREN_BC'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>70
+,p_item_sequence=>80
 ,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'b) How many of them live in BC'
@@ -23879,7 +23889,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43665941119698036)
 ,p_name=>'P5_FAMILY_GRANDCHILDREN_CANADA'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>80
+,p_item_sequence=>90
 ,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'in other provinces of Canada '
@@ -23901,7 +23911,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43666064212698037)
 ,p_name=>'P5_FAMILY_GRANDCHILDREN_DECEASED'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>110
+,p_item_sequence=>100
 ,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'c)  Are any of your grandchildren deceased?'
@@ -23923,7 +23933,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43666153705698038)
 ,p_name=>'P5_FAMILY_GRANDCHILDREN_DECEASED_COUNT'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>130
+,p_item_sequence=>110
 ,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'how many? '
@@ -23934,7 +23944,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_begin_on_new_line=>'N'
 ,p_colspan=>3
 ,p_grid_column=>7
-,p_grid_label_column_span=>1
+,p_grid_label_column_span=>2
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
@@ -23945,7 +23955,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43666295149698039)
 ,p_name=>'P5_FAMILY_GRANDCHILDREN_DECEASED_AGE'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>160
+,p_item_sequence=>120
 ,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'What age did they die at?'
@@ -23966,7 +23976,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43666326572698040)
 ,p_name=>'P5_FAMILY_GRANDCHILDREN_DECEASED_CAUSE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>190
+,p_item_sequence=>130
 ,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'What was the cause of death?'
@@ -23991,7 +24001,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43666435235698041)
 ,p_name=>'P5_FAMILY_GRANDCHILDREN_ADOPT'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>210
+,p_item_sequence=>140
 ,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'d) Are any of your grandchildren adopted or foster children? '
@@ -24000,12 +24010,195 @@ wwv_flow_imp_page.create_page_item(
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
 ,p_cSize=>32
 ,p_grid_column=>2
-,p_grid_label_column_span=>4
+,p_grid_label_column_span=>5
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_attribute_03=>'left'
 ,p_attribute_04=>'decimal'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43862413212591448)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_STATINS '
+,p_validation_sequence=>10
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT = 1 and :P5_CHOLESTEROL_TREATMENT_STATINS is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41946564651843604)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43862573866591449)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_NIACIN'
+,p_validation_sequence=>20
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT = 1 and :P5_CHOLESTEROL_TREATMENT_NIACIN is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41946948916843604)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43862688888591450)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_FENOFIBRATE'
+,p_validation_sequence=>30
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT = 1 and :P5_CHOLESTEROL_TREATMENT_FENOFIBRATE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41947346020843604)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43888394830695001)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_EZETIMIBE'
+,p_validation_sequence=>40
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT = 1 and :P5_CHOLESTEROL_TREATMENT_EZETIMIBE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41947716975843606)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43888429528695002)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_RESINS'
+,p_validation_sequence=>50
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT = 1 and :P5_CHOLESTEROL_TREATMENT_RESINS is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41948148701843606)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43888528864695003)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_PCSK9'
+,p_validation_sequence=>60
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT = 1 and :P5_CHOLESTEROL_TREATMENT_PCSK9 is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41948523994843606)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+end;
+/
+begin
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43888635868695004)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_NATURAL'
+,p_validation_sequence=>70
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT = 1 and :P5_CHOLESTEROL_TREATMENT_NATURAL is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41948951029843607)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43888763013695005)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_OTHER'
+,p_validation_sequence=>80
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT = 1 and :P5_CHOLESTEROL_TREATMENT_OTHER is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41949328680843607)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43888830497695006)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_OTHER_RADIO'
+,p_validation_sequence=>90
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT = 1 and :P5_CHOLESTEROL_TREATMENT_OTHER_RADIO is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43031591999386313)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43888915319695007)
+,p_validation_name=>'check P5_CHOLESTEROL_AGE'
+,p_validation_sequence=>100
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT = 1 and :P5_CHOLESTEROL_AGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41949738072843607)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
 );
 wwv_flow_imp_page.create_page_da_event(
  p_id=>wwv_flow_imp.id(43031296837386310)
@@ -24041,6 +24234,2091 @@ wwv_flow_imp_page.create_page_da_action(
 '',
 '// Auto-fill the text field',
 'apex.item(''P5_TODAY_DATE'').setValue(formattedDate);'))
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43666564849698042)
+,p_name=>'Display ''go to question 2'''
+,p_event_sequence=>20
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_CHOLESTEROL_TREATMENT'
+,p_condition_element=>'P5_CHOLESTEROL_TREATMENT'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43666685415698043)
+,p_event_id=>wwv_flow_imp.id(43666564849698042)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_STATINS,P5_CHOLESTEROL_TREATMENT_NIACIN,P5_CHOLESTEROL_TREATMENT_FENOFIBRATE,P5_CHOLESTEROL_TREATMENT_EZETIMIBE,P5_CHOLESTEROL_TREATMENT_RESINS,P5_CHOLESTEROL_TREATMENT_PCSK9,P5_CHOLESTEROL_TREATMENT_NATURAL,P5_CHOLESTEROL_TR'
+||'EATMENT_OTHER,P5_CHOLESTEROL_TREATMENT_OTHER_RADIO,P5_CHOLESTEROL_AGE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43666768167698044)
+,p_event_id=>wwv_flow_imp.id(43666564849698042)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_STATINS,P5_CHOLESTEROL_TREATMENT_NIACIN,P5_CHOLESTEROL_TREATMENT_FENOFIBRATE,P5_CHOLESTEROL_TREATMENT_EZETIMIBE,P5_CHOLESTEROL_TREATMENT_RESINS,P5_CHOLESTEROL_TREATMENT_PCSK9,P5_CHOLESTEROL_TREATMENT_NATURAL,P5_CHOLESTEROL_TR'
+||'EATMENT_OTHER,P5_CHOLESTEROL_TREATMENT_OTHER_RADIO,P5_CHOLESTEROL_AGE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43666857912698045)
+,p_event_id=>wwv_flow_imp.id(43666564849698042)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_STATINS,P5_CHOLESTEROL_TREATMENT_NIACIN,P5_CHOLESTEROL_TREATMENT_FENOFIBRATE,P5_CHOLESTEROL_TREATMENT_EZETIMIBE,P5_CHOLESTEROL_TREATMENT_RESINS,P5_CHOLESTEROL_TREATMENT_PCSK9,P5_CHOLESTEROL_TREATMENT_NATURAL,P5_CHOLESTEROL_TR'
+||'EATMENT_OTHER,P5_CHOLESTEROL_TREATMENT_OTHER_RADIO,P5_CHOLESTEROL_AGE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43667121693698048)
+,p_name=>'Display ''go to question 3'''
+,p_event_sequence=>30
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_CHOLESTEROL_TREATMENT_CURRENT'
+,p_condition_element=>'P5_CHOLESTEROL_TREATMENT_CURRENT'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43765360302199802)
+,p_event_id=>wwv_flow_imp.id(43667121693698048)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS,P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN,P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN_NAME,P5_CHOLESTEROL_TREATMENT_CURRE'
+||'NT_NIACIN_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_'
+||'NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9,P5_CHOLESTEROL_TREATMENT'
+||'_CURRENT_PCSK9_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL,P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER,P5_CHOLEST'
+||'EROL_TREATMENT_CURRENT_OTHER_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43765490973199803)
+,p_event_id=>wwv_flow_imp.id(43667121693698048)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS,P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN,P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN_NAME,P5_CHOLESTEROL_TREATMENT_CURRE'
+||'NT_NIACIN_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_'
+||'NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9,P5_CHOLESTEROL_TREATMENT'
+||'_CURRENT_PCSK9_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL,P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER,P5_CHOLEST'
+||'EROL_TREATMENT_CURRENT_OTHER_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43765556537199804)
+,p_event_id=>wwv_flow_imp.id(43667121693698048)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS,P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN,P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN_NAME,P5_CHOLESTEROL_TREATMENT_CURRE'
+||'NT_NIACIN_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_FENOFIBRATE_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_'
+||'NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_EZETIMIBE_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_RESINS_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9,P5_CHOLESTEROL_TREATMENT'
+||'_CURRENT_PCSK9_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL,P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_NATURAL_DOSAGE,P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER,P5_CHOLEST'
+||'EROL_TREATMENT_CURRENT_OTHER_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_OTHER_DOSAGE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43765660978199805)
+,p_name=>'Display 3a'
+,p_event_sequence=>40
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_CHOLESTEROL_TREATMENT_STOP'
+,p_condition_element=>'P5_CHOLESTEROL_TREATMENT_STOP'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43765797433199806)
+,p_event_id=>wwv_flow_imp.id(43765660978199805)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'REGION'
+,p_affected_region_id=>wwv_flow_imp.id(43031886737386316)
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43765822440199807)
+,p_event_id=>wwv_flow_imp.id(43765660978199805)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'REGION'
+,p_affected_region_id=>wwv_flow_imp.id(43031886737386316)
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43765901719199808)
+,p_event_id=>wwv_flow_imp.id(43765660978199805)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_STOP_SIDE_EFFECTS,P5_CHOLESTEROL_TREATMENT_STOP_OTHER'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43766072399199809)
+,p_event_id=>wwv_flow_imp.id(43765660978199805)
+,p_event_result=>'TRUE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_STOP_SIDE_EFFECTS,P5_CHOLESTEROL_TREATMENT_STOP_OTHER'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43766161685199810)
+,p_event_id=>wwv_flow_imp.id(43765660978199805)
+,p_event_result=>'FALSE'
+,p_action_sequence=>30
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_STOP_SIDE_EFFECTS,P5_CHOLESTEROL_TREATMENT_STOP_OTHER'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43766222210199811)
+,p_name=>'Display ''go to question 5'''
+,p_event_sequence=>50
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_CUR_MEDICATIONS'
+,p_condition_element=>'P5_CUR_MEDICATIONS'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43766381739199812)
+,p_event_id=>wwv_flow_imp.id(43766222210199811)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'REGION'
+,p_affected_region_id=>wwv_flow_imp.id(43032746850386325)
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43766539559199814)
+,p_event_id=>wwv_flow_imp.id(43766222210199811)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CUR_MEDICATIONS_ASPIRIN,P5_CUR_MEDICATIONS_BLD_PRES,P5_CUR_MEDICATIONS_BLD_PRES_NAME,P5_CUR_MEDICATIONS_BLD_SUG,P5_CUR_MEDICATIONS_BLD_SUG_NAME,P5_CUR_MEDICATIONS_OTHER,P5_CUR_MEDICATIONS_OTHER_NAME'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43766483636199813)
+,p_event_id=>wwv_flow_imp.id(43766222210199811)
+,p_event_result=>'TRUE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CUR_MEDICATIONS_ASPIRIN,P5_CUR_MEDICATIONS_BLD_PRES,P5_CUR_MEDICATIONS_BLD_PRES_NAME,P5_CUR_MEDICATIONS_BLD_SUG,P5_CUR_MEDICATIONS_BLD_SUG_NAME,P5_CUR_MEDICATIONS_OTHER,P5_CUR_MEDICATIONS_OTHER_NAME'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43766675259199815)
+,p_event_id=>wwv_flow_imp.id(43766222210199811)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'REGION'
+,p_affected_region_id=>wwv_flow_imp.id(43032746850386325)
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43766704428199816)
+,p_event_id=>wwv_flow_imp.id(43766222210199811)
+,p_event_result=>'FALSE'
+,p_action_sequence=>30
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_CUR_MEDICATIONS_ASPIRIN,P5_CUR_MEDICATIONS_BLD_PRES,P5_CUR_MEDICATIONS_BLD_PRES_NAME,P5_CUR_MEDICATIONS_BLD_SUG,P5_CUR_MEDICATIONS_BLD_SUG_NAME,P5_CUR_MEDICATIONS_OTHER,P5_CUR_MEDICATIONS_OTHER_NAME'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43766820722199817)
+,p_name=>'Display ''go to question 6'''
+,p_event_sequence=>60
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_PERSONAL_BLOOD_PROBLEMS'
+,p_condition_element=>'P5_PERSONAL_BLOOD_PROBLEMS'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43766946088199818)
+,p_event_id=>wwv_flow_imp.id(43766820722199817)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'REGION'
+,p_affected_region_id=>wwv_flow_imp.id(43032972394386327)
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43767124511199820)
+,p_event_id=>wwv_flow_imp.id(43766820722199817)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_PERSONAL_BLOOD_ANGINA,P5_PERSONAL_BLOOD_ANGINA_DATE,P5_PERSONAL_BLOOD_HEART_ATTACK,P5_PERSONAL_BLOOD_HEART_ATTACK_DATE,P5_PERSONAL_BLOOD_STENT,P5_PERSONAL_BLOOD_STENT_DATE,P5_PERSONAL_BLOOD_BYPASS,P5_PERSONAL_BLOOD_BYPASS_DATE,P5_PERSONAL_BLOOD_AN'
+||'GIOGRAPHY,P5_PERSONAL_BLOOD_ANGIOGRAPHY_DATE,P5_PERSONAL_BLOOD_STROKE,P5_PERSONAL_BLOOD_STROKE_DATE,P5_PERSONAL_BLOOD_LEG,P5_PERSONAL_BLOOD_LEG_DATE,P5_PERSONAL_BLOOD_PERIPHERAL,P5_PERSONAL_BLOOD_PERIPHERAL_DATE,P5_PERSONAL_BLOOD_OTHER,P5_PERSONAL_BL'
+||'OOD_OTHER_DATE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43767013509199819)
+,p_event_id=>wwv_flow_imp.id(43766820722199817)
+,p_event_result=>'TRUE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_PERSONAL_BLOOD_ANGINA,P5_PERSONAL_BLOOD_ANGINA_DATE,P5_PERSONAL_BLOOD_HEART_ATTACK,P5_PERSONAL_BLOOD_HEART_ATTACK_DATE,P5_PERSONAL_BLOOD_STENT,P5_PERSONAL_BLOOD_STENT_DATE,P5_PERSONAL_BLOOD_BYPASS,P5_PERSONAL_BLOOD_BYPASS_DATE,P5_PERSONAL_BLOOD_AN'
+||'GIOGRAPHY,P5_PERSONAL_BLOOD_ANGIOGRAPHY_DATE,P5_PERSONAL_BLOOD_STROKE,P5_PERSONAL_BLOOD_STROKE_DATE,P5_PERSONAL_BLOOD_LEG,P5_PERSONAL_BLOOD_LEG_DATE,P5_PERSONAL_BLOOD_PERIPHERAL,P5_PERSONAL_BLOOD_PERIPHERAL_DATE,P5_PERSONAL_BLOOD_OTHER,P5_PERSONAL_BL'
+||'OOD_OTHER_DATE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43767278689199821)
+,p_event_id=>wwv_flow_imp.id(43766820722199817)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_PERSONAL_BLOOD_ANGINA,P5_PERSONAL_BLOOD_ANGINA_DATE,P5_PERSONAL_BLOOD_HEART_ATTACK,P5_PERSONAL_BLOOD_HEART_ATTACK_DATE,P5_PERSONAL_BLOOD_STENT,P5_PERSONAL_BLOOD_STENT_DATE,P5_PERSONAL_BLOOD_BYPASS,P5_PERSONAL_BLOOD_BYPASS_DATE,P5_PERSONAL_BLOOD_AN'
+||'GIOGRAPHY,P5_PERSONAL_BLOOD_ANGIOGRAPHY_DATE,P5_PERSONAL_BLOOD_STROKE,P5_PERSONAL_BLOOD_STROKE_DATE,P5_PERSONAL_BLOOD_LEG,P5_PERSONAL_BLOOD_LEG_DATE,P5_PERSONAL_BLOOD_PERIPHERAL,P5_PERSONAL_BLOOD_PERIPHERAL_DATE,P5_PERSONAL_BLOOD_OTHER,P5_PERSONAL_BL'
+||'OOD_OTHER_DATE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43767349691199822)
+,p_event_id=>wwv_flow_imp.id(43766820722199817)
+,p_event_result=>'FALSE'
+,p_action_sequence=>30
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'REGION'
+,p_affected_region_id=>wwv_flow_imp.id(43032972394386327)
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43767422205199823)
+,p_name=>'Display ''go to question 8'''
+,p_event_sequence=>70
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_LIFESTYLE_SMOKER'
+,p_condition_element=>'P5_LIFESTYLE_SMOKER'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43767892496199827)
+,p_event_id=>wwv_flow_imp.id(43767422205199823)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'REGION'
+,p_affected_region_id=>wwv_flow_imp.id(43033241641386330)
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43768356058199832)
+,p_event_id=>wwv_flow_imp.id(43767422205199823)
+,p_event_result=>'TRUE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_LIFESTYLE_SMOKER_START,P5_LIFESTYLE_SMOKER_STOP,P5_LIFESTYLE_AMOUNT_SMOKE,P5_LIFESTYLE_QUIT'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43767744187199826)
+,p_event_id=>wwv_flow_imp.id(43767422205199823)
+,p_event_result=>'TRUE'
+,p_action_sequence=>30
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_LIFESTYLE_SMOKER_START,P5_LIFESTYLE_SMOKER_STOP,P5_LIFESTYLE_AMOUNT_SMOKE,P5_LIFESTYLE_QUIT'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43767991434199828)
+,p_name=>'Display ex-smoker'
+,p_event_sequence=>80
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_LIFESTYLE_SMOKER'
+,p_condition_element=>'P5_LIFESTYLE_SMOKER'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'2'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43768055725199829)
+,p_event_id=>wwv_flow_imp.id(43767991434199828)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_LIFESTYLE_SMOKER_START,P5_LIFESTYLE_SMOKER_STOP'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43768482698199833)
+,p_event_id=>wwv_flow_imp.id(43767991434199828)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_LIFESTYLE_SMOKER_START,P5_LIFESTYLE_SMOKER_STOP,P5_LIFESTYLE_AMOUNT_SMOKE,P5_LIFESTYLE_QUIT'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43768507528199834)
+,p_event_id=>wwv_flow_imp.id(43767991434199828)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_LIFESTYLE_SMOKER_START,P5_LIFESTYLE_SMOKER_STOP'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43768627632199835)
+,p_name=>'Display Current'
+,p_event_sequence=>90
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_LIFESTYLE_SMOKER'
+,p_condition_element=>'P5_LIFESTYLE_SMOKER'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'3'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43768727025199836)
+,p_event_id=>wwv_flow_imp.id(43768627632199835)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_LIFESTYLE_AMOUNT_SMOKE,P5_LIFESTYLE_QUIT'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43768959361199838)
+,p_event_id=>wwv_flow_imp.id(43768627632199835)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_LIFESTYLE_AMOUNT_SMOKE,P5_LIFESTYLE_QUIT'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43768848509199837)
+,p_event_id=>wwv_flow_imp.id(43768627632199835)
+,p_event_result=>'TRUE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'REGION'
+,p_affected_region_id=>wwv_flow_imp.id(43033241641386330)
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43769005187199839)
+,p_event_id=>wwv_flow_imp.id(43768627632199835)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_LIFESTYLE_AMOUNT_SMOKE,P5_LIFESTYLE_QUIT'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43769154722199840)
+,p_event_id=>wwv_flow_imp.id(43768627632199835)
+,p_event_result=>'FALSE'
+,p_action_sequence=>30
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'REGION'
+,p_affected_region_id=>wwv_flow_imp.id(43033241641386330)
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43769296614199841)
+,p_name=>'Display ''go to question 9'''
+,p_event_sequence=>100
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_SIBLINGS'
+,p_condition_element=>'P5_FAMILY_SIBLINGS'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43769330026199842)
+,p_event_id=>wwv_flow_imp.id(43769296614199841)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_SIBLINGS_BROTHERS,P5_FAMILY_SIBLINGS_SISTERS,P5_FAMILY_SIBLINGS_BC,P5_FAMILY_SIBLINGS_CANADA,P5_FAMILY_SIBLINGS_DECEASED,P5_FAMILY_SIBLINGS_HALF,P5_FAMILY_SIBLINGS_ADOPTED'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43769401000199843)
+,p_event_id=>wwv_flow_imp.id(43769296614199841)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_SIBLINGS_BROTHERS,P5_FAMILY_SIBLINGS_SISTERS,P5_FAMILY_SIBLINGS_BC,P5_FAMILY_SIBLINGS_CANADA,P5_FAMILY_SIBLINGS_DECEASED,P5_FAMILY_SIBLINGS_HALF,P5_FAMILY_SIBLINGS_ADOPTED'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43769592294199844)
+,p_event_id=>wwv_flow_imp.id(43769296614199841)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_SIBLINGS_BROTHERS,P5_FAMILY_SIBLINGS_SISTERS,P5_FAMILY_SIBLINGS_BC,P5_FAMILY_SIBLINGS_CANADA,P5_FAMILY_SIBLINGS_DECEASED,P5_FAMILY_SIBLINGS_HALF,P5_FAMILY_SIBLINGS_ADOPTED'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43769634967199845)
+,p_name=>'Display family siblings deceased'
+,p_event_sequence=>110
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_SIBLINGS_DECEASED'
+,p_condition_element=>'P5_FAMILY_SIBLINGS_DECEASED'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43769707051199846)
+,p_event_id=>wwv_flow_imp.id(43769634967199845)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_SIBLINGS_DECEASED_COUNT,P5_FAMILY_SIBLINGS_DECEASED_AGE,P5_FAMILY_SIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43769855157199847)
+,p_event_id=>wwv_flow_imp.id(43769634967199845)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_SIBLINGS_DECEASED_COUNT,P5_FAMILY_SIBLINGS_DECEASED_AGE,P5_FAMILY_SIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43769948567199848)
+,p_event_id=>wwv_flow_imp.id(43769634967199845)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_SIBLINGS_DECEASED_COUNT,P5_FAMILY_SIBLINGS_DECEASED_AGE,P5_FAMILY_SIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43770109448199850)
+,p_name=>'Display ''go to question 10'''
+,p_event_sequence=>120
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_NIBLINGS'
+,p_condition_element=>'P5_FAMILY_NIBLINGS'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43808506246376801)
+,p_event_id=>wwv_flow_imp.id(43770109448199850)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_NIBLINGS_NEPHEWS,P5_FAMILY_NIBLINGS_NIECES,P5_FAMILY_NIBLINGS_BC,P5_FAMILY_NIBLINGS_CANADA,P5_FAMILY_NIBLINGS_DECEASED,P5_FAMILY_NIBLINGS_HALF,P5_FAMILY_NIBLINGS_ADOPTED'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43808610850376802)
+,p_event_id=>wwv_flow_imp.id(43770109448199850)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_NIBLINGS_NEPHEWS,P5_FAMILY_NIBLINGS_NIECES,P5_FAMILY_NIBLINGS_BC,P5_FAMILY_NIBLINGS_CANADA,P5_FAMILY_NIBLINGS_DECEASED,P5_FAMILY_NIBLINGS_HALF,P5_FAMILY_NIBLINGS_ADOPTED'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43808774701376803)
+,p_event_id=>wwv_flow_imp.id(43770109448199850)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_NIBLINGS_NEPHEWS,P5_FAMILY_NIBLINGS_NIECES,P5_FAMILY_NIBLINGS_BC,P5_FAMILY_NIBLINGS_CANADA,P5_FAMILY_NIBLINGS_DECEASED,P5_FAMILY_NIBLINGS_HALF,P5_FAMILY_NIBLINGS_ADOPTED'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43808887539376804)
+,p_name=>'Display family niblings deceased'
+,p_event_sequence=>130
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_NIBLINGS_DECEASED'
+,p_condition_element=>'P5_FAMILY_NIBLINGS_DECEASED'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43808938507376805)
+,p_event_id=>wwv_flow_imp.id(43808887539376804)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_NIBLINGS_DECEASED_COUNT,P5_FAMILY_NIBLINGS_DECEASED_AGE,P5_FAMILY_NIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43809015112376806)
+,p_event_id=>wwv_flow_imp.id(43808887539376804)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_NIBLINGS_DECEASED_COUNT,P5_FAMILY_NIBLINGS_DECEASED_AGE,P5_FAMILY_NIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43809165722376807)
+,p_event_id=>wwv_flow_imp.id(43808887539376804)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_NIBLINGS_DECEASED_COUNT,P5_FAMILY_NIBLINGS_DECEASED_AGE,P5_FAMILY_NIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43809333779376809)
+,p_name=>'Display ''go to question 11'''
+,p_event_sequence=>140
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_CHILDREN'
+,p_condition_element=>'P5_FAMILY_CHILDREN'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43809402646376810)
+,p_event_id=>wwv_flow_imp.id(43809333779376809)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_CHILDREN_SONS,P5_FAMILY_CHILDREN_DAUGHTERS,P5_FAMILY_CHILDREN_BC,P5_FAMILY_CHILDREN_CANADA,P5_FAMILY_CHILDREN_DECEASED,P5_FAMILY_CHILDREN_ADOPT'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43809514134376811)
+,p_event_id=>wwv_flow_imp.id(43809333779376809)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_CHILDREN_SONS,P5_FAMILY_CHILDREN_DAUGHTERS,P5_FAMILY_CHILDREN_BC,P5_FAMILY_CHILDREN_CANADA,P5_FAMILY_CHILDREN_DECEASED,P5_FAMILY_CHILDREN_ADOPT'
+);
+end;
+/
+begin
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43809617816376812)
+,p_event_id=>wwv_flow_imp.id(43809333779376809)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_CHILDREN_SONS,P5_FAMILY_CHILDREN_DAUGHTERS,P5_FAMILY_CHILDREN_BC,P5_FAMILY_CHILDREN_CANADA,P5_FAMILY_CHILDREN_DECEASED,P5_FAMILY_CHILDREN_ADOPT'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43809783414376813)
+,p_name=>'Display Family children deceased'
+,p_event_sequence=>150
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_CHILDREN_DECEASED'
+,p_condition_element=>'P5_FAMILY_CHILDREN_DECEASED'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43809897517376814)
+,p_event_id=>wwv_flow_imp.id(43809783414376813)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_CHILDREN_DECEASED_COUNT,P5_FAMILY_CHILDREN_DECEASED_AGE,P5_FAMILY_CHILDREN_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43809958178376815)
+,p_event_id=>wwv_flow_imp.id(43809783414376813)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_CHILDREN_DECEASED_COUNT,P5_FAMILY_CHILDREN_DECEASED_AGE,P5_FAMILY_CHILDREN_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43810025565376816)
+,p_event_id=>wwv_flow_imp.id(43809783414376813)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_CHILDREN_DECEASED_COUNT,P5_FAMILY_CHILDREN_DECEASED_AGE,P5_FAMILY_CHILDREN_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43810142788376817)
+,p_name=>'Display mother alive'
+,p_event_sequence=>160
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_MOTHER_STATUS'
+,p_condition_element=>'P5_FAMILY_MOTHER_STATUS'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43810222894376818)
+,p_event_id=>wwv_flow_imp.id(43810142788376817)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_MOTHER_BC,P5_FAMILY_MOTHER_CANADA'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43810345823376819)
+,p_event_id=>wwv_flow_imp.id(43810142788376817)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_MOTHER_BC,P5_FAMILY_MOTHER_CANADA'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43810484202376820)
+,p_event_id=>wwv_flow_imp.id(43810142788376817)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_MOTHER_BC,P5_FAMILY_MOTHER_CANADA'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43810545789376821)
+,p_name=>'Display mother dead'
+,p_event_sequence=>170
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_MOTHER_STATUS'
+,p_condition_element=>'P5_FAMILY_MOTHER_STATUS'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'0'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43810614256376822)
+,p_event_id=>wwv_flow_imp.id(43810545789376821)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_MOTHER_DECEASED_AGE,P5_FAMILY_MOTHER_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43810772872376823)
+,p_event_id=>wwv_flow_imp.id(43810545789376821)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_MOTHER_DECEASED_AGE,P5_FAMILY_MOTHER_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43810842034376824)
+,p_event_id=>wwv_flow_imp.id(43810545789376821)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_MOTHER_DECEASED_AGE,P5_FAMILY_MOTHER_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43810979443376825)
+,p_name=>'Display ''go to question 13'''
+,p_event_sequence=>180
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_MOTHER_SIBLINGS'
+,p_condition_element=>'P5_FAMILY_MOTHER_SIBLINGS'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43811087322376826)
+,p_event_id=>wwv_flow_imp.id(43810979443376825)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_MOTHER_BROTHERS,P5_FAMILY_MOTHER_SISTERS,P5_FAMILY_MOTHER_SIBLINGS_BC,P5_FAMILY_MOTHER_SIBLINGS_CANADA,P5_FAMILY_MOTHER_SIBLINGS_DECEASED,P5_FAMILY_MOTHER_SIBLINGS_ADOPT,P5_FAMILY_MOTHER_SIBLINGS_HALF'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43811179142376827)
+,p_event_id=>wwv_flow_imp.id(43810979443376825)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_MOTHER_BROTHERS,P5_FAMILY_MOTHER_SISTERS,P5_FAMILY_MOTHER_SIBLINGS_BC,P5_FAMILY_MOTHER_SIBLINGS_CANADA,P5_FAMILY_MOTHER_SIBLINGS_DECEASED,P5_FAMILY_MOTHER_SIBLINGS_ADOPT,P5_FAMILY_MOTHER_SIBLINGS_HALF'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43811217614376828)
+,p_event_id=>wwv_flow_imp.id(43810979443376825)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_MOTHER_BROTHERS,P5_FAMILY_MOTHER_SISTERS,P5_FAMILY_MOTHER_SIBLINGS_BC,P5_FAMILY_MOTHER_SIBLINGS_CANADA,P5_FAMILY_MOTHER_SIBLINGS_DECEASED,P5_FAMILY_MOTHER_SIBLINGS_ADOPT,P5_FAMILY_MOTHER_SIBLINGS_HALF'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43811342932376829)
+,p_name=>'Display family mother siblings deceased'
+,p_event_sequence=>190
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_MOTHER_SIBLINGS_DECEASED'
+,p_condition_element=>'P5_FAMILY_MOTHER_SIBLINGS_DECEASED'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43811416591376830)
+,p_event_id=>wwv_flow_imp.id(43811342932376829)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_MOTHER_SIBLINGS_DECEASED_COUNT,P5_FAMILY_MOTHER_SIBLINGS_DECEASED_AGE,P5_FAMILY_MOTHER_SIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43811578649376831)
+,p_event_id=>wwv_flow_imp.id(43811342932376829)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_MOTHER_SIBLINGS_DECEASED_COUNT,P5_FAMILY_MOTHER_SIBLINGS_DECEASED_AGE,P5_FAMILY_MOTHER_SIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43811689060376832)
+,p_event_id=>wwv_flow_imp.id(43811342932376829)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_MOTHER_SIBLINGS_DECEASED_COUNT,P5_FAMILY_MOTHER_SIBLINGS_DECEASED_AGE,P5_FAMILY_MOTHER_SIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43811763990376833)
+,p_name=>'Display ''go to question 14'''
+,p_event_sequence=>200
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_MOTHER_COUSIN'
+,p_condition_element=>'P5_FAMILY_MOTHER_COUSIN'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43811835862376834)
+,p_event_id=>wwv_flow_imp.id(43811763990376833)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_MOTHER_COUSIN_COUNT,P5_FAMILY_MOTHER_COUSIN_BC,P5_FAMILY_MOTHER_COUSIN_CANADA,P5_FAMILY_MOTHER_COUSIN_DECEASED'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43811922714376835)
+,p_event_id=>wwv_flow_imp.id(43811763990376833)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_MOTHER_COUSIN_COUNT,P5_FAMILY_MOTHER_COUSIN_BC,P5_FAMILY_MOTHER_COUSIN_CANADA,P5_FAMILY_MOTHER_COUSIN_DECEASED'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43812012749376836)
+,p_event_id=>wwv_flow_imp.id(43811763990376833)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_MOTHER_COUSIN_COUNT,P5_FAMILY_MOTHER_COUSIN_BC,P5_FAMILY_MOTHER_COUSIN_CANADA,P5_FAMILY_MOTHER_COUSIN_DECEASED'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43812105977376837)
+,p_name=>'Display family mother cousin deceased'
+,p_event_sequence=>210
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_MOTHER_COUSIN_DECEASED'
+,p_condition_element=>'P5_FAMILY_MOTHER_COUSIN_DECEASED'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43812216857376838)
+,p_event_id=>wwv_flow_imp.id(43812105977376837)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_MOTHER_COUSIN_DECEASED_COUNT,P5_FAMILY_MOTHER_COUSIN_DECEASED_AGE,P5_FAMILY_MOTHER_COUSIN_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43812332074376839)
+,p_event_id=>wwv_flow_imp.id(43812105977376837)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_MOTHER_COUSIN_DECEASED_COUNT,P5_FAMILY_MOTHER_COUSIN_DECEASED_AGE,P5_FAMILY_MOTHER_COUSIN_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43812474957376840)
+,p_event_id=>wwv_flow_imp.id(43812105977376837)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_MOTHER_COUSIN_DECEASED_COUNT,P5_FAMILY_MOTHER_COUSIN_DECEASED_AGE,P5_FAMILY_MOTHER_COUSIN_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43812764399376843)
+,p_name=>'Display Mgrandfather alive'
+,p_event_sequence=>220
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_M_GRANDFATHER'
+,p_condition_element=>'P5_FAMILY_M_GRANDFATHER'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43812817125376844)
+,p_event_id=>wwv_flow_imp.id(43812764399376843)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDFATHER_BC,P5_FAMILY_M_GRANDFATHER_CANADA'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43813153316376847)
+,p_event_id=>wwv_flow_imp.id(43812764399376843)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDFATHER_BC,P5_FAMILY_M_GRANDFATHER_CANADA'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43813277036376848)
+,p_event_id=>wwv_flow_imp.id(43812764399376843)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDFATHER_BC,P5_FAMILY_M_GRANDFATHER_CANADA'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43812987942376845)
+,p_name=>'Display Mgrandfather dead'
+,p_event_sequence=>230
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_M_GRANDFATHER'
+,p_condition_element=>'P5_FAMILY_M_GRANDFATHER'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'0'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43813087861376846)
+,p_event_id=>wwv_flow_imp.id(43812987942376845)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDFATHER_DECEASED_AGE,P5_FAMILY_M_GRANDFATHER_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43813369235376849)
+,p_event_id=>wwv_flow_imp.id(43812987942376845)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDFATHER_DECEASED_AGE,P5_FAMILY_M_GRANDFATHER_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43813488722376850)
+,p_event_id=>wwv_flow_imp.id(43812987942376845)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDFATHER_DECEASED_AGE,P5_FAMILY_M_GRANDFATHER_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43838322161520601)
+,p_name=>'Display ''go to question 16'''
+,p_event_sequence=>240
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS'
+,p_condition_element=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43838445230520602)
+,p_event_id=>wwv_flow_imp.id(43838322161520601)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_COUNT,P5_FAMILY_M_GRANDFATHER_SIBLINGS_BC,P5_FAMILY_M_GRANDFATHER_SIBLINGS_CANADA,P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43838501646520603)
+,p_event_id=>wwv_flow_imp.id(43838322161520601)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_COUNT,P5_FAMILY_M_GRANDFATHER_SIBLINGS_BC,P5_FAMILY_M_GRANDFATHER_SIBLINGS_CANADA,P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43838658178520604)
+,p_event_id=>wwv_flow_imp.id(43838322161520601)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_COUNT,P5_FAMILY_M_GRANDFATHER_SIBLINGS_BC,P5_FAMILY_M_GRANDFATHER_SIBLINGS_CANADA,P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43838742726520605)
+,p_name=>'Display Mgrandfather siblings deceased'
+,p_event_sequence=>250
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED'
+,p_condition_element=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43838821913520606)
+,p_event_id=>wwv_flow_imp.id(43838742726520605)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_COUNT,P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_AGE,P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43838928774520607)
+,p_event_id=>wwv_flow_imp.id(43838742726520605)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_COUNT,P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_AGE,P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43839076015520608)
+,p_event_id=>wwv_flow_imp.id(43838742726520605)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_COUNT,P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_AGE,P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43839110412520609)
+,p_name=>'Display Mgrandmother alive'
+,p_event_sequence=>260
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_M_GRANDMOTHER'
+,p_condition_element=>'P5_FAMILY_M_GRANDMOTHER'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43839215837520610)
+,p_event_id=>wwv_flow_imp.id(43839110412520609)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDMOTHER_BC,P5_FAMILY_M_GRANDMOTHER_CANADA'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43839585844520613)
+,p_event_id=>wwv_flow_imp.id(43839110412520609)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDMOTHER_BC,P5_FAMILY_M_GRANDMOTHER_CANADA'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43839648137520614)
+,p_event_id=>wwv_flow_imp.id(43839110412520609)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDMOTHER_BC,P5_FAMILY_M_GRANDMOTHER_CANADA'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43839328133520611)
+,p_name=>'Display Mgrandmother dead'
+,p_event_sequence=>270
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_M_GRANDMOTHER'
+,p_condition_element=>'P5_FAMILY_M_GRANDMOTHER'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'0'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43839483489520612)
+,p_event_id=>wwv_flow_imp.id(43839328133520611)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDMOTHER_DECEASED_AGE,P5_FAMILY_M_GRANDMOTHER_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43839794956520615)
+,p_event_id=>wwv_flow_imp.id(43839328133520611)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDMOTHER_DECEASED_AGE,P5_FAMILY_M_GRANDMOTHER_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43839879077520616)
+,p_event_id=>wwv_flow_imp.id(43839328133520611)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDMOTHER_DECEASED_AGE,P5_FAMILY_M_GRANDMOTHER_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43839913080520617)
+,p_name=>'Display ''go to question 18'''
+,p_event_sequence=>280
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS'
+,p_condition_element=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43840012769520618)
+,p_event_id=>wwv_flow_imp.id(43839913080520617)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS_COUNT,P5_FAMILY_M_GRANDMOTHER_SIBLINGS_BC,P5_FAMILY_M_GRANDMOTHER_SIBLINGS_CANADA,P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43840345811520621)
+,p_event_id=>wwv_flow_imp.id(43839913080520617)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS_COUNT,P5_FAMILY_M_GRANDMOTHER_SIBLINGS_BC,P5_FAMILY_M_GRANDMOTHER_SIBLINGS_CANADA,P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43840481622520622)
+,p_event_id=>wwv_flow_imp.id(43839913080520617)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS_COUNT,P5_FAMILY_M_GRANDMOTHER_SIBLINGS_BC,P5_FAMILY_M_GRANDMOTHER_SIBLINGS_CANADA,P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43840188229520619)
+,p_name=>'Display Mgrandmother siblings deceased'
+,p_event_sequence=>290
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED'
+,p_condition_element=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43840200107520620)
+,p_event_id=>wwv_flow_imp.id(43840188229520619)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_COUNT,P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_AGE,P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43840590231520623)
+,p_event_id=>wwv_flow_imp.id(43840188229520619)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_COUNT,P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_AGE,P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43840664515520624)
+,p_event_id=>wwv_flow_imp.id(43840188229520619)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_COUNT,P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_AGE,P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43840784915520625)
+,p_name=>'Display father alive'
+,p_event_sequence=>300
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_FATHER'
+,p_condition_element=>'P5_FAMILY_FATHER'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43840850533520626)
+,p_event_id=>wwv_flow_imp.id(43840784915520625)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_FATHER_BC,P5_FAMILY_FATHER_CANADA'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43841157305520629)
+,p_event_id=>wwv_flow_imp.id(43840784915520625)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_FATHER_BC,P5_FAMILY_FATHER_CANADA'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43841201008520630)
+,p_event_id=>wwv_flow_imp.id(43840784915520625)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_FATHER_BC,P5_FAMILY_FATHER_CANADA'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43840933205520627)
+,p_name=>'Display father dead'
+,p_event_sequence=>310
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_FATHER'
+,p_condition_element=>'P5_FAMILY_FATHER'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'0'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43841099326520628)
+,p_event_id=>wwv_flow_imp.id(43840933205520627)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_FATHER_DECEASED_AGE,P5_FAMILY_FATHER_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43841334681520631)
+,p_event_id=>wwv_flow_imp.id(43840933205520627)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_FATHER_DECEASED_AGE,P5_FAMILY_FATHER_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43841448678520632)
+,p_event_id=>wwv_flow_imp.id(43840933205520627)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_FATHER_DECEASED_AGE,P5_FAMILY_FATHER_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43841586932520633)
+,p_name=>'Display ''go to question 20'''
+,p_event_sequence=>320
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_FATHER_SIBLINGS'
+,p_condition_element=>'P5_FAMILY_FATHER_SIBLINGS'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43841691712520634)
+,p_event_id=>wwv_flow_imp.id(43841586932520633)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_FATHER_BROTHERS,P5_FAMILY_FATHER_SISTERS,P5_FAMILY_FATHER_SIBLINGS_BC,P5_FAMILY_FATHER_SIBLINGS_CANADA,P5_FAMILY_FATHER_SIBLINGS_DECEASED,P5_FAMILY_FATHER_SIBLINGS_ADOPT,P5_FAMILY_FATHER_SIBLINGS_HALF'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43841932021520637)
+,p_event_id=>wwv_flow_imp.id(43841586932520633)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_FATHER_BROTHERS,P5_FAMILY_FATHER_SISTERS,P5_FAMILY_FATHER_SIBLINGS_BC,P5_FAMILY_FATHER_SIBLINGS_CANADA,P5_FAMILY_FATHER_SIBLINGS_DECEASED,P5_FAMILY_FATHER_SIBLINGS_ADOPT,P5_FAMILY_FATHER_SIBLINGS_HALF'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43842074153520638)
+,p_event_id=>wwv_flow_imp.id(43841586932520633)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_FATHER_BROTHERS,P5_FAMILY_FATHER_SISTERS,P5_FAMILY_FATHER_SIBLINGS_BC,P5_FAMILY_FATHER_SIBLINGS_CANADA,P5_FAMILY_FATHER_SIBLINGS_DECEASED,P5_FAMILY_FATHER_SIBLINGS_ADOPT,P5_FAMILY_FATHER_SIBLINGS_HALF'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43841791270520635)
+,p_name=>'Display family father siblings deceased'
+,p_event_sequence=>330
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_FATHER_SIBLINGS_DECEASED'
+,p_condition_element=>'P5_FAMILY_FATHER_SIBLINGS_DECEASED'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43841821283520636)
+,p_event_id=>wwv_flow_imp.id(43841791270520635)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_FATHER_SIBLINGS_DECEASED_COUNT,P5_FAMILY_FATHER_SIBLINGS_DECEASED_AGE,P5_FAMILY_FATHER_SIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43842177088520639)
+,p_event_id=>wwv_flow_imp.id(43841791270520635)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_FATHER_SIBLINGS_DECEASED_COUNT,P5_FAMILY_FATHER_SIBLINGS_DECEASED_AGE,P5_FAMILY_FATHER_SIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43842230755520640)
+,p_event_id=>wwv_flow_imp.id(43841791270520635)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_FATHER_SIBLINGS_DECEASED_COUNT,P5_FAMILY_FATHER_SIBLINGS_DECEASED_AGE,P5_FAMILY_FATHER_SIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43842382712520641)
+,p_name=>'Display ''go to question 21'''
+,p_event_sequence=>340
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_FATHER_COUSINS'
+,p_condition_element=>'P5_FAMILY_FATHER_COUSINS'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+end;
+/
+begin
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43842437285520642)
+,p_event_id=>wwv_flow_imp.id(43842382712520641)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_FATHER_COUSINS_COUNT,P5_FAMILY_FATHER_COUSINS_BC,P5_FAMILY_FATHER_COUSINS_CANADA,P5_FAMILY_FATHER_COUSINS_DECEASED'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43842998850520647)
+,p_event_id=>wwv_flow_imp.id(43842382712520641)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_FATHER_COUSINS_COUNT,P5_FAMILY_FATHER_COUSINS_BC,P5_FAMILY_FATHER_COUSINS_CANADA,P5_FAMILY_FATHER_COUSINS_DECEASED'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43843098298520648)
+,p_event_id=>wwv_flow_imp.id(43842382712520641)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_FATHER_COUSINS_COUNT,P5_FAMILY_FATHER_COUSINS_BC,P5_FAMILY_FATHER_COUSINS_CANADA,P5_FAMILY_FATHER_COUSINS_DECEASED'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43842548829520643)
+,p_name=>'Display family father cousins deceased'
+,p_event_sequence=>350
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_FATHER_COUSINS_DECEASED'
+,p_condition_element=>'P5_FAMILY_FATHER_COUSINS_DECEASED'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43842672253520644)
+,p_event_id=>wwv_flow_imp.id(43842548829520643)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_FATHER_COUSINS_DECEASED_COUNT,P5_FAMILY_FATHER_COUSINS_DECEASED_AGE,P5_FAMILY_FATHER_COUSINS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43842776475520645)
+,p_event_id=>wwv_flow_imp.id(43842548829520643)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_FATHER_COUSINS_DECEASED_COUNT,P5_FAMILY_FATHER_COUSINS_DECEASED_AGE,P5_FAMILY_FATHER_COUSINS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43842824366520646)
+,p_event_id=>wwv_flow_imp.id(43842548829520643)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_FATHER_COUSINS_DECEASED_COUNT,P5_FAMILY_FATHER_COUSINS_DECEASED_AGE,P5_FAMILY_FATHER_COUSINS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43843144401520649)
+,p_name=>'Display Pgrandfather alive'
+,p_event_sequence=>360
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_P_GRANDFATHER'
+,p_condition_element=>'P5_FAMILY_P_GRANDFATHER'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43843242749520650)
+,p_event_id=>wwv_flow_imp.id(43843144401520649)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDFATHER_BC,P5_FAMILY_P_GRANDFATHER_CANADA'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43857910214591403)
+,p_event_id=>wwv_flow_imp.id(43843144401520649)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDFATHER_BC,P5_FAMILY_P_GRANDFATHER_CANADA'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43858041179591404)
+,p_event_id=>wwv_flow_imp.id(43843144401520649)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDFATHER_BC,P5_FAMILY_P_GRANDFATHER_CANADA'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43857740067591401)
+,p_name=>'Display Pgrandfather dead'
+,p_event_sequence=>370
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_P_GRANDFATHER'
+,p_condition_element=>'P5_FAMILY_P_GRANDFATHER'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'0'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43857821900591402)
+,p_event_id=>wwv_flow_imp.id(43857740067591401)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDFATHER_DECEASED_AGE,P5_FAMILY_P_GRANDFATHER_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43858168709591405)
+,p_event_id=>wwv_flow_imp.id(43857740067591401)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDFATHER_DECEASED_AGE,P5_FAMILY_P_GRANDFATHER_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43858258667591406)
+,p_event_id=>wwv_flow_imp.id(43857740067591401)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDFATHER_DECEASED_AGE,P5_FAMILY_P_GRANDFATHER_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43858396942591407)
+,p_name=>'Display ''go to question 23'''
+,p_event_sequence=>380
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS'
+,p_condition_element=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43858490632591408)
+,p_event_id=>wwv_flow_imp.id(43858396942591407)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS_COUNT,P5_FAMILY_P_GRANDFATHER_SIBLINGS_BC,P5_FAMILY_P_GRANDFATHER_SIBLINGS_CANADA,P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43858706333591411)
+,p_event_id=>wwv_flow_imp.id(43858396942591407)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS_COUNT,P5_FAMILY_P_GRANDFATHER_SIBLINGS_BC,P5_FAMILY_P_GRANDFATHER_SIBLINGS_CANADA,P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43858831953591412)
+,p_event_id=>wwv_flow_imp.id(43858396942591407)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS_COUNT,P5_FAMILY_P_GRANDFATHER_SIBLINGS_BC,P5_FAMILY_P_GRANDFATHER_SIBLINGS_CANADA,P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43858566238591409)
+,p_name=>'Display Pgrandfather siblings deceased'
+,p_event_sequence=>390
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED'
+,p_condition_element=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43858643920591410)
+,p_event_id=>wwv_flow_imp.id(43858566238591409)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_COUNT,P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_AGE,P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43858925602591413)
+,p_event_id=>wwv_flow_imp.id(43858566238591409)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_COUNT,P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_AGE,P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43859026318591414)
+,p_event_id=>wwv_flow_imp.id(43858566238591409)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_COUNT,P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_AGE,P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43859179744591415)
+,p_name=>'Display Pgrandmother alive'
+,p_event_sequence=>400
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_P_GRANDMOTHER'
+,p_condition_element=>'P5_FAMILY_P_GRANDMOTHER'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43859228960591416)
+,p_event_id=>wwv_flow_imp.id(43859179744591415)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDMOTHER_BC,P5_FAMILY_P_GRANDMOTHER_CANADA'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43859515464591419)
+,p_event_id=>wwv_flow_imp.id(43859179744591415)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDMOTHER_BC,P5_FAMILY_P_GRANDMOTHER_CANADA'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43859646433591420)
+,p_event_id=>wwv_flow_imp.id(43859179744591415)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDMOTHER_BC,P5_FAMILY_P_GRANDMOTHER_CANADA'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43859369100591417)
+,p_name=>'Display Pgrandmother dead'
+,p_event_sequence=>410
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_P_GRANDMOTHER'
+,p_condition_element=>'P5_FAMILY_P_GRANDMOTHER'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'0'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43859494171591418)
+,p_event_id=>wwv_flow_imp.id(43859369100591417)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDMOTHER_DECEASED_AGE,P5_FAMILY_P_GRANDMOTHER_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43859735731591421)
+,p_event_id=>wwv_flow_imp.id(43859369100591417)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDMOTHER_DECEASED_AGE,P5_FAMILY_P_GRANDMOTHER_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43859815974591422)
+,p_event_id=>wwv_flow_imp.id(43859369100591417)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDMOTHER_DECEASED_AGE,P5_FAMILY_P_GRANDMOTHER_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43859967004591423)
+,p_name=>'Display ''go to question 25'''
+,p_event_sequence=>420
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS'
+,p_condition_element=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43860086495591424)
+,p_event_id=>wwv_flow_imp.id(43859967004591423)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS_COUNT,P5_FAMILY_P_GRANDMOTHER_SIBLINGS_BC,P5_FAMILY_P_GRANDMOTHER_SIBLINGS_CANADA,P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43860350748591427)
+,p_event_id=>wwv_flow_imp.id(43859967004591423)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS_COUNT,P5_FAMILY_P_GRANDMOTHER_SIBLINGS_BC,P5_FAMILY_P_GRANDMOTHER_SIBLINGS_CANADA,P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43860410929591428)
+,p_event_id=>wwv_flow_imp.id(43859967004591423)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS_COUNT,P5_FAMILY_P_GRANDMOTHER_SIBLINGS_BC,P5_FAMILY_P_GRANDMOTHER_SIBLINGS_CANADA,P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43860182602591425)
+,p_name=>'Display Pgrandmother siblings deceased'
+,p_event_sequence=>430
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED'
+,p_condition_element=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43860222343591426)
+,p_event_id=>wwv_flow_imp.id(43860182602591425)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED_COUNT,P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED_AGE,P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43860578386591429)
+,p_event_id=>wwv_flow_imp.id(43860182602591425)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED_COUNT,P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED_AGE,P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43860629779591430)
+,p_event_id=>wwv_flow_imp.id(43860182602591425)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED_COUNT,P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED_AGE,P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43860725046591431)
+,p_name=>'Display ''go to question 26'''
+,p_event_sequence=>440
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_GRANDCHILDREN'
+,p_condition_element=>'P5_FAMILY_GRANDCHILDREN'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43860837576591432)
+,p_event_id=>wwv_flow_imp.id(43860725046591431)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_GRANDCHILDREN_SONS,P5_FAMILY_GRANDCHILDREN_DAUGHTERS,P5_FAMILY_GRANDCHILDREN_BC,P5_FAMILY_GRANDCHILDREN_CANADA,P5_FAMILY_GRANDCHILDREN_DECEASED,P5_FAMILY_GRANDCHILDREN_ADOPT'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43861180062591435)
+,p_event_id=>wwv_flow_imp.id(43860725046591431)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_GRANDCHILDREN_SONS,P5_FAMILY_GRANDCHILDREN_DAUGHTERS,P5_FAMILY_GRANDCHILDREN_BC,P5_FAMILY_GRANDCHILDREN_CANADA,P5_FAMILY_GRANDCHILDREN_DECEASED,P5_FAMILY_GRANDCHILDREN_ADOPT'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43861284910591436)
+,p_event_id=>wwv_flow_imp.id(43860725046591431)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_GRANDCHILDREN_SONS,P5_FAMILY_GRANDCHILDREN_DAUGHTERS,P5_FAMILY_GRANDCHILDREN_BC,P5_FAMILY_GRANDCHILDREN_CANADA,P5_FAMILY_GRANDCHILDREN_DECEASED,P5_FAMILY_GRANDCHILDREN_ADOPT'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43860975157591433)
+,p_name=>'Display family grandchildren deceased'
+,p_event_sequence=>450
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_GRANDCHILDREN_DECEASED'
+,p_condition_element=>'P5_FAMILY_GRANDCHILDREN_DECEASED'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43861009793591434)
+,p_event_id=>wwv_flow_imp.id(43860975157591433)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_GRANDCHILDREN_DECEASED_COUNT,P5_FAMILY_GRANDCHILDREN_DECEASED_AGE,P5_FAMILY_GRANDCHILDREN_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43861370039591437)
+,p_event_id=>wwv_flow_imp.id(43860975157591433)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_GRANDCHILDREN_DECEASED_COUNT,P5_FAMILY_GRANDCHILDREN_DECEASED_AGE,P5_FAMILY_GRANDCHILDREN_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43861499223591438)
+,p_event_id=>wwv_flow_imp.id(43860975157591433)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_GRANDCHILDREN_DECEASED_COUNT,P5_FAMILY_GRANDCHILDREN_DECEASED_AGE,P5_FAMILY_GRANDCHILDREN_DECEASED_CAUSE'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43861555681591439)
+,p_name=>'Display Fam card info'
+,p_event_sequence=>460
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_1_DEGREE_FAM_CARD'
+,p_condition_element=>'P5_FAMILY_1_DEGREE_FAM_CARD'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43861644969591440)
+,p_event_id=>wwv_flow_imp.id(43861555681591439)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_1_DEGREE_FAM_CARD_INFO'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43862077632591444)
+,p_event_id=>wwv_flow_imp.id(43861555681591439)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_1_DEGREE_FAM_CARD_INFO'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43862178177591445)
+,p_event_id=>wwv_flow_imp.id(43861555681591439)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_1_DEGREE_FAM_CARD_INFO'
+);
+wwv_flow_imp_page.create_page_da_event(
+ p_id=>wwv_flow_imp.id(43861714568591441)
+,p_name=>'Display Fam chol info'
+,p_event_sequence=>470
+,p_triggering_element_type=>'ITEM'
+,p_triggering_element=>'P5_FAMILY_1_DEGREE_FAM_CHOL'
+,p_condition_element=>'P5_FAMILY_1_DEGREE_FAM_CHOL'
+,p_triggering_condition_type=>'EQUALS'
+,p_triggering_expression=>'1'
+,p_bind_type=>'bind'
+,p_execution_type=>'IMMEDIATE'
+,p_bind_event_type=>'change'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43861809954591442)
+,p_event_id=>wwv_flow_imp.id(43861714568591441)
+,p_event_result=>'TRUE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_SHOW'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_1_DEGREE_FAM_CHOL_INFO'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43861935989591443)
+,p_event_id=>wwv_flow_imp.id(43861714568591441)
+,p_event_result=>'FALSE'
+,p_action_sequence=>10
+,p_execute_on_page_init=>'Y'
+,p_action=>'NATIVE_HIDE'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_1_DEGREE_FAM_CHOL_INFO'
+);
+wwv_flow_imp_page.create_page_da_action(
+ p_id=>wwv_flow_imp.id(43862272001591446)
+,p_event_id=>wwv_flow_imp.id(43861714568591441)
+,p_event_result=>'FALSE'
+,p_action_sequence=>20
+,p_execute_on_page_init=>'N'
+,p_action=>'NATIVE_CLEAR'
+,p_affected_elements_type=>'ITEM'
+,p_affected_elements=>'P5_FAMILY_1_DEGREE_FAM_CHOL_INFO'
 );
 wwv_flow_imp_page.create_page_process(
  p_id=>wwv_flow_imp.id(42107246718843737)
