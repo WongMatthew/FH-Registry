@@ -28,13 +28,13 @@ prompt APPLICATION 230701 - FH Registry
 -- Application Export:
 --   Application:     230701
 --   Name:            FH Registry
---   Date and Time:   14:49 Monday July 24, 2023
+--   Date and Time:   16:00 Monday July 24, 2023
 --   Exported By:     MWONG
 --   Flashback:       0
 --   Export Type:     Application Export
 --     Pages:                      7
 --       Items:                  251
---       Validations:            109
+--       Validations:            178
 --       Processes:                8
 --       Regions:                 68
 --       Buttons:                 11
@@ -113,7 +113,7 @@ wwv_flow_imp.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'FH Registry'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230724144919'
+,p_last_upd_yyyymmddhh24miss=>'20230724160016'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>4
 ,p_print_server_type=>'INSTANCE'
@@ -18342,7 +18342,7 @@ wwv_flow_imp_page.create_page(
 ,p_protection_level=>'C'
 ,p_page_component_map=>'02'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230724144919'
+,p_last_upd_yyyymmddhh24miss=>'20230724160016'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(41942945761843600)
@@ -18385,7 +18385,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_parent_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_region_template_options=>'#DEFAULT#'
 ,p_plug_template=>wwv_flow_imp.id(41693526701843220)
-,p_plug_display_sequence=>30
+,p_plug_display_sequence=>40
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
@@ -18396,7 +18396,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_parent_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody:t-Form--leftLabels'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
-,p_plug_display_sequence=>90
+,p_plug_display_sequence=>50
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
@@ -18455,7 +18455,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_parent_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody:t-Form--leftLabels'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
-,p_plug_display_sequence=>140
+,p_plug_display_sequence=>90
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
@@ -18909,7 +18909,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_parent_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
-,p_plug_display_sequence=>110
+,p_plug_display_sequence=>70
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
@@ -18956,7 +18956,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_parent_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
-,p_plug_display_sequence=>130
+,p_plug_display_sequence=>80
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
@@ -18991,7 +18991,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_parent_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
-,p_plug_display_sequence=>100
+,p_plug_display_sequence=>60
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
@@ -19026,7 +19026,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_parent_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_region_template_options=>'#DEFAULT#:t-Region--scrollBody'
 ,p_plug_template=>wwv_flow_imp.id(41683783340843215)
-,p_plug_display_sequence=>150
+,p_plug_display_sequence=>100
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_attribute_01=>'N'
 ,p_attribute_02=>'HTML'
@@ -23955,7 +23955,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43666295149698039)
 ,p_name=>'P5_FAMILY_GRANDCHILDREN_DECEASED_AGE'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>120
+,p_item_sequence=>130
 ,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'What age did they die at?'
@@ -23976,7 +23976,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43666326572698040)
 ,p_name=>'P5_FAMILY_GRANDCHILDREN_DECEASED_CAUSE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>130
+,p_item_sequence=>140
 ,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'What was the cause of death?'
@@ -24001,7 +24001,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(43666435235698041)
 ,p_name=>'P5_FAMILY_GRANDCHILDREN_ADOPT'
 ,p_source_data_type=>'NUMBER'
-,p_item_sequence=>140
+,p_item_sequence=>150
 ,p_item_plug_id=>wwv_flow_imp.id(41455687252982550)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_prompt=>'d) Are any of your grandchildren adopted or foster children? '
@@ -26023,6 +26023,1251 @@ wwv_flow_imp_page.create_page_validation(
 ,p_associated_item=>wwv_flow_imp.id(42032182015843676)
 ,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
 );
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44089866998381032)
+,p_validation_name=>'check P5_FAMILY_GRANDCHILDREN_SONS '
+,p_validation_sequence=>1100
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_GRANDCHILDREN = 1 and :P5_FAMILY_GRANDCHILDREN_SONS is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(42027387097843673)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44089966262381033)
+,p_validation_name=>'check P5_FAMILY_GRANDCHILDREN_DAUGHTERS'
+,p_validation_sequence=>1110
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_GRANDCHILDREN = 1 and :P5_FAMILY_GRANDCHILDREN_DAUGHTERS is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(42027779649843673)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44090093761381034)
+,p_validation_name=>'check P5_FAMILY_GRANDCHILDREN_BC'
+,p_validation_sequence=>1120
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_GRANDCHILDREN = 1 and :P5_FAMILY_GRANDCHILDREN_BC is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43665818656698035)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44090173892381035)
+,p_validation_name=>'check P5_FAMILY_GRANDCHILDREN_CANADA'
+,p_validation_sequence=>1130
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_GRANDCHILDREN = 1 and :P5_FAMILY_GRANDCHILDREN_CANADA is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43665941119698036)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44090446717381038)
+,p_validation_name=>'check P5_FAMILY_GRANDCHILDREN_DECEASED_COUNT'
+,p_validation_sequence=>1150
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_GRANDCHILDREN_DECEASED = 1 and :P5_FAMILY_GRANDCHILDREN_DECEASED_COUNT is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43666153705698038)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44090548561381039)
+,p_validation_name=>'P5_FAMILY_GRANDCHILDREN_DECEASED_AGE'
+,p_validation_sequence=>1160
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_GRANDCHILDREN_DECEASED = 1 and :P5_FAMILY_GRANDCHILDREN_DECEASED_AGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43666295149698039)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44090683295381040)
+,p_validation_name=>'check P5_FAMILY_GRANDCHILDREN_DECEASED_CAUSE'
+,p_validation_sequence=>1170
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_GRANDCHILDREN_DECEASED = 1 and :P5_FAMILY_GRANDCHILDREN_DECEASED_CAUSE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43666326572698040)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44090743969381041)
+,p_validation_name=>'check P5_FAMILY_M_GRANDFATHER_SIBLINGS_COUNT'
+,p_validation_sequence=>1180
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_M_GRANDFATHER_SIBLINGS = 1 and :P5_FAMILY_M_GRANDFATHER_SIBLINGS_COUNT is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43472936188185949)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44090835973381042)
+,p_validation_name=>'check P5_FAMILY_M_GRANDFATHER_SIBLINGS_BC'
+,p_validation_sequence=>1190
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_M_GRANDFATHER_SIBLINGS = 1 and :P5_FAMILY_M_GRANDFATHER_SIBLINGS_BC is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43473073286185950)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44090936210381043)
+,p_validation_name=>'check P5_FAMILY_M_GRANDFATHER_SIBLINGS_CANADA'
+,p_validation_sequence=>1200
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_M_GRANDFATHER_SIBLINGS = 1 and :P5_FAMILY_M_GRANDFATHER_SIBLINGS_CANADA is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43578996132689201)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44091049796381044)
+,p_validation_name=>'check P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_CAUSE'
+,p_validation_sequence=>1210
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED = 1 and :P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_CAUSE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43579327964689205)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44091120744381045)
+,p_validation_name=>'check P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_AGE'
+,p_validation_sequence=>1220
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED = 1 and :P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_AGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43579297073689204)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44091256696381046)
+,p_validation_name=>'check P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_COUNT'
+,p_validation_sequence=>1230
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED = 1 and :P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_COUNT is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43579116939689203)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44091353093381047)
+,p_validation_name=>'check P5_FAMILY_M_GRANDMOTHER_BC'
+,p_validation_sequence=>1240
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_M_GRANDMOTHER = 1 and :P5_FAMILY_M_GRANDMOTHER_BC is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43579655699689208)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44091478993381048)
+,p_validation_name=>'P5_FAMILY_M_GRANDMOTHER_CANADA'
+,p_validation_sequence=>1250
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_M_GRANDMOTHER = 1 and :P5_FAMILY_M_GRANDMOTHER_CANADA is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43579729980689209)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44091532198381049)
+,p_validation_name=>'check P5_FAMILY_M_GRANDMOTHER_DECEASED_AGE'
+,p_validation_sequence=>1260
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_M_GRANDMOTHER = 0 and :P5_FAMILY_M_GRANDMOTHER_DECEASED_AGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43579856172689210)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44100529358612001)
+,p_validation_name=>'check P5_FAMILY_M_GRANDMOTHER_DECEASED_CAUSE'
+,p_validation_sequence=>1270
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_M_GRANDMOTHER = 0 and :P5_FAMILY_M_GRANDMOTHER_DECEASED_CAUSE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43579911251689211)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44100672432612002)
+,p_validation_name=>'check P5_FAMILY_SIBLINGS_DECEASED'
+,p_validation_sequence=>1280
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_SIBLINGS = 1 and :P5_FAMILY_SIBLINGS_DECEASED is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41976502219843629)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44100791706612003)
+,p_validation_name=>'check P5_FAMILY_NIBLINGS_DECEASED '
+,p_validation_sequence=>1290
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_NIBLINGS = 1 and :P5_FAMILY_NIBLINGS_DECEASED is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43034795881386345)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44100806271612004)
+,p_validation_name=>'check P5_FAMILY_CHILDREN_DECEASED'
+,p_validation_sequence=>1300
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_CHILDREN = 1 and :P5_FAMILY_CHILDREN_DECEASED is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43468937495185909)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44100936608612005)
+,p_validation_name=>'New'
+,p_validation_sequence=>1310
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_MOTHER_SIBLINGS = 1 and :P5_FAMILY_MOTHER_SIBLINGS_DECEASED is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43470553164185925)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44101004272612006)
+,p_validation_name=>'check P5_FAMILY_MOTHER_COUSIN_DECEASED'
+,p_validation_sequence=>1320
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_MOTHER_COUSIN = 1 and :P5_FAMILY_MOTHER_COUSIN_DECEASED is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43471706197185937)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44101101674612007)
+,p_validation_name=>'check P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED'
+,p_validation_sequence=>1330
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_M_GRANDFATHER_SIBLINGS = 1 and :P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43579010440689202)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44101282752612008)
+,p_validation_name=>'check P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED'
+,p_validation_sequence=>1340
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_M_GRANDMOTHER_SIBLINGS = 1 and :P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43580558650689217)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44101363712612009)
+,p_validation_name=>'check P5_FAMILY_M_GRANDMOTHER_SIBLINGS_CANADA '
+,p_validation_sequence=>1350
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_M_GRANDMOTHER_SIBLINGS = 1 and :P5_FAMILY_M_GRANDMOTHER_SIBLINGS_CANADA is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43580410103689216)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44101491098612010)
+,p_validation_name=>'check P5_FAMILY_M_GRANDMOTHER_SIBLINGS_BC'
+,p_validation_sequence=>1360
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_M_GRANDMOTHER_SIBLINGS = 1 and :P5_FAMILY_M_GRANDMOTHER_SIBLINGS_BC is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43580300412689215)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44101563199612011)
+,p_validation_name=>'check P5_FAMILY_M_GRANDMOTHER_SIBLINGS_COUNT'
+,p_validation_sequence=>1370
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_M_GRANDMOTHER_SIBLINGS = 1 and :P5_FAMILY_M_GRANDMOTHER_SIBLINGS_COUNT is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43580224486689214)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44101639230612012)
+,p_validation_name=>'check P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_COUNT '
+,p_validation_sequence=>1380
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED = 1 and :P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_COUNT is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43580692895689218)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44101763552612013)
+,p_validation_name=>'check P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_AGE'
+,p_validation_sequence=>1390
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED = 1 and :P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_AGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43580711826689219)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44101899526612014)
+,p_validation_name=>'check P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_CAUSE'
+,p_validation_sequence=>1400
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED = 1 and :P5_FAMILY_M_GRANDMOTHER_SIBLINGS_DECEASED_CAUSE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43580849966689220)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44101907206612015)
+,p_validation_name=>'check P5_FAMILY_FATHER_BC'
+,p_validation_sequence=>1410
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_FATHER = 1 and :P5_FAMILY_FATHER_BC is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43581154179689223)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44102039267612016)
+,p_validation_name=>'check P5_FAMILY_FATHER_CANADA'
+,p_validation_sequence=>1420
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_FATHER = 1 and :P5_FAMILY_FATHER_CANADA is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43581263456689224)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44102141880612017)
+,p_validation_name=>'check P5_FAMILY_FATHER_DECEASED_AGE'
+,p_validation_sequence=>1430
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_FATHER = 0 and :P5_FAMILY_FATHER_DECEASED_AGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43581337542689225)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44102283719612018)
+,p_validation_name=>'check P5_FAMILY_FATHER_DECEASED_CAUSE'
+,p_validation_sequence=>1440
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_FATHER = 0 and :P5_FAMILY_FATHER_DECEASED_CAUSE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43581403248689226)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44102314054612019)
+,p_validation_name=>'check P5_FAMILY_FATHER_BROTHERS'
+,p_validation_sequence=>1450
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_FATHER_SIBLINGS = 1 and :P5_FAMILY_FATHER_BROTHERS is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43581719313689229)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44102402116612020)
+,p_validation_name=>'check P5_FAMILY_FATHER_SISTERS'
+,p_validation_sequence=>1460
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_FATHER_SIBLINGS = 1 and :P5_FAMILY_FATHER_SISTERS is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43581894382689230)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44102572883612021)
+,p_validation_name=>'check P5_FAMILY_FATHER_SIBLINGS_BC'
+,p_validation_sequence=>1470
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_FATHER_SIBLINGS = 1 and :P5_FAMILY_FATHER_SIBLINGS_BC is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43581909895689231)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44102652412612022)
+,p_validation_name=>'check P5_FAMILY_FATHER_SIBLINGS_CANADA'
+,p_validation_sequence=>1480
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_FATHER_SIBLINGS = 1 and :P5_FAMILY_FATHER_SIBLINGS_CANADA is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43582011820689232)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44102798727612023)
+,p_validation_name=>'check P5_FAMILY_FATHER_SIBLINGS_DECEASED'
+,p_validation_sequence=>1490
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_FATHER_SIBLINGS = 1 and :P5_FAMILY_FATHER_SIBLINGS_DECEASED is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43582167191689233)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44102872521612024)
+,p_validation_name=>'check P5_FAMILY_FATHER_SIBLINGS_DECEASED_COUNT'
+,p_validation_sequence=>1500
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_FATHER_SIBLINGS_DECEASED = 1 and :P5_FAMILY_FATHER_SIBLINGS_DECEASED_COUNT is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43582278797689234)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44102920197612025)
+,p_validation_name=>'check P5_FAMILY_FATHER_SIBLINGS_DECEASED_AGE'
+,p_validation_sequence=>1510
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_FATHER_SIBLINGS_DECEASED = 1 and :P5_FAMILY_FATHER_SIBLINGS_DECEASED_AGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43582330827689235)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44103051736612026)
+,p_validation_name=>'check P5_FAMILY_FATHER_SIBLINGS_DECEASED_CAUSE'
+,p_validation_sequence=>1520
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_FATHER_SIBLINGS_DECEASED = 1 and :P5_FAMILY_FATHER_SIBLINGS_DECEASED_CAUSE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43582494477689236)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+end;
+/
+begin
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44103196769612027)
+,p_validation_name=>'check P5_FAMILY_FATHER_COUSINS_COUNT'
+,p_validation_sequence=>1530
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_FATHER_COUSINS = 1 and :P5_FAMILY_FATHER_COUSINS_COUNT is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43582911628689241)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44103264276612028)
+,p_validation_name=>'check P5_FAMILY_FATHER_COUSINS_BC'
+,p_validation_sequence=>1540
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_FATHER_COUSINS = 1 and :P5_FAMILY_FATHER_COUSINS_BC is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43583042549689242)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44103398678612029)
+,p_validation_name=>'check P5_FAMILY_FATHER_COUSINS_CANADA'
+,p_validation_sequence=>1550
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_FATHER_COUSINS = 1 and :P5_FAMILY_FATHER_COUSINS_CANADA is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43583102026689243)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44103432260612030)
+,p_validation_name=>'check P5_FAMILY_FATHER_COUSINS_DECEASED'
+,p_validation_sequence=>1560
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_FATHER_COUSINS = 1 and :P5_FAMILY_FATHER_COUSINS_DECEASED is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43583259504689244)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44103523594612031)
+,p_validation_name=>'check P5_FAMILY_FATHER_COUSINS_DECEASED_COUNT'
+,p_validation_sequence=>1570
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_FATHER_COUSINS_DECEASED = 1 and :P5_FAMILY_FATHER_COUSINS_DECEASED_COUNT is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43583374738689245)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44103609250612032)
+,p_validation_name=>'check P5_FAMILY_FATHER_COUSINS_DECEASED_AGE'
+,p_validation_sequence=>1580
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_FATHER_COUSINS_DECEASED = 1 and :P5_FAMILY_FATHER_COUSINS_DECEASED_AGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43583483089689246)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44103762692612033)
+,p_validation_name=>'check P5_FAMILY_FATHER_COUSINS_DECEASED_CAUSE'
+,p_validation_sequence=>1590
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_FATHER_COUSINS_DECEASED = 1 and :P5_FAMILY_FATHER_COUSINS_DECEASED_CAUSE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43583579536689247)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44103858210612034)
+,p_validation_name=>'check P5_FAMILY_P_GRANDFATHER_BC'
+,p_validation_sequence=>1600
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_P_GRANDFATHER = 1 and :P5_FAMILY_P_GRANDFATHER_BC is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43583807809689250)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44103998790612035)
+,p_validation_name=>'check P5_FAMILY_P_GRANDFATHER_CANADA'
+,p_validation_sequence=>1610
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_P_GRANDFATHER = 1 and :P5_FAMILY_P_GRANDFATHER_CANADA is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43662402995698001)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44104074147612036)
+,p_validation_name=>'check P5_FAMILY_P_GRANDFATHER_DECEASED_CAUSE'
+,p_validation_sequence=>1620
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_P_GRANDFATHER = 0 and :P5_FAMILY_P_GRANDFATHER_DECEASED_CAUSE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43662685471698003)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44104176476612037)
+,p_validation_name=>'check P5_FAMILY_P_GRANDFATHER_DECEASED_AGE'
+,p_validation_sequence=>1630
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_P_GRANDFATHER = 0 and :P5_FAMILY_P_GRANDFATHER_DECEASED_AGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43662510740698002)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44104247269612038)
+,p_validation_name=>'check P5_FAMILY_P_GRANDFATHER_SIBLINGS_COUNT'
+,p_validation_sequence=>1640
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_P_GRANDFATHER_SIBLINGS = 1 and :P5_FAMILY_P_GRANDFATHER_SIBLINGS_COUNT is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43663507719698012)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44104344185612039)
+,p_validation_name=>'check P5_FAMILY_P_GRANDFATHER_SIBLINGS_BC'
+,p_validation_sequence=>1650
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_P_GRANDFATHER_SIBLINGS = 1 and :P5_FAMILY_P_GRANDFATHER_SIBLINGS_BC is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43663692919698013)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44104486820612040)
+,p_validation_name=>'check P5_FAMILY_P_GRANDFATHER_SIBLINGS_CANADA'
+,p_validation_sequence=>1660
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_P_GRANDFATHER_SIBLINGS = 1 and :P5_FAMILY_P_GRANDFATHER_SIBLINGS_CANADA is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43663791731698014)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44104585040612041)
+,p_validation_name=>'check P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED'
+,p_validation_sequence=>1670
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_P_GRANDFATHER_SIBLINGS = 1 and :P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43663875949698015)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44104600719612042)
+,p_validation_name=>'check P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_COUNT'
+,p_validation_sequence=>1680
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED = 1 and :P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_COUNT is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43663967201698016)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44104704610612043)
+,p_validation_name=>'check P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_AGE'
+,p_validation_sequence=>1690
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED = 1 and :P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_AGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43664016307698017)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44104874760612044)
+,p_validation_name=>'check P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_CAUSE'
+,p_validation_sequence=>1700
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED = 1 and :P5_FAMILY_P_GRANDFATHER_SIBLINGS_DECEASED_CAUSE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43664193527698018)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44104914843612045)
+,p_validation_name=>'check P5_FAMILY_P_GRANDMOTHER_BC'
+,p_validation_sequence=>1710
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_P_GRANDMOTHER = 1 and :P5_FAMILY_P_GRANDMOTHER_BC is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43662980463698006)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44105067880612046)
+,p_validation_name=>'check P5_FAMILY_P_GRANDMOTHER_CANADA'
+,p_validation_sequence=>1720
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_P_GRANDMOTHER = 1 and :P5_FAMILY_P_GRANDMOTHER_CANADA is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43663078928698007)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44105161306612047)
+,p_validation_name=>'check P5_FAMILY_P_GRANDMOTHER_DECEASED_CAUSE'
+,p_validation_sequence=>1730
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_P_GRANDMOTHER = 0 and :P5_FAMILY_P_GRANDMOTHER_DECEASED_CAUSE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43663205692698009)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44105246190612048)
+,p_validation_name=>'check P5_FAMILY_P_GRANDMOTHER_DECEASED_AGE'
+,p_validation_sequence=>1740
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin ',
+'  if :P5_FAMILY_P_GRANDMOTHER = 0 and :P5_FAMILY_P_GRANDMOTHER_DECEASED_AGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43663111779698008)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44132978287947127)
+,p_validation_name=>'check P5_FAMILY_P_GRANDMOTHER_SIBLINGS_COUNT'
+,p_validation_sequence=>1750
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_P_GRANDMOTHER_SIBLINGS = 1 and :P5_FAMILY_P_GRANDMOTHER_SIBLINGS_COUNT is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43664786329698024)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44133013001947128)
+,p_validation_name=>'check P5_FAMILY_P_GRANDMOTHER_SIBLINGS_BC'
+,p_validation_sequence=>1760
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_P_GRANDMOTHER_SIBLINGS = 1 and :P5_FAMILY_P_GRANDMOTHER_SIBLINGS_BC is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43664863977698025)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44133106601947129)
+,p_validation_name=>'check P5_FAMILY_P_GRANDMOTHER_SIBLINGS_CANADA '
+,p_validation_sequence=>1770
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_P_GRANDMOTHER_SIBLINGS = 1 and :P5_FAMILY_P_GRANDMOTHER_SIBLINGS_CANADA is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43664971108698026)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44133239677947130)
+,p_validation_name=>'check P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED'
+,p_validation_sequence=>1780
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_P_GRANDMOTHER_SIBLINGS = 1 and :P5_FAMILY_P_GRANDMOTHER_SIBLINGS_DECEASED is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43665078956698027)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44133341153947131)
+,p_validation_name=>'check P5_FAMILY_GRANDCHILDREN_DECEASED'
+,p_validation_sequence=>1790
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_GRANDCHILDREN = 1 and :P5_FAMILY_GRANDCHILDREN_DECEASED is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43666064212698037)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
 wwv_flow_imp_page.create_page_da_event(
  p_id=>wwv_flow_imp.id(43031296837386310)
 ,p_name=>'Set Today''s Date'
@@ -26368,6 +27613,9 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements_type=>'REGION'
 ,p_affected_region_id=>wwv_flow_imp.id(43033241641386330)
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(43768356058199832)
 ,p_event_id=>wwv_flow_imp.id(43767422205199823)
@@ -26689,9 +27937,6 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements_type=>'ITEM'
 ,p_affected_elements=>'P5_FAMILY_CHILDREN_SONS,P5_FAMILY_CHILDREN_DAUGHTERS,P5_FAMILY_CHILDREN_BC,P5_FAMILY_CHILDREN_CANADA,P5_FAMILY_CHILDREN_DECEASED,P5_FAMILY_CHILDREN_ADOPT'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(43809514134376811)
 ,p_event_id=>wwv_flow_imp.id(43809333779376809)
@@ -27208,6 +28453,9 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements_type=>'ITEM'
 ,p_affected_elements=>'P5_FAMILY_M_GRANDMOTHER_BC,P5_FAMILY_M_GRANDMOTHER_CANADA'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(43839585844520613)
 ,p_event_id=>wwv_flow_imp.id(43839110412520609)
@@ -27529,9 +28777,6 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements_type=>'ITEM'
 ,p_affected_elements=>'P5_FAMILY_FATHER_SIBLINGS_DECEASED_COUNT,P5_FAMILY_FATHER_SIBLINGS_DECEASED_AGE,P5_FAMILY_FATHER_SIBLINGS_DECEASED_CAUSE'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_da_event(
  p_id=>wwv_flow_imp.id(43842382712520641)
 ,p_name=>'Display ''go to question 21'''
@@ -28038,6 +29283,9 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements_type=>'ITEM'
 ,p_affected_elements=>'P5_FAMILY_GRANDCHILDREN_DECEASED_COUNT,P5_FAMILY_GRANDCHILDREN_DECEASED_AGE,P5_FAMILY_GRANDCHILDREN_DECEASED_CAUSE'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(43861499223591438)
 ,p_event_id=>wwv_flow_imp.id(43860975157591433)
@@ -28382,9 +29630,6 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements_type=>'ITEM'
 ,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_DOSAGE'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(43892335813695041)
 ,p_event_id=>wwv_flow_imp.id(43890600070695024)
