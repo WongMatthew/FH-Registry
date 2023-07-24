@@ -28,13 +28,13 @@ prompt APPLICATION 230701 - FH Registry
 -- Application Export:
 --   Application:     230701
 --   Name:            FH Registry
---   Date and Time:   11:46 Friday July 21, 2023
+--   Date and Time:   14:49 Monday July 24, 2023
 --   Exported By:     MWONG
 --   Flashback:       0
 --   Export Type:     Application Export
 --     Pages:                      7
 --       Items:                  251
---       Validations:             34
+--       Validations:            109
 --       Processes:                8
 --       Regions:                 68
 --       Buttons:                 11
@@ -113,7 +113,7 @@ wwv_flow_imp.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'FH Registry'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230721114620'
+,p_last_upd_yyyymmddhh24miss=>'20230724144919'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>4
 ,p_print_server_type=>'INSTANCE'
@@ -18342,7 +18342,7 @@ wwv_flow_imp_page.create_page(
 ,p_protection_level=>'C'
 ,p_page_component_map=>'02'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230721114620'
+,p_last_upd_yyyymmddhh24miss=>'20230724144919'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(41942945761843600)
@@ -24632,6 +24632,1397 @@ wwv_flow_imp_page.create_page_validation(
 ,p_associated_item=>wwv_flow_imp.id(41959794294843615)
 ,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
 );
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43912168995844219)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_STOP_SIDE_EFFECTS'
+,p_validation_sequence=>350
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_STOP = 1 and (:P5_CHOLESTEROL_TREATMENT_STOP_SIDE_EFFECTS is NULL and :P5_CHOLESTEROL_TREATMENT_STOP_OTHER is NULL) then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing Value'
+,p_associated_item=>wwv_flow_imp.id(41960547891843617)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43912274383844220)
+,p_validation_name=>'check P5_CHOLESTEROL_TREATMENT_STOP_OTHER '
+,p_validation_sequence=>360
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CHOLESTEROL_TREATMENT_STOP = 1 and (:P5_CHOLESTEROL_TREATMENT_STOP_SIDE_EFFECTS is NULL and :P5_CHOLESTEROL_TREATMENT_STOP_OTHER is NULL) then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing Value'
+,p_associated_item=>wwv_flow_imp.id(41960988818843617)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43912356374844221)
+,p_validation_name=>'check P5_CUR_MEDICATIONS_ASPIRIN '
+,p_validation_sequence=>370
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CUR_MEDICATIONS = ''1'' then',
+'    if :P5_CUR_MEDICATIONS_ASPIRIN = ''1'' or :P5_CUR_MEDICATIONS_BLD_PRES = ''1'' or :P5_CUR_MEDICATIONS_BLD_SUG = ''1'' or :P5_CUR_MEDICATIONS_OTHER = ''1'' then',
+'      return true;',
+'    else',
+'      return false;',
+'    end if;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41961710877843617)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43912470321844222)
+,p_validation_name=>'check P5_CUR_MEDICATIONS_BLD_PRES '
+,p_validation_sequence=>380
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CUR_MEDICATIONS = ''1'' then',
+'    if :P5_CUR_MEDICATIONS_ASPIRIN = ''1'' or :P5_CUR_MEDICATIONS_BLD_PRES = ''1'' or :P5_CUR_MEDICATIONS_BLD_SUG = ''1'' or :P5_CUR_MEDICATIONS_OTHER = ''1'' then',
+'      return true;',
+'    else',
+'      return false;',
+'    end if;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41962137349843617)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43912573484844223)
+,p_validation_name=>'check P5_CUR_MEDICATIONS_BLD_SUG '
+,p_validation_sequence=>390
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CUR_MEDICATIONS = ''1'' then',
+'    if :P5_CUR_MEDICATIONS_ASPIRIN = ''1'' or :P5_CUR_MEDICATIONS_BLD_PRES = ''1'' or :P5_CUR_MEDICATIONS_BLD_SUG = ''1'' or :P5_CUR_MEDICATIONS_OTHER = ''1'' then',
+'      return true;',
+'    else',
+'      return false;',
+'    end if;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41962979714843618)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43912611760844224)
+,p_validation_name=>'check P5_CUR_MEDICATIONS_OTHER '
+,p_validation_sequence=>400
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CUR_MEDICATIONS = ''1'' then',
+'    if :P5_CUR_MEDICATIONS_ASPIRIN = ''1'' or :P5_CUR_MEDICATIONS_BLD_PRES = ''1'' or :P5_CUR_MEDICATIONS_BLD_SUG = ''1'' or :P5_CUR_MEDICATIONS_OTHER = ''1'' then',
+'      return true;',
+'    else',
+'      return false;',
+'    end if;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41963746768843618)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43912741501844225)
+,p_validation_name=>'check P5_CUR_MEDICATIONS_BLD_PRES_NAME '
+,p_validation_sequence=>410
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CUR_MEDICATIONS_BLD_PRES = 1 and :P5_CUR_MEDICATIONS_BLD_PRES_NAME is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41962587608843618)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43912860321844226)
+,p_validation_name=>'check P5_CUR_MEDICATIONS_BLD_SUG_NAME '
+,p_validation_sequence=>420
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CUR_MEDICATIONS_BLD_SUG = 1 and :P5_CUR_MEDICATIONS_BLD_SUG_NAME is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41963379301843618)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43912979945844227)
+,p_validation_name=>'check P5_CUR_MEDICATIONS_OTHER_NAME '
+,p_validation_sequence=>430
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_CUR_MEDICATIONS_other = 1 and :P5_CUR_MEDICATIONS_OTHER_NAME is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41964184245843620)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43913097261844228)
+,p_validation_name=>'check P5_PERSONAL_BLOOD_ANGINA'
+,p_validation_sequence=>440
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
+'    if :P5_PERSONAL_BLOOD_ANGINA = ''1'' or :P5_PERSONAL_BLOOD_ANGIOGRAPHY = ''1'' or :P5_PERSONAL_BLOOD_BYPASS = ''1'' or :P5_PERSONAL_BLOOD_HEART_ATTACK = ''1'' or :P5_PERSONAL_BLOOD_STENT = ''1'' or :P5_PERSONAL_BLOOD_LEG = ''1'' or :P5_PERSONAL_BLOOD_OTHER ='
+||' ''1'' or :P5_PERSONAL_BLOOD_PERIPHERAL = ''1'' or :P5_PERSONAL_BLOOD_STROKE = ''1'' then',
+'      return true;',
+'    else',
+'      return false;',
+'    end if;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41964966836843620)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43913178027844229)
+,p_validation_name=>'check P5_PERSONAL_BLOOD_HEART_ATTACK '
+,p_validation_sequence=>450
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
+'    if :P5_PERSONAL_BLOOD_ANGINA = ''1'' or :P5_PERSONAL_BLOOD_ANGIOGRAPHY = ''1'' or :P5_PERSONAL_BLOOD_BYPASS = ''1'' or :P5_PERSONAL_BLOOD_HEART_ATTACK = ''1'' or :P5_PERSONAL_BLOOD_STENT = ''1'' or :P5_PERSONAL_BLOOD_LEG = ''1'' or :P5_PERSONAL_BLOOD_OTHER ='
+||' ''1'' or :P5_PERSONAL_BLOOD_PERIPHERAL = ''1'' or :P5_PERSONAL_BLOOD_STROKE = ''1'' then',
+'      return true;',
+'    else',
+'      return false;',
+'    end if;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41965746537843620)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43913235835844230)
+,p_validation_name=>'check P5_PERSONAL_BLOOD_STENT '
+,p_validation_sequence=>460
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
+'    if :P5_PERSONAL_BLOOD_ANGINA = ''1'' or :P5_PERSONAL_BLOOD_ANGIOGRAPHY = ''1'' or :P5_PERSONAL_BLOOD_BYPASS = ''1'' or :P5_PERSONAL_BLOOD_HEART_ATTACK = ''1'' or :P5_PERSONAL_BLOOD_STENT = ''1'' or :P5_PERSONAL_BLOOD_LEG = ''1'' or :P5_PERSONAL_BLOOD_OTHER ='
+||' ''1'' or :P5_PERSONAL_BLOOD_PERIPHERAL = ''1'' or :P5_PERSONAL_BLOOD_STROKE = ''1'' then',
+'      return true;',
+'    else',
+'      return false;',
+'    end if;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41966585354843621)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43913383504844231)
+,p_validation_name=>'check P5_PERSONAL_BLOOD_BYPASS '
+,p_validation_sequence=>470
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
+'    if :P5_PERSONAL_BLOOD_ANGINA = ''1'' or :P5_PERSONAL_BLOOD_ANGIOGRAPHY = ''1'' or :P5_PERSONAL_BLOOD_BYPASS = ''1'' or :P5_PERSONAL_BLOOD_HEART_ATTACK = ''1'' or :P5_PERSONAL_BLOOD_STENT = ''1'' or :P5_PERSONAL_BLOOD_LEG = ''1'' or :P5_PERSONAL_BLOOD_OTHER ='
+||' ''1'' or :P5_PERSONAL_BLOOD_PERIPHERAL = ''1'' or :P5_PERSONAL_BLOOD_STROKE = ''1'' then',
+'      return true;',
+'    else',
+'      return false;',
+'    end if;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41967364597843621)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43913484613844232)
+,p_validation_name=>'check P5_PERSONAL_BLOOD_ANGIOGRAPHY '
+,p_validation_sequence=>480
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
+'    if :P5_PERSONAL_BLOOD_ANGINA = ''1'' or :P5_PERSONAL_BLOOD_ANGIOGRAPHY = ''1'' or :P5_PERSONAL_BLOOD_BYPASS = ''1'' or :P5_PERSONAL_BLOOD_HEART_ATTACK = ''1'' or :P5_PERSONAL_BLOOD_STENT = ''1'' or :P5_PERSONAL_BLOOD_LEG = ''1'' or :P5_PERSONAL_BLOOD_OTHER ='
+||' ''1'' or :P5_PERSONAL_BLOOD_PERIPHERAL = ''1'' or :P5_PERSONAL_BLOOD_STROKE = ''1'' then',
+'      return true;',
+'    else',
+'      return false;',
+'    end if;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41968199638843623)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43913515749844233)
+,p_validation_name=>'check P5_PERSONAL_BLOOD_STROKE '
+,p_validation_sequence=>490
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
+'    if :P5_PERSONAL_BLOOD_ANGINA = ''1'' or :P5_PERSONAL_BLOOD_ANGIOGRAPHY = ''1'' or :P5_PERSONAL_BLOOD_BYPASS = ''1'' or :P5_PERSONAL_BLOOD_HEART_ATTACK = ''1'' or :P5_PERSONAL_BLOOD_STENT = ''1'' or :P5_PERSONAL_BLOOD_LEG = ''1'' or :P5_PERSONAL_BLOOD_OTHER ='
+||' ''1'' or :P5_PERSONAL_BLOOD_PERIPHERAL = ''1'' or :P5_PERSONAL_BLOOD_STROKE = ''1'' then',
+'      return true;',
+'    else',
+'      return false;',
+'    end if;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41968946234843623)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43913615699844234)
+,p_validation_name=>'check P5_PERSONAL_BLOOD_LEG '
+,p_validation_sequence=>500
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
+'    if :P5_PERSONAL_BLOOD_ANGINA = ''1'' or :P5_PERSONAL_BLOOD_ANGIOGRAPHY = ''1'' or :P5_PERSONAL_BLOOD_BYPASS = ''1'' or :P5_PERSONAL_BLOOD_HEART_ATTACK = ''1'' or :P5_PERSONAL_BLOOD_STENT = ''1'' or :P5_PERSONAL_BLOOD_LEG = ''1'' or :P5_PERSONAL_BLOOD_OTHER ='
+||' ''1'' or :P5_PERSONAL_BLOOD_PERIPHERAL = ''1'' or :P5_PERSONAL_BLOOD_STROKE = ''1'' then',
+'      return true;',
+'    else',
+'      return false;',
+'    end if;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41969782433843625)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+end;
+/
+begin
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43913710613844235)
+,p_validation_name=>'check P5_PERSONAL_BLOOD_PERIPHERAL'
+,p_validation_sequence=>510
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
+'    if :P5_PERSONAL_BLOOD_ANGINA = ''1'' or :P5_PERSONAL_BLOOD_ANGIOGRAPHY = ''1'' or :P5_PERSONAL_BLOOD_BYPASS = ''1'' or :P5_PERSONAL_BLOOD_HEART_ATTACK = ''1'' or :P5_PERSONAL_BLOOD_STENT = ''1'' or :P5_PERSONAL_BLOOD_LEG = ''1'' or :P5_PERSONAL_BLOOD_OTHER ='
+||' ''1'' or :P5_PERSONAL_BLOOD_PERIPHERAL = ''1'' or :P5_PERSONAL_BLOOD_STROKE = ''1'' then',
+'      return true;',
+'    else',
+'      return false;',
+'    end if;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41970566351843625)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43913835987844236)
+,p_validation_name=>'check P5_PERSONAL_BLOOD_OTHER '
+,p_validation_sequence=>520
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
+'    if :P5_PERSONAL_BLOOD_ANGINA = ''1'' or :P5_PERSONAL_BLOOD_ANGIOGRAPHY = ''1'' or :P5_PERSONAL_BLOOD_BYPASS = ''1'' or :P5_PERSONAL_BLOOD_HEART_ATTACK = ''1'' or :P5_PERSONAL_BLOOD_STENT = ''1'' or :P5_PERSONAL_BLOOD_LEG = ''1'' or :P5_PERSONAL_BLOOD_OTHER ='
+||' ''1'' or :P5_PERSONAL_BLOOD_PERIPHERAL = ''1'' or :P5_PERSONAL_BLOOD_STROKE = ''1'' then',
+'      return true;',
+'    else',
+'      return false;',
+'    end if;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41971391135843625)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43913921066844237)
+,p_validation_name=>'check P5_PERSONAL_BLOOD_ANGINA_DATE '
+,p_validation_sequence=>530
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_PERSONAL_BLOOD_ANGINA = 1 and :P5_PERSONAL_BLOOD_ANGINA_DATE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41965344870843620)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43914030409844238)
+,p_validation_name=>'check P5_PERSONAL_BLOOD_HEART_ATTACK_DATE'
+,p_validation_sequence=>540
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_PERSONAL_BLOOD_HEART_ATTACK = 1 and :P5_PERSONAL_BLOOD_HEART_ATTACK_DATE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41966132267843621)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43914183444844239)
+,p_validation_name=>'check P5_PERSONAL_BLOOD_STENT_DATE '
+,p_validation_sequence=>550
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_PERSONAL_BLOOD_STENT = 1 and :P5_PERSONAL_BLOOD_STENT_DATE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41966942146843621)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43914285883844240)
+,p_validation_name=>'check P5_PERSONAL_BLOOD_BYPASS_DATE'
+,p_validation_sequence=>560
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_PERSONAL_BLOOD_BYPASS = 1 and :P5_PERSONAL_BLOOD_BYPASS_DATE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41967785036843623)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43914394172844241)
+,p_validation_name=>'check P5_PERSONAL_BLOOD_ANGIOGRAPHY_DATE'
+,p_validation_sequence=>570
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_PERSONAL_BLOOD_ANGIOGRAPHY = 1 and :P5_PERSONAL_BLOOD_ANGIOGRAPHY_DATE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41968528136843623)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43914466966844242)
+,p_validation_name=>'check P5_PERSONAL_BLOOD_STROKE_DATE'
+,p_validation_sequence=>580
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_PERSONAL_BLOOD_STROKE = 1 and :P5_PERSONAL_BLOOD_STROKE_DATE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41969357245843623)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43914518536844243)
+,p_validation_name=>'check P5_PERSONAL_BLOOD_LEG_DATE'
+,p_validation_sequence=>590
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_PERSONAL_BLOOD_LEG = 1 and :P5_PERSONAL_BLOOD_LEG_DATE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41970161703843625)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43914620547844244)
+,p_validation_name=>'check P5_PERSONAL_BLOOD_PERIPHERAL_DATE'
+,p_validation_sequence=>600
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_PERSONAL_BLOOD_PERIPHERAL = 1 and :P5_PERSONAL_BLOOD_PERIPHERAL_DATE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41970992658843625)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43914786205844245)
+,p_validation_name=>'check P5_PERSONAL_BLOOD_OTHER_DATE'
+,p_validation_sequence=>610
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_PERSONAL_BLOOD_OTHER = 1 and :P5_PERSONAL_BLOOD_OTHER_DATE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41971772483843626)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43914821623844246)
+,p_validation_name=>'check P5_LIFESTYLE_SMOKER_START'
+,p_validation_sequence=>620
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_LIFESTYLE_SMOKER = 2 and :P5_LIFESTYLE_SMOKER_START is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41972957009843626)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43914972371844247)
+,p_validation_name=>'check P5_LIFESTYLE_SMOKER_STOP '
+,p_validation_sequence=>630
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_LIFESTYLE_SMOKER = 2 and :P5_LIFESTYLE_SMOKER_STOP is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41973303253843626)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43915038824844248)
+,p_validation_name=>'check P5_LIFESTYLE_AMOUNT_SMOKE '
+,p_validation_sequence=>640
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_LIFESTYLE_SMOKER = 3 and :P5_LIFESTYLE_AMOUNT_SMOKE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41973798124843628)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43915164410844249)
+,p_validation_name=>'check P5_LIFESTYLE_QUIT'
+,p_validation_sequence=>650
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_LIFESTYLE_SMOKER = 3 and :P5_LIFESTYLE_QUIT is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41974154482843628)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(43915297785844250)
+,p_validation_name=>'check P5_FAMILY_SIBLINGS_BROTHERS '
+,p_validation_sequence=>660
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_SIBLINGS = 1 and :P5_FAMILY_SIBLINGS_BROTHERS is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41974983713843628)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44059792027925901)
+,p_validation_name=>'check P5_FAMILY_SIBLINGS_SISTERS'
+,p_validation_sequence=>670
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_SIBLINGS = 1 and :P5_FAMILY_SIBLINGS_SISTERS is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41975333733843628)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44059883084925902)
+,p_validation_name=>'check P5_FAMILY_SIBLINGS_BC'
+,p_validation_sequence=>680
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_SIBLINGS = 1 and :P5_FAMILY_SIBLINGS_BC is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41975708697843629)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44059981195925903)
+,p_validation_name=>'check P5_FAMILY_SIBLINGS_CANADA'
+,p_validation_sequence=>690
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_SIBLINGS = 1 and :P5_FAMILY_SIBLINGS_CANADA is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41976145764843629)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44060043888925904)
+,p_validation_name=>'check P5_FAMILY_SIBLINGS_DECEASED_COUNT'
+,p_validation_sequence=>700
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_SIBLINGS_DECEASED = 1 and :P5_FAMILY_SIBLINGS_DECEASED_COUNT is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41976965449843631)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44060178672925905)
+,p_validation_name=>'check P5_FAMILY_SIBLINGS_DECEASED_AGE '
+,p_validation_sequence=>710
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_SIBLINGS_DECEASED = 1 and :P5_FAMILY_SIBLINGS_DECEASED_AGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41977372675843631)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44060211574925906)
+,p_validation_name=>'check P5_FAMILY_SIBLINGS_DECEASED_CAUSE'
+,p_validation_sequence=>720
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_SIBLINGS_DECEASED = 1 and :P5_FAMILY_SIBLINGS_DECEASED_CAUSE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41977765534843631)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44063548212925939)
+,p_validation_name=>'check P5_FAMILY_NIBLINGS_NEPHEWS'
+,p_validation_sequence=>730
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_NIBLINGS = 1 and :P5_FAMILY_NIBLINGS_NEPHEWS is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43034375394386341)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44063612073925940)
+,p_validation_name=>'check P5_FAMILY_NIBLINGS_NIECES'
+,p_validation_sequence=>740
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_NIBLINGS = 1 and :P5_FAMILY_NIBLINGS_NIECES is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43034486587386342)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44063753500925941)
+,p_validation_name=>'check P5_FAMILY_NIBLINGS_BC'
+,p_validation_sequence=>750
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_NIBLINGS = 1 and :P5_FAMILY_NIBLINGS_BC is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43034597289386343)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44063821683925942)
+,p_validation_name=>'check P5_FAMILY_NIBLINGS_CANADA'
+,p_validation_sequence=>760
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_NIBLINGS = 1 and :P5_FAMILY_NIBLINGS_CANADA is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43034607469386344)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44063916171925943)
+,p_validation_name=>'check P5_FAMILY_NIBLINGS_DECEASED_COUNT'
+,p_validation_sequence=>770
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_NIBLINGS_DECEASED = 1 and :P5_FAMILY_NIBLINGS_DECEASED_COUNT is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43034803031386346)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44064064663925944)
+,p_validation_name=>'check P5_FAMILY_NIBLINGS_DECEASED_AGE'
+,p_validation_sequence=>780
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_NIBLINGS_DECEASED = 1 and :P5_FAMILY_NIBLINGS_DECEASED_AGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43034966053386347)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44064180555925945)
+,p_validation_name=>'check P5_FAMILY_NIBLINGS_DECEASED_CAUSE'
+,p_validation_sequence=>790
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_NIBLINGS_DECEASED = 1 and :P5_FAMILY_NIBLINGS_DECEASED_CAUSE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43035045750386348)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44086750970381001)
+,p_validation_name=>'check P5_FAMILY_CHILDREN_DECEASED_CAUSE'
+,p_validation_sequence=>800
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_CHILDREN_DECEASED = 1 and :P5_FAMILY_CHILDREN_DECEASED_CAUSE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43469218334185912)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44086868504381002)
+,p_validation_name=>'check P5_FAMILY_CHILDREN_DECEASED_AGE'
+,p_validation_sequence=>810
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_CHILDREN_DECEASED = 1 and :P5_FAMILY_CHILDREN_DECEASED_AGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43469150809185911)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44086992323381003)
+,p_validation_name=>'check P5_FAMILY_CHILDREN_DECEASED_COUNT'
+,p_validation_sequence=>820
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_CHILDREN_DECEASED = 1 and :P5_FAMILY_CHILDREN_DECEASED_COUNT is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43469013997185910)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44087197816381005)
+,p_validation_name=>'check P5_FAMILY_CHILDREN_CANADA'
+,p_validation_sequence=>830
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_CHILDREN = 1 and :P5_FAMILY_CHILDREN_CANADA is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43468860442185908)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44087266777381006)
+,p_validation_name=>'check P5_FAMILY_CHILDREN_BC'
+,p_validation_sequence=>840
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_CHILDREN = 1 and :P5_FAMILY_CHILDREN_BC is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43468785281185907)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44087317829381007)
+,p_validation_name=>'check P5_FAMILY_CHILDREN_DAUGHTERS'
+,p_validation_sequence=>850
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_CHILDREN = 1 and :P5_FAMILY_CHILDREN_DAUGHTERS is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43468667911185906)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44087494523381008)
+,p_validation_name=>'check P5_FAMILY_CHILDREN_SONS '
+,p_validation_sequence=>860
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_CHILDREN = 1 and :P5_FAMILY_CHILDREN_SONS is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43468588973185905)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44087503181381009)
+,p_validation_name=>'check P5_FAMILY_MOTHER_BC '
+,p_validation_sequence=>870
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_MOTHER_STATUS = 1 and :P5_FAMILY_MOTHER_BC is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43469595538185915)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44087641169381010)
+,p_validation_name=>'check P5_FAMILY_MOTHER_CANADA '
+,p_validation_sequence=>880
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_MOTHER_STATUS = 1 and :P5_FAMILY_MOTHER_CANADA is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43469642595185916)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44087728149381011)
+,p_validation_name=>'check P5_FAMILY_MOTHER_DECEASED_CAUSE '
+,p_validation_sequence=>890
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_MOTHER_STATUS = 0 and :P5_FAMILY_MOTHER_DECEASED_CAUSE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43469825849185918)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44087825457381012)
+,p_validation_name=>'check P5_FAMILY_MOTHER_DECEASED_AGE'
+,p_validation_sequence=>900
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_MOTHER_STATUS = 0 and :P5_FAMILY_MOTHER_DECEASED_AGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43469790685185917)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44087945449381013)
+,p_validation_name=>'check P5_FAMILY_MOTHER_BROTHERS '
+,p_validation_sequence=>910
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_MOTHER_STATUS = 1 and :P5_FAMILY_MOTHER_BROTHERS is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43470192451185921)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44088000299381014)
+,p_validation_name=>'check P5_FAMILY_MOTHER_SISTERS'
+,p_validation_sequence=>920
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_MOTHER_STATUS = 1 and :P5_FAMILY_MOTHER_SISTERS is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43470212149185922)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44088115365381015)
+,p_validation_name=>'check P5_FAMILY_MOTHER_SIBLINGS_BC'
+,p_validation_sequence=>930
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_MOTHER_STATUS = 1 and :P5_FAMILY_MOTHER_SIBLINGS_BC is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43470308027185923)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44088273985381016)
+,p_validation_name=>'check P5_FAMILY_MOTHER_SIBLINGS_CANADA'
+,p_validation_sequence=>940
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_MOTHER_STATUS = 1 and :P5_FAMILY_MOTHER_SIBLINGS_CANADA is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43470414642185924)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44088324261381017)
+,p_validation_name=>'check P5_FAMILY_MOTHER_SIBLINGS_DECEASED_COUNT'
+,p_validation_sequence=>950
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_MOTHER_SIBLINGS_DECEASED = 1 and :P5_FAMILY_MOTHER_SIBLINGS_DECEASED_COUNT is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43470686898185926)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44088442098381018)
+,p_validation_name=>'check P5_FAMILY_MOTHER_SIBLINGS_DECEASED_AGE'
+,p_validation_sequence=>960
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_MOTHER_SIBLINGS_DECEASED = 1 and :P5_FAMILY_MOTHER_SIBLINGS_DECEASED_AGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43470770832185927)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44088579496381019)
+,p_validation_name=>'check P5_FAMILY_MOTHER_SIBLINGS_DECEASED_CAUSE'
+,p_validation_sequence=>970
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_MOTHER_SIBLINGS_DECEASED = 1 and :P5_FAMILY_MOTHER_SIBLINGS_DECEASED_CAUSE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43470869111185928)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44088600647381020)
+,p_validation_name=>'check P5_FAMILY_MOTHER_COUSIN_COUNT'
+,p_validation_sequence=>980
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_MOTHER_COUSIN = 1 and :P5_FAMILY_MOTHER_COUSIN_COUNT is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43471445242185934)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44088713931381021)
+,p_validation_name=>'check P5_FAMILY_MOTHER_COUSIN_BC'
+,p_validation_sequence=>990
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_MOTHER_COUSIN = 1 and :P5_FAMILY_MOTHER_COUSIN_BC is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43471591673185935)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44088826417381022)
+,p_validation_name=>'check P5_FAMILY_MOTHER_COUSIN_CANADA'
+,p_validation_sequence=>1000
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_MOTHER_COUSIN = 1 and :P5_FAMILY_MOTHER_COUSIN_CANADA is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43471614874185936)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44088971086381023)
+,p_validation_name=>'check P5_FAMILY_MOTHER_COUSIN_DECEASED_COUNT'
+,p_validation_sequence=>1010
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_MOTHER_COUSIN_DECEASED = 1 and :P5_FAMILY_MOTHER_COUSIN_DECEASED_COUNT is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43471811705185938)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+end;
+/
+begin
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44089012386381024)
+,p_validation_name=>'check P5_FAMILY_MOTHER_COUSIN_DECEASED_AGE'
+,p_validation_sequence=>1020
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_MOTHER_COUSIN_DECEASED = 1 and :P5_FAMILY_MOTHER_COUSIN_DECEASED_AGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43471915994185939)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44089101848381025)
+,p_validation_name=>'check P5_FAMILY_MOTHER_COUSIN_DECEASED_CAUSE'
+,p_validation_sequence=>1030
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_MOTHER_COUSIN_DECEASED = 1 and :P5_FAMILY_MOTHER_COUSIN_DECEASED_CAUSE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43472070087185940)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44089291251381026)
+,p_validation_name=>'check P5_FAMILY_M_GRANDFATHER_BC'
+,p_validation_sequence=>1040
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_M_GRANDFATHER = 1 and :P5_FAMILY_M_GRANDFATHER_BC is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43472393056185943)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44089319643381027)
+,p_validation_name=>'check P5_FAMILY_M_GRANDFATHER_CANADA'
+,p_validation_sequence=>1050
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_M_GRANDFATHER = 1 and :P5_FAMILY_M_GRANDFATHER_CANADA is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43472496617185944)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44089495339381028)
+,p_validation_name=>'check P5_FAMILY_M_GRANDFATHER_DECEASED_AGE'
+,p_validation_sequence=>1060
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_M_GRANDFATHER = 0 and :P5_FAMILY_M_GRANDFATHER_DECEASED_AGE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43472596272185945)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44089548502381029)
+,p_validation_name=>'check P5_FAMILY_M_GRANDFATHER_DECEASED_CAUSE'
+,p_validation_sequence=>1070
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_M_GRANDFATHER = 0 and :P5_FAMILY_M_GRANDFATHER_DECEASED_CAUSE is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(43472627503185946)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44089618482381030)
+,p_validation_name=>'check P5_FAMILY_1_DEGREE_FAM_CARD_INFO'
+,p_validation_sequence=>1080
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_1_DEGREE_FAM_CARD = 1 and :P5_FAMILY_1_DEGREE_FAM_CARD_INFO is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(42031357950843676)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44089722557381031)
+,p_validation_name=>'check P5_FAMILY_1_DEGREE_FAM_CHOL_INFO'
+,p_validation_sequence=>1090
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'  if :P5_FAMILY_1_DEGREE_FAM_CHOL = 1 and :P5_FAMILY_1_DEGREE_FAM_CHOL_INFO is NULL then',
+'    return False;',
+'  else',
+'    return True;',
+'  end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(42032182015843676)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
 wwv_flow_imp_page.create_page_da_event(
  p_id=>wwv_flow_imp.id(43031296837386310)
 ,p_name=>'Set Today''s Date'
@@ -24932,9 +26323,6 @@ wwv_flow_imp_page.create_page_da_action(
 ||'GIOGRAPHY,P5_PERSONAL_BLOOD_ANGIOGRAPHY_DATE,P5_PERSONAL_BLOOD_STROKE,P5_PERSONAL_BLOOD_STROKE_DATE,P5_PERSONAL_BLOOD_LEG,P5_PERSONAL_BLOOD_LEG_DATE,P5_PERSONAL_BLOOD_PERIPHERAL,P5_PERSONAL_BLOOD_PERIPHERAL_DATE,P5_PERSONAL_BLOOD_OTHER,P5_PERSONAL_BL'
 ||'OOD_OTHER_DATE'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(43767278689199821)
 ,p_event_id=>wwv_flow_imp.id(43766820722199817)
@@ -25301,6 +26689,9 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements_type=>'ITEM'
 ,p_affected_elements=>'P5_FAMILY_CHILDREN_SONS,P5_FAMILY_CHILDREN_DAUGHTERS,P5_FAMILY_CHILDREN_BC,P5_FAMILY_CHILDREN_CANADA,P5_FAMILY_CHILDREN_DECEASED,P5_FAMILY_CHILDREN_ADOPT'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(43809514134376811)
 ,p_event_id=>wwv_flow_imp.id(43809333779376809)
@@ -25774,9 +27165,6 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements_type=>'ITEM'
 ,p_affected_elements=>'P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_COUNT,P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_AGE,P5_FAMILY_M_GRANDFATHER_SIBLINGS_DECEASED_CAUSE'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(43838928774520607)
 ,p_event_id=>wwv_flow_imp.id(43838742726520605)
@@ -26141,6 +27529,9 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements_type=>'ITEM'
 ,p_affected_elements=>'P5_FAMILY_FATHER_SIBLINGS_DECEASED_COUNT,P5_FAMILY_FATHER_SIBLINGS_DECEASED_AGE,P5_FAMILY_FATHER_SIBLINGS_DECEASED_CAUSE'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_da_event(
  p_id=>wwv_flow_imp.id(43842382712520641)
 ,p_name=>'Display ''go to question 21'''
@@ -26604,9 +27995,6 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements_type=>'ITEM'
 ,p_affected_elements=>'P5_FAMILY_GRANDCHILDREN_SONS,P5_FAMILY_GRANDCHILDREN_DAUGHTERS,P5_FAMILY_GRANDCHILDREN_BC,P5_FAMILY_GRANDCHILDREN_CANADA,P5_FAMILY_GRANDCHILDREN_DECEASED,P5_FAMILY_GRANDCHILDREN_ADOPT'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(43861284910591436)
 ,p_event_id=>wwv_flow_imp.id(43860725046591431)
@@ -26994,6 +28382,9 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements_type=>'ITEM'
 ,p_affected_elements=>'P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_NAME,P5_CHOLESTEROL_TREATMENT_CURRENT_PCSK9_DOSAGE'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(43892335813695041)
 ,p_event_id=>wwv_flow_imp.id(43890600070695024)
