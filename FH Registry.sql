@@ -28,16 +28,16 @@ prompt APPLICATION 230701 - FH Registry
 -- Application Export:
 --   Application:     230701
 --   Name:            FH Registry
---   Date and Time:   16:00 Monday July 24, 2023
+--   Date and Time:   13:22 Tuesday July 25, 2023
 --   Exported By:     MWONG
 --   Flashback:       0
 --   Export Type:     Application Export
 --     Pages:                      7
 --       Items:                  251
---       Validations:            178
---       Processes:                8
+--       Validations:            185
+--       Processes:               11
 --       Regions:                 68
---       Buttons:                 11
+--       Buttons:                 12
 --       Dynamic Actions:         55
 --     Shared Components:
 --       Logic:
@@ -113,7 +113,7 @@ wwv_flow_imp.create_flow(
 ,p_substitution_string_01=>'APP_NAME'
 ,p_substitution_value_01=>'FH Registry'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230724160016'
+,p_last_upd_yyyymmddhh24miss=>'20230725115743'
 ,p_file_prefix => nvl(wwv_flow_application_install.get_static_app_file_prefix,'')
 ,p_files_version=>4
 ,p_print_server_type=>'INSTANCE'
@@ -178,27 +178,25 @@ wwv_flow_imp_shared.create_list_item(
 ,p_list_item_current_type=>'TARGET_PAGE'
 );
 wwv_flow_imp_shared.create_list_item(
- p_id=>wwv_flow_imp.id(41823770004843476)
+ p_id=>wwv_flow_imp.id(44187109061380848)
 ,p_list_item_display_sequence=>30
 ,p_list_item_link_text=>'Patient Contact Info Form'
-,p_list_item_link_target=>'f?p=&APP_ID.:3:&APP_SESSION.::&DEBUG.:::'
-,p_list_item_icon=>'fa-forms'
-,p_list_item_current_type=>'TARGET_PAGE'
-);
-wwv_flow_imp_shared.create_list_item(
- p_id=>wwv_flow_imp.id(41847539749843501)
-,p_list_item_display_sequence=>40
-,p_list_item_link_text=>'Hypercholesterolemia Listing'
-,p_list_item_link_target=>'f?p=&APP_ID.:4:&APP_SESSION.::&DEBUG.:::'
-,p_list_item_icon=>'fa-table'
-,p_list_item_current_type=>'TARGET_PAGE'
+,p_list_item_link_target=>'f?p=&APP_ID.:3:&SESSION.::&DEBUG.::::'
+,p_list_item_icon=>'fa-clipboard-list'
+,p_list_item_disp_cond_type=>'ITEM_IS_NOT_NULL'
+,p_list_item_disp_condition=>'P3_DBID'
+,p_parent_list_item_id=>wwv_flow_imp.id(41810571463843439)
+,p_list_item_current_type=>'COLON_DELIMITED_PAGE_LIST'
+,p_list_item_current_for_pages=>'3'
 );
 wwv_flow_imp_shared.create_list_item(
  p_id=>wwv_flow_imp.id(41942276334843598)
-,p_list_item_display_sequence=>50
+,p_list_item_display_sequence=>40
 ,p_list_item_link_text=>'Hypercholesterolemia Questionnaire'
-,p_list_item_link_target=>'f?p=&APP_ID.:5:&APP_SESSION.::&DEBUG.:::'
+,p_list_item_link_target=>'f?p=&APP_ID.:5:&SESSION.::&DEBUG.::P5_FHID:&P3_DBID.:'
 ,p_list_item_icon=>'fa-forms'
+,p_list_item_disp_cond_type=>'ITEM_IS_NOT_NULL'
+,p_list_item_disp_condition=>'P3_DBID'
 ,p_list_item_current_type=>'TARGET_PAGE'
 );
 end;
@@ -14570,7 +14568,7 @@ wwv_flow_imp_page.create_page(
 '<p>Click the <strong>Reset</strong> button to reset the interactive report back to the default settings.</p>'))
 ,p_page_component_map=>'18'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230719104727'
+,p_last_upd_yyyymmddhh24miss=>'20230725103447'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(41811258218843440)
@@ -14589,14 +14587,12 @@ wwv_flow_imp_page.create_worksheet(
 ,p_name=>'Patient Information Listing'
 ,p_max_row_count_message=>'The maximum row count for this report is #MAX_ROW_COUNT# rows.  Please apply a filter to reduce the number of records in your query.'
 ,p_no_data_found_message=>'No data found.'
-,p_allow_save_rpt_public=>'Y'
 ,p_pagination_type=>'ROWS_X_TO_Y'
 ,p_pagination_display_pos=>'BOTTOM_RIGHT'
+,p_show_actions_menu=>'N'
 ,p_report_list_mode=>'TABS'
 ,p_lazy_loading=>false
 ,p_show_detail_link=>'C'
-,p_show_notify=>'Y'
-,p_download_formats=>'CSV:HTML:XLSX:PDF'
 ,p_enable_mail_download=>'Y'
 ,p_detail_link=>'f?p=&APP_ID.:3:&SESSION.::&DEBUG.::P3_DBID:#DBID#'
 ,p_detail_link_text=>'<img src="#APEX_FILES#app_ui/img/icons/apex-edit-pencil.png" class="apex-edit-pencil" alt="">'
@@ -14920,8 +14916,20 @@ wwv_flow_imp_page.create_page_plug(
 ,p_menu_template_id=>wwv_flow_imp.id(41749726091843260)
 );
 wwv_flow_imp_page.create_page_button(
- p_id=>wwv_flow_imp.id(41822158949843471)
+ p_id=>wwv_flow_imp.id(44134896928947146)
 ,p_button_sequence=>10
+,p_button_plug_id=>wwv_flow_imp.id(41811258218843440)
+,p_button_name=>'Create'
+,p_button_action=>'REDIRECT_PAGE'
+,p_button_template_options=>'#DEFAULT#'
+,p_button_template_id=>wwv_flow_imp.id(41748119741843259)
+,p_button_image_alt=>'Create'
+,p_button_position=>'RIGHT_OF_IR_SEARCH_BAR'
+,p_button_redirect_url=>'f?p=&APP_ID.:3:&SESSION.::&DEBUG.::P3_DBID:'
+);
+wwv_flow_imp_page.create_page_button(
+ p_id=>wwv_flow_imp.id(41822158949843471)
+,p_button_sequence=>20
 ,p_button_plug_id=>wwv_flow_imp.id(41811258218843440)
 ,p_button_name=>'RESET_REPORT'
 ,p_button_action=>'REDIRECT_PAGE'
@@ -14947,7 +14955,7 @@ wwv_flow_imp_page.create_page(
 ,p_protection_level=>'C'
 ,p_page_component_map=>'02'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230719103636'
+,p_last_upd_yyyymmddhh24miss=>'20230725115709'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(41824474597843479)
@@ -15025,6 +15033,42 @@ wwv_flow_imp_page.create_page_button(
 ,p_button_condition_type=>'ITEM_IS_NOT_NULL'
 ,p_database_action=>'DELETE'
 );
+wwv_flow_imp_page.create_page_branch(
+ p_id=>wwv_flow_imp.id(44134442839947142)
+,p_branch_name=>'Go to page 3'
+,p_branch_action=>'f?p=&APP_ID.:3:&SESSION.::&DEBUG.:::&success_msg=#SUCCESS_MSG#'
+,p_branch_point=>'AFTER_PROCESSING'
+,p_branch_type=>'REDIRECT_URL'
+,p_branch_when_button_id=>wwv_flow_imp.id(41845213353843498)
+,p_branch_sequence=>10
+);
+wwv_flow_imp_page.create_page_branch(
+ p_id=>wwv_flow_imp.id(44134585472947143)
+,p_branch_name=>'Go to page 3'
+,p_branch_action=>'f?p=&APP_ID.:3:&SESSION.::&DEBUG.::P3_DBID:&P3_DBID.&success_msg=#SUCCESS_MSG#'
+,p_branch_point=>'AFTER_PROCESSING'
+,p_branch_type=>'REDIRECT_URL'
+,p_branch_when_button_id=>wwv_flow_imp.id(41844818126843498)
+,p_branch_sequence=>30
+);
+wwv_flow_imp_page.create_page_branch(
+ p_id=>wwv_flow_imp.id(44134656298947144)
+,p_branch_name=>'Go to page 2'
+,p_branch_action=>'f?p=&APP_ID.:2:&SESSION.::&DEBUG.:::&success_msg=#SUCCESS_MSG#'
+,p_branch_point=>'AFTER_PROCESSING'
+,p_branch_type=>'REDIRECT_URL'
+,p_branch_when_button_id=>wwv_flow_imp.id(41843898239843498)
+,p_branch_sequence=>40
+);
+wwv_flow_imp_page.create_page_branch(
+ p_id=>wwv_flow_imp.id(44134754710947145)
+,p_branch_name=>'Go to page 2'
+,p_branch_action=>'f?p=&APP_ID.:2:&SESSION.::&DEBUG.::P3_DBID:&success_msg=#SUCCESS_MSG#'
+,p_branch_point=>'AFTER_PROCESSING'
+,p_branch_type=>'REDIRECT_URL'
+,p_branch_when_button_id=>wwv_flow_imp.id(41844464614843498)
+,p_branch_sequence=>50
+);
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41451156671982505)
 ,p_name=>'P3_FAMILY_PHSYSICIAN_TEXT'
@@ -15052,7 +15096,6 @@ wwv_flow_imp_page.create_page_item(
 ,p_source=>'DBID'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_HIDDEN'
-,p_is_persistent=>'N'
 ,p_protection_level=>'S'
 ,p_attribute_01=>'Y'
 );
@@ -15060,6 +15103,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41825232313843481)
 ,p_name=>'P3_FAMILY_NAME'
 ,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
 ,p_item_sequence=>20
 ,p_item_plug_id=>wwv_flow_imp.id(41824474597843479)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41824474597843479)
@@ -15082,6 +15126,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41825663373843481)
 ,p_name=>'P3_GIVEN_NAME'
 ,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
 ,p_item_sequence=>30
 ,p_item_plug_id=>wwv_flow_imp.id(41824474597843479)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41824474597843479)
@@ -15104,6 +15149,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41826074169843482)
 ,p_name=>'P3_GENDER'
 ,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
 ,p_item_sequence=>40
 ,p_item_plug_id=>wwv_flow_imp.id(41824474597843479)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41824474597843479)
@@ -15123,11 +15169,12 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41826459965843482)
 ,p_name=>'P3_DOB'
 ,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
 ,p_item_sequence=>50
 ,p_item_plug_id=>wwv_flow_imp.id(41824474597843479)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41824474597843479)
 ,p_prompt=>'Date of Birth'
-,p_format_mask=>'YYYY-MM-DD'
+,p_format_mask=>'DD-MON-YYYY'
 ,p_source=>'DOB'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_DATE_PICKER_APEX'
@@ -15148,6 +15195,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41826805358843482)
 ,p_name=>'P3_CARE_CARD_NUMBER'
 ,p_source_data_type=>'NUMBER'
+,p_is_required=>true
 ,p_item_sequence=>60
 ,p_item_plug_id=>wwv_flow_imp.id(41824474597843479)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41824474597843479)
@@ -15168,6 +15216,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41827220269843482)
 ,p_name=>'P3_MAIL_ADDRESS'
 ,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
 ,p_item_sequence=>70
 ,p_item_plug_id=>wwv_flow_imp.id(41824474597843479)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41824474597843479)
@@ -15190,6 +15239,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41827668739843482)
 ,p_name=>'P3_CITY'
 ,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
 ,p_item_sequence=>80
 ,p_item_plug_id=>wwv_flow_imp.id(41824474597843479)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41824474597843479)
@@ -15212,6 +15262,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41828019666843484)
 ,p_name=>'P3_PROVINCE'
 ,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
 ,p_item_sequence=>90
 ,p_item_plug_id=>wwv_flow_imp.id(41824474597843479)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41824474597843479)
@@ -15234,6 +15285,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41828451075843484)
 ,p_name=>'P3_POSTAL_CODE'
 ,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
 ,p_item_sequence=>100
 ,p_item_plug_id=>wwv_flow_imp.id(41824474597843479)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41824474597843479)
@@ -15256,6 +15308,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41828817191843484)
 ,p_name=>'P3_EMAIL'
 ,p_source_data_type=>'VARCHAR2'
+,p_is_required=>true
 ,p_item_sequence=>110
 ,p_item_plug_id=>wwv_flow_imp.id(41824474597843479)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41824474597843479)
@@ -15387,7 +15440,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41831270103843485)
 ,p_name=>'P3_FAMILY_PHYS_CITY'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>180
+,p_item_sequence=>190
 ,p_item_plug_id=>wwv_flow_imp.id(41824474597843479)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41824474597843479)
 ,p_prompt=>'City'
@@ -15410,7 +15463,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41831633374843487)
 ,p_name=>'P3_FAMILY_PHYS_PROVINCE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>190
+,p_item_sequence=>200
 ,p_item_plug_id=>wwv_flow_imp.id(41824474597843479)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41824474597843479)
 ,p_prompt=>'Province'
@@ -15433,7 +15486,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41832084728843487)
 ,p_name=>'P3_FAMILY_PHYS_POSTAL_CODE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>200
+,p_item_sequence=>210
 ,p_item_plug_id=>wwv_flow_imp.id(41824474597843479)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41824474597843479)
 ,p_prompt=>'Postal Code'
@@ -15456,7 +15509,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41832453065843487)
 ,p_name=>'P3_FAMILY_PHYS_PHONE'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>210
+,p_item_sequence=>220
 ,p_item_plug_id=>wwv_flow_imp.id(41824474597843479)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41824474597843479)
 ,p_prompt=>'Phone'
@@ -15479,7 +15532,7 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41832850496843487)
 ,p_name=>'P3_FAMILY_PHYS_FAX'
 ,p_source_data_type=>'VARCHAR2'
-,p_item_sequence=>220
+,p_item_sequence=>230
 ,p_item_plug_id=>wwv_flow_imp.id(41824474597843479)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41824474597843479)
 ,p_prompt=>'Fax'
@@ -15498,6 +15551,132 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_04=>'TEXT'
 ,p_attribute_05=>'BOTH'
 );
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44133426800947132)
+,p_validation_name=>'check P3_FAMILY_PHYS_NAME '
+,p_validation_sequence=>10
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'    if :P3_FAMILY_PHYS_STATUS = 0 and :P3_FAMILY_PHYS_NAME is NULL then',
+'        return false;',
+'    else',
+'        return true;',
+'    end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41830447457843485)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44133639444947134)
+,p_validation_name=>'check P3_FAMILY_PHYS_ADDRESS'
+,p_validation_sequence=>20
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'    if :P3_FAMILY_PHYS_STATUS = 0 and :P3_FAMILY_PHYS_ADDRESS is NULL then',
+'        return false;',
+'    else',
+'        return true;',
+'    end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41830898003843485)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44133761447947135)
+,p_validation_name=>'check P3_FAMILY_PHYS_CITY'
+,p_validation_sequence=>30
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'    if :P3_FAMILY_PHYS_STATUS = 0 and :P3_FAMILY_PHYS_CITY is NULL then',
+'        return false;',
+'    else',
+'        return true;',
+'    end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41831270103843485)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44133872951947136)
+,p_validation_name=>'check P3_FAMILY_PHYS_PROVINCE'
+,p_validation_sequence=>40
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'    if :P3_FAMILY_PHYS_STATUS = 0 and :P3_FAMILY_PHYS_PROVINCE is NULL then',
+'        return false;',
+'    else',
+'        return true;',
+'    end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41831633374843487)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44133937612947137)
+,p_validation_name=>'check P3_FAMILY_PHYS_POSTAL_CODE'
+,p_validation_sequence=>50
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'    if :P3_FAMILY_PHYS_STATUS = 0 and :P3_FAMILY_PHYS_POSTAL_CODE is NULL then',
+'        return false;',
+'    else',
+'        return true;',
+'    end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41832084728843487)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44134046233947138)
+,p_validation_name=>'check P3_FAMILY_PHYS_PHONE'
+,p_validation_sequence=>60
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'    if :P3_FAMILY_PHYS_STATUS = 0 and :P3_FAMILY_PHYS_PHONE is NULL then',
+'        return false;',
+'    else',
+'        return true;',
+'    end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41832453065843487)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_validation(
+ p_id=>wwv_flow_imp.id(44134198229947139)
+,p_validation_name=>'check P3_FAMILY_PHYS_FAX'
+,p_validation_sequence=>70
+,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'begin',
+'    if :P3_FAMILY_PHYS_STATUS = 0 and :P3_FAMILY_PHYS_FAX is NULL then',
+'        return false;',
+'    else',
+'        return true;',
+'    end if;',
+'end;'))
+,p_validation2=>'PLSQL'
+,p_validation_type=>'FUNC_BODY_RETURNING_BOOLEAN'
+,p_error_message=>'Missing value'
+,p_associated_item=>wwv_flow_imp.id(41832850496843487)
+,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
+);
 wwv_flow_imp_page.create_page_process(
  p_id=>wwv_flow_imp.id(41846087236843500)
 ,p_process_sequence=>10
@@ -15509,6 +15688,23 @@ wwv_flow_imp_page.create_page_process(
 ,p_attribute_05=>'Y'
 ,p_attribute_06=>'Y'
 ,p_attribute_08=>'Y'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(44134301062947141)
+,p_process_sequence=>20
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'custom message'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'BEGIN',
+'  IF apex_application.g_request = ''CREATE'' OR apex_application.g_request = ''SAVE'' THEN',
+'    apex_application.g_print_success_message := ''<span style="color:#ffffff">Successfully Submitted</span>'';',
+'  ELSIF apex_application.g_request = ''DELETE'' THEN',
+'    apex_application.g_print_success_message := ''<span style="color:#ffffff">Successfully Deleted</span>'';',
+'  END IF;',
+'END;'))
+,p_process_clob_language=>'PLSQL'
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
 wwv_flow_imp_page.create_page_process(
@@ -18342,7 +18538,7 @@ wwv_flow_imp_page.create_page(
 ,p_protection_level=>'C'
 ,p_page_component_map=>'02'
 ,p_last_updated_by=>'MWONG'
-,p_last_upd_yyyymmddhh24miss=>'20230724160016'
+,p_last_upd_yyyymmddhh24miss=>'20230725115743'
 );
 wwv_flow_imp_page.create_page_plug(
  p_id=>wwv_flow_imp.id(41942945761843600)
@@ -18367,7 +18563,7 @@ wwv_flow_imp_page.create_page_plug(
 ,p_parent_plug_id=>wwv_flow_imp.id(41942945761843600)
 ,p_region_template_options=>'#DEFAULT#'
 ,p_plug_template=>wwv_flow_imp.id(41693526701843220)
-,p_plug_display_sequence=>20
+,p_plug_display_sequence=>30
 ,p_plug_query_options=>'DERIVED_REPORT_COLUMNS'
 ,p_plug_footer=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'Thank you for consenting to participate in the FH Registry Project. <br><br>',
@@ -19130,6 +19326,24 @@ wwv_flow_imp_page.create_page_button(
 ,p_button_condition_type=>'ITEM_IS_NOT_NULL'
 ,p_database_action=>'DELETE'
 );
+wwv_flow_imp_page.create_page_branch(
+ p_id=>wwv_flow_imp.id(44135082920947148)
+,p_branch_name=>'Go to page 2'
+,p_branch_action=>'f?p=&APP_ID.:2:&SESSION.::&DEBUG.:::&success_msg=#SUCCESS_MSG#'
+,p_branch_point=>'AFTER_PROCESSING'
+,p_branch_type=>'REDIRECT_URL'
+,p_branch_when_button_id=>wwv_flow_imp.id(42105668557843737)
+,p_branch_sequence=>10
+);
+wwv_flow_imp_page.create_page_branch(
+ p_id=>wwv_flow_imp.id(44135107612947149)
+,p_branch_name=>'Go to page 3'
+,p_branch_action=>'f?p=&APP_ID.:3:&SESSION.::&DEBUG.:::&success_msg=#SUCCESS_MSG#'
+,p_branch_point=>'AFTER_PROCESSING'
+,p_branch_type=>'REDIRECT_URL'
+,p_branch_when_button_id=>wwv_flow_imp.id(42106421926843737)
+,p_branch_sequence=>20
+);
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41943310879843601)
 ,p_name=>'P5_DBID'
@@ -19149,7 +19363,6 @@ wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41943720311843601)
 ,p_name=>'P5_FHID'
 ,p_source_data_type=>'NUMBER'
-,p_is_required=>true
 ,p_item_sequence=>10
 ,p_item_plug_id=>wwv_flow_imp.id(41451414550982508)
 ,p_item_source_plug_id=>wwv_flow_imp.id(41942945761843600)
@@ -19157,14 +19370,16 @@ wwv_flow_imp_page.create_page_item(
 ,p_source=>'FHID'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
-,p_cMaxlength=>255
+,p_cSize=>30
 ,p_field_template=>wwv_flow_imp.id(41745422404843256)
 ,p_item_template_options=>'#DEFAULT#'
 ,p_is_persistent=>'N'
 ,p_attribute_03=>'left'
 ,p_attribute_04=>'decimal'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41944182178843601)
 ,p_name=>'P5_TODAY_DATE'
@@ -19193,9 +19408,6 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_09=>'N'
 ,p_attribute_11=>'Y'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41944546352843603)
 ,p_name=>'P5_WEIGHT'
@@ -20160,6 +20372,9 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_02=>'1'
 ,p_attribute_03=>'0'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41962137349843617)
 ,p_name=>'P5_CUR_MEDICATIONS_BLD_PRES'
@@ -20178,9 +20393,6 @@ wwv_flow_imp_page.create_page_item(
 ,p_attribute_02=>'1'
 ,p_attribute_03=>'0'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_item(
  p_id=>wwv_flow_imp.id(41962587608843618)
 ,p_name=>'P5_CUR_MEDICATIONS_BLD_PRES_NAME'
@@ -21700,7 +21912,7 @@ wwv_flow_imp_page.create_page_item(
 ,p_source=>'FAMILY_MOTHER_BC'
 ,p_source_type=>'REGION_SOURCE_COLUMN'
 ,p_display_as=>'NATIVE_NUMBER_FIELD'
-,p_cSize=>32
+,p_cSize=>30
 ,p_colspan=>4
 ,p_grid_column=>2
 ,p_grid_label_column_span=>3
@@ -24152,7 +24364,7 @@ wwv_flow_imp_page.create_page_validation(
 ,p_validation_sequence=>80
 ,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'begin',
-'  if :P5_CHOLESTEROL_TREATMENT = 1 and :P5_CHOLESTEROL_TREATMENT_OTHER is NULL then',
+'  if :P5_CHOLESTEROL_TREATMENT = 1 and :P5_CHOLESTEROL_TREATMENT_OTHER_RADIO = 1 and :P5_CHOLESTEROL_TREATMENT_OTHER is NULL then',
 '    return False;',
 '  else',
 '    return True;',
@@ -24170,7 +24382,7 @@ wwv_flow_imp_page.create_page_validation(
 ,p_validation_sequence=>90
 ,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'begin',
-'  if :P5_CHOLESTEROL_TREATMENT = 1 and :P5_CHOLESTEROL_TREATMENT_OTHER_RADIO is NULL then',
+'  if :P5_CHOLESTEROL_TREATMENT = 1 and :P5_CHOLESTEROL_TREATMENT_OTHER is not NULL and :P5_CHOLESTEROL_TREATMENT_OTHER_RADIO is NULL then',
 '    return False;',
 '  else',
 '    return True;',
@@ -24224,7 +24436,7 @@ wwv_flow_imp_page.create_page_validation(
 ,p_validation_sequence=>120
 ,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'begin',
-'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_STATINS = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_NAME is NULL then',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_NAME is NULL then',
 '    return False;',
 '  else',
 '    return True;',
@@ -24242,7 +24454,7 @@ wwv_flow_imp_page.create_page_validation(
 ,p_validation_sequence=>130
 ,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'begin',
-'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_STATINS = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_DOSAGE is NULL then',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_STATINS_DOSAGE is NULL then',
 '    return False;',
 '  else',
 '    return True;',
@@ -24278,7 +24490,7 @@ wwv_flow_imp_page.create_page_validation(
 ,p_validation_sequence=>150
 ,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'begin',
-'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_STATINS = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN_NAME is NULL then',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN_NAME is NULL then',
 '    return False;',
 '  else',
 '    return True;',
@@ -24296,7 +24508,7 @@ wwv_flow_imp_page.create_page_validation(
 ,p_validation_sequence=>160
 ,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'begin',
-'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_STATINS = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN_DOSAGE is NULL then',
+'  if :P5_CHOLESTEROL_TREATMENT_CURRENT = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN = 1 and :P5_CHOLESTEROL_TREATMENT_CURRENT_NIACIN_DOSAGE is NULL then',
 '    return False;',
 '  else',
 '    return True;',
@@ -24808,7 +25020,9 @@ wwv_flow_imp_page.create_page_validation(
 ,p_validation_sequence=>440
 ,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'begin',
-'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
+'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' and :P5_PERSONAL_BLOOD_ANGINA_DATE is not NULL then',
+'    return false;',
+'  elsif :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
 '    if :P5_PERSONAL_BLOOD_ANGINA = ''1'' or :P5_PERSONAL_BLOOD_ANGIOGRAPHY = ''1'' or :P5_PERSONAL_BLOOD_BYPASS = ''1'' or :P5_PERSONAL_BLOOD_HEART_ATTACK = ''1'' or :P5_PERSONAL_BLOOD_STENT = ''1'' or :P5_PERSONAL_BLOOD_LEG = ''1'' or :P5_PERSONAL_BLOOD_OTHER ='
 ||' ''1'' or :P5_PERSONAL_BLOOD_PERIPHERAL = ''1'' or :P5_PERSONAL_BLOOD_STROKE = ''1'' then',
 '      return true;',
@@ -24829,7 +25043,9 @@ wwv_flow_imp_page.create_page_validation(
 ,p_validation_sequence=>450
 ,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'begin',
-'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
+'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' and :P5_PERSONAL_BLOOD_heart_Attack_DATE is not NULL then',
+'    return false;',
+'  elsif :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
 '    if :P5_PERSONAL_BLOOD_ANGINA = ''1'' or :P5_PERSONAL_BLOOD_ANGIOGRAPHY = ''1'' or :P5_PERSONAL_BLOOD_BYPASS = ''1'' or :P5_PERSONAL_BLOOD_HEART_ATTACK = ''1'' or :P5_PERSONAL_BLOOD_STENT = ''1'' or :P5_PERSONAL_BLOOD_LEG = ''1'' or :P5_PERSONAL_BLOOD_OTHER ='
 ||' ''1'' or :P5_PERSONAL_BLOOD_PERIPHERAL = ''1'' or :P5_PERSONAL_BLOOD_STROKE = ''1'' then',
 '      return true;',
@@ -24850,7 +25066,9 @@ wwv_flow_imp_page.create_page_validation(
 ,p_validation_sequence=>460
 ,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'begin',
-'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
+'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' and :P5_PERSONAL_BLOOD_STENT_DATE is not NULL then',
+'    return false;',
+'  elsif :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
 '    if :P5_PERSONAL_BLOOD_ANGINA = ''1'' or :P5_PERSONAL_BLOOD_ANGIOGRAPHY = ''1'' or :P5_PERSONAL_BLOOD_BYPASS = ''1'' or :P5_PERSONAL_BLOOD_HEART_ATTACK = ''1'' or :P5_PERSONAL_BLOOD_STENT = ''1'' or :P5_PERSONAL_BLOOD_LEG = ''1'' or :P5_PERSONAL_BLOOD_OTHER ='
 ||' ''1'' or :P5_PERSONAL_BLOOD_PERIPHERAL = ''1'' or :P5_PERSONAL_BLOOD_STROKE = ''1'' then',
 '      return true;',
@@ -24871,7 +25089,9 @@ wwv_flow_imp_page.create_page_validation(
 ,p_validation_sequence=>470
 ,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'begin',
-'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
+'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' and :P5_PERSONAL_BLOOD_BYPASS_DATE is not NULL then',
+'    return false;',
+'  elsif :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
 '    if :P5_PERSONAL_BLOOD_ANGINA = ''1'' or :P5_PERSONAL_BLOOD_ANGIOGRAPHY = ''1'' or :P5_PERSONAL_BLOOD_BYPASS = ''1'' or :P5_PERSONAL_BLOOD_HEART_ATTACK = ''1'' or :P5_PERSONAL_BLOOD_STENT = ''1'' or :P5_PERSONAL_BLOOD_LEG = ''1'' or :P5_PERSONAL_BLOOD_OTHER ='
 ||' ''1'' or :P5_PERSONAL_BLOOD_PERIPHERAL = ''1'' or :P5_PERSONAL_BLOOD_STROKE = ''1'' then',
 '      return true;',
@@ -24892,7 +25112,9 @@ wwv_flow_imp_page.create_page_validation(
 ,p_validation_sequence=>480
 ,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'begin',
-'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
+'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' and :P5_PERSONAL_BLOOD_ANGIOGRAPHY_DATE is not NULL then',
+'    return false;',
+'  elsif :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
 '    if :P5_PERSONAL_BLOOD_ANGINA = ''1'' or :P5_PERSONAL_BLOOD_ANGIOGRAPHY = ''1'' or :P5_PERSONAL_BLOOD_BYPASS = ''1'' or :P5_PERSONAL_BLOOD_HEART_ATTACK = ''1'' or :P5_PERSONAL_BLOOD_STENT = ''1'' or :P5_PERSONAL_BLOOD_LEG = ''1'' or :P5_PERSONAL_BLOOD_OTHER ='
 ||' ''1'' or :P5_PERSONAL_BLOOD_PERIPHERAL = ''1'' or :P5_PERSONAL_BLOOD_STROKE = ''1'' then',
 '      return true;',
@@ -24913,7 +25135,9 @@ wwv_flow_imp_page.create_page_validation(
 ,p_validation_sequence=>490
 ,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'begin',
-'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
+'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' and :P5_PERSONAL_BLOOD_STROKE_DATE is not NULL then',
+'    return false;',
+'  elsif :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
 '    if :P5_PERSONAL_BLOOD_ANGINA = ''1'' or :P5_PERSONAL_BLOOD_ANGIOGRAPHY = ''1'' or :P5_PERSONAL_BLOOD_BYPASS = ''1'' or :P5_PERSONAL_BLOOD_HEART_ATTACK = ''1'' or :P5_PERSONAL_BLOOD_STENT = ''1'' or :P5_PERSONAL_BLOOD_LEG = ''1'' or :P5_PERSONAL_BLOOD_OTHER ='
 ||' ''1'' or :P5_PERSONAL_BLOOD_PERIPHERAL = ''1'' or :P5_PERSONAL_BLOOD_STROKE = ''1'' then',
 '      return true;',
@@ -24928,13 +25152,18 @@ wwv_flow_imp_page.create_page_validation(
 ,p_associated_item=>wwv_flow_imp.id(41968946234843623)
 ,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_validation(
  p_id=>wwv_flow_imp.id(43913615699844234)
 ,p_validation_name=>'check P5_PERSONAL_BLOOD_LEG '
 ,p_validation_sequence=>500
 ,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'begin',
-'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
+'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' and :P5_PERSONAL_BLOOD_LEG_DATE is not NULL then',
+'    return false;',
+'  elsif :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
 '    if :P5_PERSONAL_BLOOD_ANGINA = ''1'' or :P5_PERSONAL_BLOOD_ANGIOGRAPHY = ''1'' or :P5_PERSONAL_BLOOD_BYPASS = ''1'' or :P5_PERSONAL_BLOOD_HEART_ATTACK = ''1'' or :P5_PERSONAL_BLOOD_STENT = ''1'' or :P5_PERSONAL_BLOOD_LEG = ''1'' or :P5_PERSONAL_BLOOD_OTHER ='
 ||' ''1'' or :P5_PERSONAL_BLOOD_PERIPHERAL = ''1'' or :P5_PERSONAL_BLOOD_STROKE = ''1'' then',
 '      return true;',
@@ -24949,16 +25178,15 @@ wwv_flow_imp_page.create_page_validation(
 ,p_associated_item=>wwv_flow_imp.id(41969782433843625)
 ,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_validation(
  p_id=>wwv_flow_imp.id(43913710613844235)
 ,p_validation_name=>'check P5_PERSONAL_BLOOD_PERIPHERAL'
 ,p_validation_sequence=>510
 ,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'begin',
-'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
+'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' and :P5_PERSONAL_BLOOD_PERIPHERAL_DATE is not NULL then',
+'    return false;',
+'  elsif :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
 '    if :P5_PERSONAL_BLOOD_ANGINA = ''1'' or :P5_PERSONAL_BLOOD_ANGIOGRAPHY = ''1'' or :P5_PERSONAL_BLOOD_BYPASS = ''1'' or :P5_PERSONAL_BLOOD_HEART_ATTACK = ''1'' or :P5_PERSONAL_BLOOD_STENT = ''1'' or :P5_PERSONAL_BLOOD_LEG = ''1'' or :P5_PERSONAL_BLOOD_OTHER ='
 ||' ''1'' or :P5_PERSONAL_BLOOD_PERIPHERAL = ''1'' or :P5_PERSONAL_BLOOD_STROKE = ''1'' then',
 '      return true;',
@@ -24979,7 +25207,9 @@ wwv_flow_imp_page.create_page_validation(
 ,p_validation_sequence=>520
 ,p_validation=>wwv_flow_string.join(wwv_flow_t_varchar2(
 'begin',
-'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
+'  if :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' and :P5_PERSONAL_BLOOD_OTHER_DATE is not NULL then',
+'    return false;',
+'  elsif :P5_PERSONAL_BLOOD_PROBLEMS = ''1'' then',
 '    if :P5_PERSONAL_BLOOD_ANGINA = ''1'' or :P5_PERSONAL_BLOOD_ANGIOGRAPHY = ''1'' or :P5_PERSONAL_BLOOD_BYPASS = ''1'' or :P5_PERSONAL_BLOOD_HEART_ATTACK = ''1'' or :P5_PERSONAL_BLOOD_STENT = ''1'' or :P5_PERSONAL_BLOOD_LEG = ''1'' or :P5_PERSONAL_BLOOD_OTHER ='
 ||' ''1'' or :P5_PERSONAL_BLOOD_PERIPHERAL = ''1'' or :P5_PERSONAL_BLOOD_STROKE = ''1'' then',
 '      return true;',
@@ -25840,6 +26070,9 @@ wwv_flow_imp_page.create_page_validation(
 ,p_associated_item=>wwv_flow_imp.id(43471591673185935)
 ,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_validation(
  p_id=>wwv_flow_imp.id(44088826417381022)
 ,p_validation_name=>'check P5_FAMILY_MOTHER_COUSIN_CANADA'
@@ -25876,9 +26109,6 @@ wwv_flow_imp_page.create_page_validation(
 ,p_associated_item=>wwv_flow_imp.id(43471811705185938)
 ,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_validation(
  p_id=>wwv_flow_imp.id(44089012386381024)
 ,p_validation_name=>'check P5_FAMILY_MOTHER_COUSIN_DECEASED_AGE'
@@ -26761,6 +26991,9 @@ wwv_flow_imp_page.create_page_validation(
 ,p_associated_item=>wwv_flow_imp.id(43582330827689235)
 ,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_validation(
  p_id=>wwv_flow_imp.id(44103051736612026)
 ,p_validation_name=>'check P5_FAMILY_FATHER_SIBLINGS_DECEASED_CAUSE'
@@ -26779,9 +27012,6 @@ wwv_flow_imp_page.create_page_validation(
 ,p_associated_item=>wwv_flow_imp.id(43582494477689236)
 ,p_error_display_location=>'INLINE_WITH_FIELD_AND_NOTIFICATION'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_validation(
  p_id=>wwv_flow_imp.id(44103196769612027)
 ,p_validation_name=>'check P5_FAMILY_FATHER_COUSINS_COUNT'
@@ -27590,6 +27820,9 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements_type=>'REGION'
 ,p_affected_region_id=>wwv_flow_imp.id(43032972394386327)
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_da_event(
  p_id=>wwv_flow_imp.id(43767422205199823)
 ,p_name=>'Display ''go to question 8'''
@@ -27613,9 +27846,6 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements_type=>'REGION'
 ,p_affected_region_id=>wwv_flow_imp.id(43033241641386330)
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(43768356058199832)
 ,p_event_id=>wwv_flow_imp.id(43767422205199823)
@@ -28443,6 +28673,9 @@ wwv_flow_imp_page.create_page_da_event(
 ,p_execution_type=>'IMMEDIATE'
 ,p_bind_event_type=>'change'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(43839215837520610)
 ,p_event_id=>wwv_flow_imp.id(43839110412520609)
@@ -28453,9 +28686,6 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements_type=>'ITEM'
 ,p_affected_elements=>'P5_FAMILY_M_GRANDMOTHER_BC,P5_FAMILY_M_GRANDMOTHER_CANADA'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(43839585844520613)
 ,p_event_id=>wwv_flow_imp.id(43839110412520609)
@@ -29273,6 +29503,9 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements_type=>'ITEM'
 ,p_affected_elements=>'P5_FAMILY_GRANDCHILDREN_DECEASED_COUNT,P5_FAMILY_GRANDCHILDREN_DECEASED_AGE,P5_FAMILY_GRANDCHILDREN_DECEASED_CAUSE'
 );
+end;
+/
+begin
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(43861370039591437)
 ,p_event_id=>wwv_flow_imp.id(43860975157591433)
@@ -29283,9 +29516,6 @@ wwv_flow_imp_page.create_page_da_action(
 ,p_affected_elements_type=>'ITEM'
 ,p_affected_elements=>'P5_FAMILY_GRANDCHILDREN_DECEASED_COUNT,P5_FAMILY_GRANDCHILDREN_DECEASED_AGE,P5_FAMILY_GRANDCHILDREN_DECEASED_CAUSE'
 );
-end;
-/
-begin
 wwv_flow_imp_page.create_page_da_action(
  p_id=>wwv_flow_imp.id(43861499223591438)
 ,p_event_id=>wwv_flow_imp.id(43860975157591433)
@@ -29740,12 +29970,48 @@ wwv_flow_imp_page.create_page_process(
 ,p_error_display_location=>'INLINE_IN_NOTIFICATION'
 );
 wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(44134939533947147)
+,p_process_sequence=>20
+,p_process_point=>'AFTER_SUBMIT'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'custom message'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'BEGIN',
+'  IF apex_application.g_request = ''CREATE'' OR apex_application.g_request = ''SAVE'' THEN',
+'    apex_application.g_print_success_message := ''<span style="color:#ffffff">Successfully Submitted</span>'';',
+'  ELSIF apex_application.g_request = ''DELETE'' THEN',
+'    apex_application.g_print_success_message := ''<span style="color:#ffffff">Successfully Deleted</span>'';',
+'  END IF;',
+'END;'))
+,p_process_clob_language=>'PLSQL'
+,p_error_display_location=>'INLINE_IN_NOTIFICATION'
+);
+wwv_flow_imp_page.create_page_process(
  p_id=>wwv_flow_imp.id(42106888768843737)
 ,p_process_sequence=>10
 ,p_process_point=>'BEFORE_HEADER'
 ,p_region_id=>wwv_flow_imp.id(41942945761843600)
 ,p_process_type=>'NATIVE_FORM_INIT'
 ,p_process_name=>'Initialize form Hypercholesterolemia Questionnaire'
+);
+wwv_flow_imp_page.create_page_process(
+ p_id=>wwv_flow_imp.id(44197234750148701)
+,p_process_sequence=>20
+,p_process_point=>'BEFORE_HEADER'
+,p_process_type=>'NATIVE_PLSQL'
+,p_process_name=>'populate'
+,p_process_sql_clob=>wwv_flow_string.join(wwv_flow_t_varchar2(
+'declare ',
+'n_count number;',
+'',
+'begin ',
+':P3_DBID := NULL;',
+'select count(*) into n_count from FAMILIAL_HYPERCHOLESTEROLEMIA_QUESTIONNAIRE where FHID = :P5_DBID; ',
+'if n_count != 0 then ',
+'select DBID into :P5_DBID from FAMILIAL_HYPERCHOLESTEROLEMIA_QUESTIONNAIRE where FHID = :P5_DBID; ',
+'end if;',
+'end;'))
+,p_process_clob_language=>'PLSQL'
 );
 end;
 /
